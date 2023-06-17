@@ -1,5 +1,15 @@
 (in-package :asdf-user)
 
+(define-package :om-manual-conversion
+	(:mix
+	 ;; :alexandria
+	 :uiop
+	 :cl)
+  (:intern file-error
+		   run-program))
+
+(in-package :om-manual-conversion)
+
 '#:foo
 
 (defun html-file->md (input-file~
