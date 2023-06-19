@@ -3,6 +3,7 @@
 (define-package :om-manual-conversion
 	(:mix
 	 ;; :alexandria
+	 :let-plus
 	 :asdf :uiop
 	 :cl)
   (:intern
