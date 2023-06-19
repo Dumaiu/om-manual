@@ -3,14 +3,32 @@
 (define-package :om-manual-conversion
 	(:mix
 	 ;; :alexandria
-	 :uiop
+	 :asdf :uiop
 	 :cl)
-  (:intern file-error
-		   run-program))
+  (:intern
+   file-error
+	 run-program)
+  (:export
+   *default-directory*
+   ))
 
 (in-package :om-manual-conversion)
 
-'#:foo
+
+
+(defvar +root-directory+ (let ((dir
+								 (pathname-directory-pathname (system-definition-pathname (find-system :om-manual-conversion)))))
+                           (assert (directory-exists-p dir))
+                           dir))
+
+(defparameter *default-directory*
+  (merge-pathnames* "docs/om/om6-manual/co/" +root-directory+))
+
+(assert (directory-exists-p *default-directory*))
+
+; '#99 ; XXX
+'#:foo ; XXX
+':foo
 
 (defun html-file->md (input-file~
 					  &key (output :string)
