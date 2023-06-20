@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="API (Applied Program Interface) Ystok-URI: classes, variables, and functions in the uri package">
+<meta name="KEYWORDS" content="URI,uniform resource identifier">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="uri-parsed-path" href="core_11.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="copy-uri" href="core_13.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 class="signature code" id="URI-PARSED-QUERY"><span class="category">[Function]</span>
+ uri-parsed-query</h2>
+
+<h5>Package</h5>
+<p><a class="code" href="core_01.html#YSTOK.URI_package" title="ystok.uri">ystok.uri</a></p>
+
+<h5 class="signature">Signature</h5>
+<p class="signature code"><b>uri-parsed-query</b> <var>uri</var> =&gt; <var>result-alist</var></p>
+
+<h5>Arguments</h5>
+<dl class="av">
+<dt>uri</dt>
+<dd>An instance of the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a> structure class.</dd>
+</dl>
+
+<h5>Values</h5>
+<p>A alist of the following form:</p>
+<pre>((param1 . [<var>value1</var> | nil]) ...)</pre>
+
+<h5>Description</h5>
+<p>The function parses the string stored in the <code>query</code> slot of the given
+<var>uri</var> , percent-decode each <var>value</var> accordingly
+to the value of <a href="core_02.html#YSTOK.URI__DEFAULT-EXTERNAL-FORMAT_" class="code" title="*default-external-format*"> *default-external-format*</a>,
+and returns the alist.</p>
+
+<p>The <var>result-alist</var> is also cached into the <code>query</code> slot, so any 
+future call of <code>uri-query</code> will also return this alist instead a query string.</p>
+
+<h5>Example</h5>
+<pre class="samp">(uri-parsed-query (parse-uri &quot;http://foo.bar/baz?a&amp;b=zip&quot;))
+=&gt; ((&quot;a&quot;) (&quot;b . &quot;zip))</pre>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="uri-parsed-path" href="core_11.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="copy-uri" href="core_13.html">Next</a></li></ul></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<title>Ystok-URI API</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="URL-encoding and decoding URI components">
+<meta name="KEYWORDS" content="percent-encoding,URI,uniform resource identifier,url-encoding">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script src="popupref.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="Ystok-URI API" href="pct-encoding_00.html">Previous</a></li><li><a class="UP" rel="UP" title="Ystok-URI API" href="pct-encoding_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="percent-decode" href="pct-encoding_02.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 class="signature code" id="PERCENT-ENCODE"><span class="category">[Function]</span>
+ percent-encode</h2>
+
+<h5>Package</h5>
+<p><a class="code" href="core_01.html#YSTOK.URI_package" title="ystok.uri">ystok.uri</a></p>
+
+<h5 class="signature">Signature</h5>
+<p class="signature code"><b>percent-encode</b> <var>string</var>
+ &key <var>external-format safe unsafe</var>
+ =&gt; <var>result-string</var></p>
+
+<h5>Arguments</h5>
+<dl class="av">
+<dt>string</dt><dt>
+</dt><dd>A simple string, usually representing a component of a <a href="uri-ppn_01.html" onclick="popup(event)" onkeydown="popup_okd()" onkeyup="popup_oku()">URI</a>.</dd>
+<dt>external-format</dt>
+<dd>An <a href="uri-ppn_00.html" onclick="popup(event)" onkeydown="popup_okd()" onkeyup="popup_oku()">external format designator</a>;
+ defaults to the value of <a href="core_02.html#YSTOK.URI__DEFAULT-EXTERNAL-FORMAT_" class="code" title="*default-external-format*"> *default-external-format*</a>.</dd>
+<dt>safe</dt>
+<dd>A simple array of the <code>bit</code> type and of the length of 127 or <code>nil</code>.</dd>
+<dt>unsafe</dt>
+<dd>A simple array of the <code>bit</code> type and of the length of 127 or <code>nil</code>.</dd>
+</dl>
+
+<h5>Values</h5>
+<p>A string with all &quot;unsafe&quot; (i.e. reserved or non-ASCII) characters replaced 
+by escape sequences.</p>
+
+<h5>Description</h5>
+<p>This function converts <var>uri</var> object to a string
+and if <var>stream</var> in not null, write the result <var>string</var> there
+with the Common Lisp function <code>write-string</code>.</p>
+
+<p><var>external-format</var> is either <code>:utf-8</code>
+or a designator of an arbitrary
+<a href="uri-ppn_00.html" onclick="popup(event)" onkeydown="popup_okd()" onkeyup="popup_oku()">external format</a>
+in accordance to your Lisp implementation or flexi-streams specification.</p>
+
+<p><var>safe</var> is a bitmask of characters with code in the range 
+[0..126] that may not be escaped.
+If is <code>nil</code>, all characters in this range are considered safe. By 
+default, all unreserved characters are considered &quot;safe&quot;.</p>
+
+<p><var>unsafe</var> is an additional bitmask of characters with code in the range 
+[0..126] that must be escaped. The default is <code>nil</code> than means that 
+none of the characters in this range is considered &quot;unsafe&quot;.</p>
+
+<h5 class="related">See also</h5>
+<ul class="enum">
+<li><a href="pct-encoding_02.html#PERCENT-DECODE" class="code" title="percent-decode"> percent-decode <span class="CATEGORY">[Function]</span></a></li>
+</ul>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="Ystok-URI API" href="pct-encoding_00.html">Previous</a></li><li><a class="UP" rel="UP" title="Ystok-URI API" href="pct-encoding_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="percent-decode" href="pct-encoding_02.html">Next</a></li></ul></div>
+<script type="text/javascript">
+make_popup();
+</script>
+</body>
+</html>

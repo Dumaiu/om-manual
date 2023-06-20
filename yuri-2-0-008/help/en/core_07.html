@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="API (Applied Program Interface) Ystok-URI: classes, variables, and functions in the uri package">
+<meta name="KEYWORDS" content="URI,uniform resource identifier">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="uri" href="core_06.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="uri-authority" href="core_08.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 class="signature code" id="URI-USER"><span class="category">[Function]</span>
+ uri-user,
+<a name="URI-PASSWORD">uri-password</a></h2>
+
+<h5>Package</h5>
+<p><a class="code" href="core_01.html#YSTOK.URI_package" title="ystok.uri">ystok.uri</a></p>
+
+<h5 class="signature">Signature</h5>
+<p class="signature code"><b>uri-user</b> <var>uri</var> =&gt; <var>result</var><br>
+<b>(setf uri-user)</b> <var>value uri</var> =&gt; <var>value</var></p>
+<p class="signature code"><b>uri-password</b> <var>uri</var> =&gt; <var>result</var><br>
+<b>(setf uri-password)</b> <var>value uri</var> =&gt; <var>value</var></p>
+
+<h5>Arguments</h5>
+<dl class="av">
+<dt>uri</dt>
+<dd>An instance of the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a>
+structure class.</dd>
+<dt>value</dt>
+<dd>A simple string or <code>nil</code>.</dd>
+</dl>
+
+<h5>Description</h5>
+<p>These additional functions are similar to the accessors of
+the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a> structure class.
+As they are rarely used, these values are stored in the
+<a class="code" href="core_06.html#URI-PLIST" title="uri">uri-plist</a>
+with the <code>:user</code> and <code>:password</code> indicators.</p>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="uri" href="core_06.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="uri-authority" href="core_08.html">Next</a></li></ul></div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* <!--[CDATA[ */
+/*** YstokHelp - Styles for content and pop-up pages
+ *** Copyright (c) 2009-2012 Dr. Dmitriy Ivanov. All rights reserved.
+ *** http://lisp.ystok.ru/yhelp/
+ ***/
+body  { margin: 0 8px 0 10px; font-size:90%;		/* for print media, use Times */
+	font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; }
+
+/** Usage: h1 and h2 - Topic/segment titles only,
+ ** h3,h4 - Various kinds of titles, included into TOC or not.
+ ** h5 - Subtitles within segments, e.g. Related Topics or Arguments (CAUTION: Avoid id="related"!)
+ ** h6,caption - Auto-numbered elements: figures, listings, and tables captions, etc. 
+ **/
+h1	{ margin: 5px 0 0.5em 0; padding:0.1em; 
+	  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; 
+	  font-size:120%; }
+h1.yh_using { background: url('yhgfx/book.png') no-repeat right top; }
+h2	{ margin: 5px 0 0.5em 0; padding:0 0.1em 0.1em 0.1em; 
+	  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; 
+	  font-size:120%; }
+ul + h2, p + h2	{ margin-top:1.2em; }		/* H2 on the chapter start page, not first heading */
+h3	{ margin: 1em 1px 0.3em 0; padding:0.1em; 
+	  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; 
+	  font-size:110%; font-weight:bold; }
+body > h3:first-child	{ margin-top:5px; }		/* H3 as first heading on page */
+body > div.header + h3	{ margin-top:5px; }
+h4	{ margin: 1em 1px 0.2em 0; padding:0.1em; 
+	  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; 
+	  font-size:100%; font-weight:bold; }
+h5	{ margin: 0.8em 1px 0.1em 0; padding:0;
+	  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; 
+	  font-size:90%; font-weight:bold; }
+h6.figure { margin: 0.8em 0 0.1em 0; padding:0; page-break-inside:avoid;
+	    font-family: Times,Serif; font-size:100%; font-weight:normal;
+	    text-align:center; }
+h6.table  { margin: 0.8em 0 0.1em 0; padding:0; page-break-after:avoid;
+	    font-family: Times,Serif; font-size:100%; font-weight:normal;
+	    text-align:center; }
+
+/***
+ ***  YstokHelp Styles
+ ***/
+
+div.header { margin:0 -8px 3px -10px; border-bottom: 1px solid #ccc; }
+           /*position:fixed; left:0; top:0; margin:0;*/	/* does not work in IE<=5.5 */
+div.footer { margin:10px -8px 0 -10px; border-top: 1px solid #ccc; }
+div.toolbar
+  { overflow:hidden; height:25px; background:#dedede; padding:0; }
+div.toolbar ul
+  { list-style:none; overflow:hidden; width:100%; margin:0; padding:0; }
+div.toolbar ul li
+  { float:left; height:25px; line-height:25px;
+    margin:0 1px 0 1px; padding-right:3px;
+    font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+    font-size:14px; font-weight:normal;
+    /*background: white url('yh_gfx/btnright.png') no-repeat right top;*/ }
+div.toolbar ul li.divider
+  { margin-left:2px; padding-left:3px; border-left: 1px solid #ccc; }
+div.toolbar ul li a
+  { display:block; padding: 0 7px 0 7px;		/* enabled item */
+    text-align:center; text-decoration:none; color:black;
+    /*background: url('yh_gfx/btnleft.png') no-repeat left top;*/ }
+div.toolbar ul li a.prev
+  { padding-left: 22px; background: url('yhgfx/btnprev.png') no-repeat left top; }
+div.toolbar ul li a.up
+  { padding-left: 24px; background: url('yhgfx/btnup.png') no-repeat left top; }
+div.toolbar ul li a.next
+  { padding-left: 22px; background: url('yhgfx/btnnext.png') no-repeat left top; }
+div.toolbar ul li a[rel="next"]				/* works for Firefox, but not for IE */
+  { padding-left:22px; background: url('yhgfx/btnnext.png') no-repeat left top; }
+div.toolbar ul li a:hover
+  { text-decoration:underline; }
+div.toolbar ul li span					/* disabled item */
+  { display:block; padding: 0 7px 0 7px;
+    text-align:center; color:#999999;
+    /*background: url('gfx/btnleft.png') no-repeat left top;*/ }
+div.toolbar ul li span.prev
+  { padding-left:22px; background: url('yhgfx/btnprevdisabled.png') no-repeat left top; }
+div.toolbar ul li span.up
+  { padding-left:24px; background: url('yhgfx/btnupdisabled.png') no-repeat left top; }
+div.toolbar ul li span.next
+  { padding-left:22px; background: url('yhgfx/btnnextdisabled.png') no-repeat left top; }
+
+a#yh_navitoggle
+  { width:24px; background: url('yhgfx/navitoggle.png') no-repeat center center; }
+a#yh_navitoggle:hover, a#yh_navitoggle:focus
+  { background: url('yhgfx/navitogglehover.png') no-repeat center center; }
+
+a		{ text-decoration:none; }
+a:hover 	{ text-decoration:underline; }
+span.yh_undefined_anchor { color:red; text-decoration:underline; }
+
+
+/***
+ ***  YstokHelp Popup Styles
+ ***/
+body.popup	{ margin: 0 4px 0 6px; background-color:#FFFFE0; }
+body.popup h4	{ margin-top:3px; }
+body.popup ul	{ margin-top:0.2em; margin-bottom:0; }
+body.popup ul.enum { margin-left:0 }
+
+div#yh_popup_div
+  { position:absolute; width:0; height:0; top:-100px; left:0; z-index:39; visibility:hidden;
+    margin:0; padding:0;
+    border-top: 0 none; border-left: 0 none; 
+    border-right: 2px solid gray; border-bottom: 2px solid gray; 
+    background-color:white; }
+iframe#yh_popup_frame
+  { position:relative; margin:0; padding:0; border:1px solid black; }
+
+div#yh_popup_menu
+  { position:absolute; left:0px; top:0px; z-index:49; visibility:hidden; /* width:0; height:0; */
+    border: 2px outset white;
+    /*border-style:solid; border-width:1px; border-color:#dedede #666 #666 #dedede; */
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#ccc;
+    font-size:9pt; white-space:nowrap; }
+div#yh_popup_menu p	  { margin:0; padding:0; border-bottom: 2px groove white; text-align:center; }
+div#yh_popup_menu a	  { display:block; padding:2px; text-decoration:none; } /*width:100%;*/
+div#yh_popup_menu a:hover { color:white; background-color:#366; }
+
+/***
+ *** Ystok Product Styles
+ ***/
+img		{ border: 0px none; }
+table		{ margin-right:2px; border-collapse:collapse; border: 1px solid silver; }
+th		{ padding: 2px 4px 2px 4px; border: 1px solid silver;
+		  font-size:9pt; font-weight:bold; text-align:center; } 
+td		{ padding: 2px 4px 2px 4px; border: 1px solid silver;
+		  font-size:90%; }				/* as not inherited from body */
+pre		{ margin-left:2em; }
+p             	{ margin: 0.5em 0 0.2em 0; }
+ul, ol		{ margin: 0.8em 0 0 2em; padding:0; }
+/*ul, li	{ margin:0; padding:0; text-indent:0; }*/
+ul ul, ol ul, ul ol, ol ol					/* second or deeper level */
+		{ margin: 0 0 0 1.5em; }
+
+.nb		{ font-style:italic; }
+/*p.nb:first-line { margin-left: -7em; }*/
+
+.caption	{ margin-bottom:1ex; }
+.code		{ font-family:Monospace; white-space:pre; }
+.cite		{ font-style:italic; }				/* link to another book */
+.figure		{ text-align:center; }				/* screenshot or diagram */
+.float-right	{ float:right; clear:right; margin: 10px 0 10px 10px; }
+/*.picture	{ text-align:center; }				/* photo or art, usuall JPEG */
+/*.related	{ font-weight:bold; }*/
+a.super		{ font-size:60%; vertical-align:super; }	/* look like footnote invoke popup */
+a.chapter	{ font-style:none; }				/* link to another chapter */
+a.world		{ font-style:italic; }				/* link to external site */
+		  /*background: url('yhgfx/world.png') no-repeat right top; - the only way in with IE5.5 */
+a.world:after	{ content: url('yhgfx/world.png'); }
+/*p.footnote	{ margin:1px 0 0 1.5em; text-indent:-1.5em; font-size:80%; } */
+
+/* Flat list of sections and topics, usually at very bottom of index.html */
+ul.toc	{ margin: 0.7em 0 0 0; list-style-type:none; }
+
+/* Menu items or widgets enumeration */
+table.enum    	  { width:100%; margin: 0.5em 2px 0.2em 0;
+		    border-style:none; border-bottom: 1px solid #666; }
+table.enum th	  { border-style:none; border-left: 1px solid white;
+		    background-color:#dedede; text-align:left; }	/*padding: 2px 4px 2px 4px;*/
+table.enum td     { border-style:none; vertical-align:top; }		/*padding: 0 2px 0 2px;*/
+table.enum td.button { border-style:none; padding:4px 0 0 0; vertical-align:top; text-align:center; }
+table.enum ul, table.enum ol, table.enum dl { margin-top:0.2em; margin-bottom:0.2em; }
+
+/* Flat list of links, usually after H5 class="related" */
+ul.enum { list-style-type:none; list-style-image:none; }
+
+/* Step-by-step instructions */
+ol.enum           { counter-reset:o1; }
+ol.enum li:before { content:counter(o1) ') '; counter-increment:o1; }
+
+/* Used for both SPAN and A */
+span.small-caps, a.small-caps
+		{ font-variant:small-caps; }
+span.menu-command, a.menu-command, span.widget, a.widget
+		{ font-weight:bold; }
+
+dfn, dt.dfn	{ font-weight:bold; font-style:italic; }
+dd		{ margin: 0 0 0 2em; font-size:100%; }
+dd ul, dd ol	{ margin: 0 0 0 1.5em; }
+
+/* Code fragments */
+span.category	{ font-family:Times; font-weight:normal; } /*font-size:12pt*/
+.signature span.category
+		{ display:block; float:right; }
+p.signature	{ margin-top:0.2em; font-family:Monospace; }
+
+dl.av	     	{ margin: 0.2em 0 0.2em 0; }		/* Arguments or Values */
+dl.av dt	{ font-style:italic; }
+/*dl.av dd	{ margin: 0 0 0 2em; font-size:100%; }*/
+/*dd.av ul	{ margin: 0 0 0 1.5em } */
+
+/* Code samples */
+pre.samp   { margin-left:0; padding:5px; background-color:#dedede; }
+
+/*hr	{ height:1px; }*/
+
+/* ]]--> */

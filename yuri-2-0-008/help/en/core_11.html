@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="API (Applied Program Interface) Ystok-URI: classes, variables, and functions in the uri package">
+<meta name="KEYWORDS" content="URI,uniform resource identifier">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="render-uri" href="core_10.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="uri-parsed-query" href="core_12.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 class="signature code" id="URI-PARSED-PATH"><span class="category">[Function]</span>
+ uri-parsed-path</h2>
+
+<h5>Package</h5>
+<p><a class="code" href="core_01.html#YSTOK.URI_package" title="ystok.uri">ystok.uri</a></p>
+
+<h5 class="signature">Signature</h5>
+<p class="signature code"><b>uri-parsed-path</b> <var>uri</var> =&gt; <var>result-list</var><br>
+<b>(setf uri-parsed-path)</b> <var>list uri</var> =&gt; <var>list</var></p>
+
+<h5>Arguments</h5>
+<dl class="av">
+<dt>uri</dt>
+<dd>An instance of the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a>
+structure class.</dd>
+<dt>list</dt>
+<dd>A list of elements, possibly empty, see Description.</dd>
+</dl>
+
+<h5>Values</h5>
+<p>A list of the following form:</p>
+<pre>([:absolute | :relative] <var>component1</var> [<var>component2</var>...])</pre>
+
+<h5>Description</h5>
+<p>The function returns or sets a parsed representation of the uri path.
+Each <var>component</var> of the parsed path is like</p>
+
+<pre><var>element</var> | (<var>element param1</var> [<var>param2</var> ...])</pre>
+
+<p><var>element</var> is a path element; if the path refer to a directory, 
+the last <var>component</var> of its parsed path is the empty string <code>&quot;&quot;</code>.</p>
+<p><var>param</var> is a path 
+element parameter. </p>
+<p>&nbsp;</p>
+
+<h5>Example</h5>
+<pre class="samp">(uri-parsed-path (parse-uri &quot;foo;10/bar:x;y;z/baz.htm&quot;))
+=&gt; (:relative (&quot;foo&quot; &quot;10&quot;) (&quot;bar:x&quot; &quot;y&quot; &quot;z&quot;) &quot;baz.htm&quot;)</pre>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="render-uri" href="core_10.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="uri-parsed-query" href="core_12.html">Next</a></li></ul></div>
+</body>
+</html>
