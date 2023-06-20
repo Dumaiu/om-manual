@@ -16,18 +16,6 @@
 ;;;	[url]address[/url]	Insert hyperlink to an arbitrary resource
 ;;;	[url=address]text[/url]	Like the above but display as the text specified
 ;;;     #\Newline -> <br>	Insert line break
-;;; #+Russian
-;;; Конвертировать в НTML-теги другие образцы, принятые в форумах:
-;;;	[b]текст[/b]		выводит текст жирно 
-;;;	[i]текст[/i]		выводит текст курсивом 
-;;;	[u]text[/u]		выводит подчёркнутый текст
-;;;	[code]текст[/code]	выводит текст машинописным шрифтом
-;;;	[tt]текст[/tt]		выводит текст машинописным шрифтом
-;;;	[img]адрес[/img]	вставляет картинку, хранющуюся в произвольном месте
-;;;	[url]адрес[/url]	вставляет гиперссылку на произвольный ресурс
-;;;	[url=адрес]текст[/url]	вставляет гиперссылку на произвольный ресурс,
-;;;				отображаемую в виде текста
-;;;     #\Newline -> <br>	вставляет перевод строки
 ;;;
 ;;; Along with HTML-TEMPLATE, this add-on depends on
 ;;; - either Ystok-Library on LispWorks
