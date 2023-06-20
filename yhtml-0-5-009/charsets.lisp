@@ -179,7 +179,7 @@
   ;; Args: charset Canonical or implementation-specific
   ;;       errorp  If true, signals an error if charset is not apropriate for
   ;;               the current Lisp implementation.
-  ;;       args    Êey args that are passed to external format constructor.
+  ;;       args    Args that are passed to external format constructor.
   ;; Value: External-format designator or :default if errorp is false.
   ;; LW NB: :default -> stream::*default-external-format* or guess
   (cond ((cond 
