@@ -70,8 +70,9 @@
 					  &key (output :string)
 					  &aux (file
 							(probe-file
-							 (ensure-pathname (pathname-name file~)
-											  :type "md"))))
+							 (make-pathname :name (pathname-name file~)
+											:directory (pathname-directory file~)
+											:type "md"))))
   "By default, returns output as a string.  To write to a file, e.g.::
 	  (md-file->html \"00-Sommaire.md\" :output :file)
 "
