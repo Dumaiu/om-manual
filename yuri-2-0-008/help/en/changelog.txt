@@ -1,0 +1,16 @@
+2012-11-12 (2.0.007)
+      + Adapted to Ystok-Library 1.2.022 i18n/l10n.
+      + Added Ystok-URI Rererence Manual - documentation
+	(help book in HTML) English version).
+      + Corrected one test case on merge-uris.
+
+2012-04-27 (1.1.006)
+      * Changed signature
+	** parse-uri (string &key errorp fragment-test decode)
+	** render-uri (uri &optional stream encode)
+
+      * utils.lisp: Renamed
+	** escape-uri-component -> percent-encode
+	** unescape-uri-component -> percent-decode 
+
+2002-11-05 (0.1.001) INITIAL RELEASE

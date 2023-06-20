@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Using help book</title>
+<meta name="ROBOTS" content="anchors" />
+<meta name="description" content="How to use a help book in HTML format" />
+<link href="cont.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" /><script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--[CDATA[
+cont_onopen(0);
+// ]]-->
+</script>
+</head>
+<body><div class="header toolbar"><ul><li><span class="prev">Previous</span></li><li><span class="up">Up</span></li><li><a class="next" rel="next" title="Ystok-URI - portable Uniform Resource Identifier library - introduction" href="index.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h1 id="yh_help-book" class="yh_using">Using help book</h1>
+<p>The help book is an HTML-based documentation on a software product or library.
+Use your favorite 
+<a href="#yh_browser-requirements" title="Using help book">Internet browser</a> to read it.</p>
+
+<p>The help book is <em>interactive</em> &mdash;
+If you pressing the <span class="small-caps">F1</span> key in the application,
+it opens a related page or pops up a small
+<a name="yh_CONTEXT-POPUP"><em>context help</em></a>
+with the button <img alt="Button to open a help book page with topic details." src="yhgfx/btnbook.png" width="20" height="20" />.
+You can also inspect the <span class="widget">Help</span> menu.</p>
+
+<p>Underlined text represents a <em>hyperlink</em>.
+When you <span class="small-caps">CLICK</span> on it with the mouse,
+the browser jump to another page or another fragment within the current page, 
+or &quot;pops up&quot; a tooltip or menu.</p>
+
+<p>The help window is divided into two <em>frames</em>:
+<a href="#yh_Navi-frame">the Navigation frame</a> on the left and
+<a href="#yh_Cont-frame">the Content frame</a> on the right.
+To resize the frames, drag the vertical border between them.</p>
+
+<h3 id="yh_Navi-frame">Navigation frame</h3>
+
+<p>The left frame displays one of the standard <em>tabs</em>.</p>
+
+<h4><a name="yh_Chapters" target="navi" href="index.html" title="Display the chapter list in the left frame">Contents</a></h4>
+<ul>
+<li>The Contents is a list of chapters (at a glance).</li>
+<li><span class="small-caps">CLICK</span> the chapter title to display
+the chapter start page in the Content frame.</li>
+</ul>
+
+<h4><a name="yh_Index" target="navi" href="idx.html" title="Display the index in the left frame.">Index</a></h4>
+<ul>
+<li>The Index lists keywords and phrases with hyperlinks to the pages
+where they are defined or mentioned.</li>
+<li>Letters of the alphabet appear at the top of the Index tab.
+Entries for that letter appear below the alphabet, followed by a numbered link
+for each occurrence of the entry within the book.</li>
+<li>The tooltip under the pointer usually represents the page title.</li>
+</ul>
+
+<h4><a name="yh_TOC" target="navi" href="toc.html" title="Display the full TOC in the left frame.">Sitemap</a></h4>
+<ul>
+<li>The Sitemap enumerates all chapters, sections, and pages titles in full.</li>
+<li>The indent and font size of a title represents its level within the hierarchy.</li>
+</ul>
+<p class="nb">TIP: Invoke the browser Find command to search through the Sitemap.</p>
+
+<h3 id="yh_Cont-frame">Content frame: topic pages</h3>
+
+<p>The toolbar is displayed on the top and bottom of every topic page.</p>
+<table class="enum">
+<tr><th>Button</th><th>Action</th></tr>
+<tr><td><img src="yhgfx/btnprev.png" width="20" height="25" /></td>
+<td>Display the previous topic in the book.</td></tr>
+<tr><td><img src="yhgfx/btnnext.png" width="20" height="25" /></td>
+<td>Display the next topic.</td></tr>
+<tr><td><img src="yhgfx/btnup.png" width="20" height="25" /></td>
+<td>Display the parent topic or section/chapter within the hierarchy.</td></tr>
+<tr><td><img src="yhgfx/navitogglehover.png" width="18" height="17" /></td>
+<td>Hide/Show the Navigation frame.</td></tr>
+</table>
+
+<p>Related subtopics and pages are listed at the bottom of the page.</p>
+
+<h4><a name="yh_bookmarking">Bookmarking</a></h4>
+
+<p>To retain the link to the current page in the Content frame in &quot;favorites&quot;
+list of your browser, 
+<span class="small-caps">RIGHT-CLICK</span> within the page and invoke
+the corresponding context menu item.</p>
+<table class="enum">
+<tr><th>Browser</th><th>Context menu command</th></tr>
+<tr><td>Internet&nbsp;Explorer</td><td><span class="menu-command">Add to Favorites</span></td></tr>
+<tr><td>Firefox</td><td><span class="menu-command">In&nbsp;this&nbsp;frame</span>
+ &rarr; <span class="menu-command">Add&nbsp;frame&nbsp;to&nbsp;favorites</span></td></tr>
+</table>
+
+<h3 id="yh_browser-requirements">Browser settings</h3>
+<p>To enjoy the help book functionality in full, customize your browser settings:</p>
+<ul>
+<li>Enable active scripting (active content).<br>
+ For example, in IE 6-8 on the Security tab check the box
+<span class="widget">Allow active content to run in files on My Computer</span>.</li>
+<li>Enable frames.</li>
+<li>Enable cookies (needed for storing the size of the frames only).</li>
+</ul>
+<p>The hyperlink font, color and other presentation parameters are not preset
+in the help book and are under your browser control.</p>
+
+<p class="nb">The help book does not contain any ActiveX controls but
+only JavaScript scripts.</p>
+
+<h3 id="yh_firewall">Firewall settings</h3>
+
+<p>Any GUI application invoke the help book indirectly throug the browser. 
+By default, Windows consider opening even local HTML-files unsecure.</p>
+<p>To enable context help, you should add
+the application
+to the &quot;white list&quot; or &quot;exeption list&quot; of your firewall. 
+(Or allow access to IP-address 0.0.0.0 and localhost/Trusted zone.)</p>
+
+<h3 id="yh_fulltext-search">Full-text search</h3>
+
+<p>The help book does not provide full-text search.
+Instead, use one of the following:</p>
+<ul>
+<li>The search function of the Windows Explorer.</li>
+<li>A stand-alone desktop application, for example
+<a target="_blank" class="world" href="http://desktop.google.com/">Google Desktop</a>.</li>
+</ul>
+<p>For any of the above, specify the folder where the help book is located and 
+start the search process.</p>
+<div class="footer toolbar"><ul><li><span class="prev">Previous</span></li><li><span class="up">Up</span></li><li><a class="next" rel="next" title="Ystok-URI - portable Uniform Resource Identifier library - introduction" href="index.html">Next</a></li></ul></div>
+</body>
+</html>

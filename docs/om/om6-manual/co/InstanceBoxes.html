@@ -1,85 +1,569 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                      "http://www.w3.org/TR/html4/loose.dtd">
-<html>
- <!--
-							standard : HTML 4.01 Transitional (Standards mode)
-							dialog : /@c1545/@c6360/@c6361/@c1555/@c1598/@c1708/@c1708/_N16--><head>
-  <title>OpenMusic Documentation - Instance Boxes</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta content="no-cache" http-equiv="Cache-Control">
-  <meta content="no-cache" http-equiv="Pragma">
-  <meta content="Fri, 01 Jan 1990 00:00:00 GMT" name="Expires" http-equiv="expires">
-  <meta content="text/css" http-equiv="Content-Style-Type">
-  <link href="../css/googleSearch.css" type="text/css" rel="stylesheet">
-  <link href="../wdgt/scImgMgr/scImgMgr.css" type="text/css" rel="stylesheet">
-  <script type="text/JavaScript">
-/*0*/ var scServices = {};
-/*1*/ scServices["scLoad"] = {loadFromRoot:function(pUrl){window.location.href="../)"+pUrl;}, getUrlFromRoot:function(pHref){if(!this.fRootOffset) this.fRootOffset = window.location.href.length -21; return pHref.substring(this.fRootOffset);}};
-</script>
-  <script src="../jslib/scCoLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scPaLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scSiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTooltipMgr.js" type="text/JavaScript"></script>
-  <script src="../jslib/scDynUiMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../jslib/pageMemMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/googleSearch/googleSearch.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scrZoom/imgZoomMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/outLeftScroll/outLeftDyn.js" type="text/JavaScript"></script>
-  <script src="../wdgt/relNotes/relNotes.js" type="text/JavaScript"></script>
-  <script src="../wdgt/secOutMgr/secOutMgr.js" type="text/JavaScript"></script>
-  <script type="text/JavaScript">
-imgZoomMgr.init("des:div.imgzFra","chi:img","par:/nsi:/des:a",.33,1,1,1,"Cliquez pour agrandir, Shift-click : nouvelle fenêtre");
-scImgMgr.registerAnimation("des:div.screenSeqFra",{auto:false,loop:false,counter:true});
+<!doctype>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="generator" content="pandoc"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"></meta>
+<title>InstanceBoxes</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<div id="tplf" class="tplPage">
 
-scImgMgr.registerZoom("des:a.overLnk");
+<div id="tplh">
 
-scImgMgr.setPathPgeFra("ide:tplb");
+<p><span class="hidden">Navigation générale : </span></p>
+<ul>
+<li><a href="OM-Documentation.html"><span>Guide</span></a></li>
+<li><a href="OM-Documentation_1.html"><span>Plan</span></a></li>
+<li><a href="OM-Documentation_2.html"><span>Glossaire</span></a></li>
+</ul>
+</div>
 
-scOnLoads[scOnLoads.length] = guideMem;
+<div id="tplt">
 
-</script>
-  <script type="text/JavaScript">scCoLib.fDebug = true;</script>
-  <meta name="generator" content="SCENARI 3.7 / ircamGuide 3.0.0 - http://scenari-platform.org/projects/dokielguide">
-  <link href="../skin/css/main.css" type="text/css" rel="stylesheet">
-  <link href="../skin/css/skin.css" type="text/css" rel="stylesheet">
-  <!--[if IE]><link href="../skin/css/ie.css" type="text/css" rel="stylesheet"/><![endif]-->
-  <!--[if lt IE 7]><link href="../skin/css/ie6.css" type="text/css" rel="stylesheet"/><![endif]--></head>
- <body>
-  <div class="tplPage" id="tplf"><div id="tplh"><span class="hidden">Navigation g&eacute;n&eacute;rale : </span><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Amap/@c1545_Amap/_Na" title="Plan" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Atools/@c1545_Atools/_Ne" title="Glossaire" position="uncle"><root>refDoc</root></entry></treeContent>--><ul class=" sw_outMain_navList"><li class=" mainSel_no outRoot"><a href="OM-Documentation.html" target="_self" class=" mainSel_no mainElt_entry"><span>Guide</span></a></li><li class=" mainSel_no outMap"><a href="OM-Documentation_1.html" target="_self" class=" mainSel_no mainElt_entry"><span>Plan</span></a></li><li class=" mainSel_no toolGloss"><a href="OM-Documentation_2.html" target="_self" class=" mainSel_no mainElt_entry"><span>Glossaire</span></a></li></ul><div class="googleSearchFrom"><form onsubmit="googleSearch.setQueryVal(this);" target="_blank" action="http://www.google.com/search" method="get"><input name="q" type="hidden"><input size="15" name="text" class="googleSearchText" type="text"><a onclick="googleSearch.submit(scPaLib.findNode('anc:form',this));" href="javascript:void(0);" class="googleSearchSubmit"><img style="vertical-align: middle;" title="Recherche Google" src="../lib/googleSearch.gif" alt="Recherche Google"></a></form></div></div><div id="tplt"><img height="50" width="1" src="../tplRes/page/empty.gif" alt=""><img alt="" src="../res/logoom1.png" width="32" height="24"><span class="tplTi">OpenMusic Documentation</span><!--outline : <treeContent><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598" title="Instances" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598/@c1708" title="Instance Boxes" position="current"><root>section</root></entry></entry></entry></entry></treeContent>--><span class=" sw_outStack_navRoot"><span class="hidden">Hi&eacute;rarchie de section : </span><a href="OM-User-Manual.html" target="_self" class=" stkSel_no"><span>OM 6.6 User Manual</span></a><span class="stkSep"> &gt; </span><a href="AdvancedVisualProgramming.html" target="_self" class=" stkSel_no"><span>Visual Programming II</span></a><span class="stkSep"> &gt; </span><a href="Instances.html" target="_self" class=" stkSel_no"><span>Instances</span></a><span class="stkSep"> &gt; </span><span class=" stkSel_yes"><span>Instance Boxes</span></span></span></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1598"--><a class="navPrev" target="_self" href="Instances.html" title="page pr&eacute;c&eacute;dente(Instances)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1598/@c1709"--><span class="hidden"> | </span><a class="navNext" target="_self" href="GlobalVariables.html" title="page suivante(Global Variables)"><span>page suivante</span></a></div><div id="tplc" class=" tplc_out_yes"><noscript><div style="text-align: center;"><strong>Attention</strong>, votre navigateur ne supporte pas le <b>javascript</b> ou celui-ci &agrave; &eacute;t&eacute; d&eacute;sactiv&eacute;. Certaines fonctionnalit&eacute;s de ce guide sont restreintes.</div></noscript><div class="headCo "><h1 class="headCo_ti"><span>Instance Boxes</span></h1><div class="headCo_co "><div><div class="infobloc "><div class="txt "><p class="text_p ">An instance <cite class="alt_is ">can be materialized</cite> out of any output of a factory box, provided this output can return an instance or a list. Creating an <cite class="alt_is ">instance box</cite> is especially significant when done from the &quot;self&quot; outlet of a factory box, which returns the 
-										<strong class="emphasis_is ">object itself</strong>
-									. </p><p class="text_p ">There are two types of instance boxes : </p><ul class="simple_sl "><li class="simple_m "><span>
-										<strong class="emphasis_is ">class instances</strong>, which are created from <cite class="alt_is ">objects</cite>,</span></li><li class="simple_m "><span>
-										<strong class="emphasis_is ">list instances</strong>, which are created from<cite class="alt_is "> lists</cite>. </span></li></ul></div></div><div class="part "><h2 id="tcN39" class="part_ti"><span>Procedure</span></h2><div class="part_co "><div class="infobloc "><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="The first ouput of the chord-seq factory box is a chord-seq instance. The second output is a list of pitches." src="../res/createlistbox2.png" width="161" height="202"></div><div class="caption_ti ">The first ouput of the chord-seq factory box is a chord-seq instance. The second output is a list of pitches.</div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">To create an<cite class="alt_is "> instance box</cite>, <code class="keyboard_tl ">SHIFT</code> + <code class="keyboard_tl ">Cmd</code> click on an output. </p><p class="text_p ">The corresponding object will appear in the patch editor.</p></div></td></tr></table></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">The resulting box represents a specific object that cannot be reinitialized, but can be used and evaluated again in a patch. </p><p class="text_p ">This is why this box shows only one &quot;self&quot; outlet. </p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="" src="../res/instanceself.png" width="147" height="93"></div></div></td></tr></table></div></div><div class="infobloc "><div class="infobloc_ti"><span>Renaming Instance Boxes</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/edtiinstname.png" width="82" height="69"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Instances in OM have a <strong class="emphasis_is ">
-																name</strong>
-															, which can be edited on the instance box.</p></div></td></tr></table></div></div><div class="infobloc "><div class="infobloc_ti"><span>Modifying the Instance</span></div><div class="txt "><p class="text_p ">The parametric values of an <cite class="alt_is ">instance</cite> 
-													
-													
-													
-													
-													
-													
-													
-													
-													
-													
-													
-													<cite class="alt_is ">
-														<cite class="alt_is ">box</cite>
-													</cite> can't be accessed directly in patches. However, they can be accessed and modified with the <cite class="alt_is ">slots</cite> box.</p></div><div class="linkSet "><div class="linkSet_ti"><span>About the Slots Box</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="SlotsBox.html"><span>Reading and Modifying Instances : Slots</span></a></li></ul></div></div></div><div class="infobloc "><div class="infobloc_ti"><span>Instance Editors</span></div><div class="txt "><p class="text_p ">The content of an <cite class="alt_is ">instance box</cite> can be modified like that a <cite class="alt_is ">factory box</cite>. </p><p class="text_p ">Double-click on the <cite class="alt_is ">
-														<cite class="alt_is ">instance</cite>
-													</cite> to open its editor.</p></div><div class="caption "><div class="caption_co "><img alt="An instance has the same editor as the factory box it is derived from, and which offers the same edition possibilities." src="../res/instanceeditor.png" width="464" height="276"></div><div class="caption_ti ">An instance has the same editor as the factory box it is derived from, and which offers the same edition possibilities.</div></div><div class="linkSet "><div class="linkSet_ti"><span>About Factory Boxes Editors</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="3-Editors.html"><span>Editors</span></a></li></ul></div></div><div class="linkSet "><div class="linkSet_ti"><span>Some OM Objects Editors</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="BPFEditors.html"><span>BPFs and BPCs Editors</span></a></li><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="ScoreEditors.html"><span>Score Editors</span></a></li></ul></div></div></div></div></div><div class="part "><h2 id="tcN17f" class="part_ti"><span>List Instances</span></h2><div class="part_co "><div class="infobloc "><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">
-															<strong class="emphasis_is ">List instances</strong> are instance boxes containing lists of values instead of a single instance. An <cite class="alt_is ">instance</cite>  derived from a list returns its content when evaluated. </p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="A list can be used for creating an instance box." src="../res/listinstance.png" width="111" height="119"></div><div class="caption_ti ">A list can be used for creating an instance box.</div></div></td></tr></table></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/uselistinstance.png" width="166" height="178"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Just like any list, it can be connected to other boxes to  create new objects.</p></div></td></tr></table></div></div><div class="bloc complement "><div class="bloc_ti complement_ti"><span>Lists Editor</span></div><div class="txt "><p class="text_p ">List instances have a  basic editor allowing to get a preview and modify their contents.</p></div><div class="linkSet "><div class="linkSet_ti"><span>More about Instance and List Instance Editors</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="3-Editors.html"><span>Editors</span></a></li></ul></div></div></div></div></div><div class="part "><h2 id="tcN211" class="part_ti"><span>Storing/Reusing Instances</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><p class="text_p ">
-													<cite class="alt_is ">Instances</cite> are a means to save an object within a patch, where it can then be used as a source of data. </p><p class="text_p ">
-													<cite class="alt_is ">Instances</cite> can also be used in other patches : </p><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">they can be copied </p></li><li class="itemized_ili "><p class="text_p "> they can saved as <span class="defRef_ul " id="i3"><span>global variables</span></span><sup class="defRef_ref tooltip_ref"><a href="#kFootBsktc1805"><span>[</span>1<span>]</span></a></sup>, which is sometimes more convenient and/or coherent. </p></li></ul></div><div class="linkSet "><div class="linkSet_ti"><span>About Global Variables</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="GlobalVariables.html"><span>Global Variables</span></a></li></ul></div></div></div><div class="infobloc "><div class="infobloc_ti"><span>Instance Files</span></div><div class="txt "><p class="text_p ">Instances can also be exported and imported as <strong class="emphasis_is ">.omi</strong> files, to and from any location of your hard drive. The import/export procedure must be done via Factory Boxes.</p></div><div class="caption "><div class="caption_co "><img alt="An instance must be integrated as the content of a factory box, before it is exported." src="../res/exportinstance_2.png" width="321" height="171"></div><div class="caption_ti ">An instance must be integrated as the content of a factory box, before it is exported.</div></div><div class="linkSet "><div class="linkSet_ti"><span>Importing / Exporting Instances to/from Factory Boxes</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="4-ImportExport.html"><span>Importing/Exporting Factory Box Values</span></a></li></ul></div></div></div><div class="bloc complement "><div class="bloc_ti complement_ti"><span>Dropping Instance Files in the Patch</span></div><div class="txt "><p class="text_p ">You can drag and drop an <strong class="emphasis_is ">instance file</strong> in a patch editor  to create a new <cite class="alt_is ">
-														
-															instance box
-														
-													</cite>directly.</p></div><div class="caption "><div class="caption_co "><img alt="" src="../res/draginst.png" width="274" height="189"></div></div></div></div></div></div></div></div><span class="hidden">R&eacute;f&eacute;rences : </span><ol class=" footBskt"><li class="footBskt_it" id="kFootBsktc1805"><div class="footBskt_itti">Global variable</div><div class="footBskt_itco"><div><div class="dk_definitionMeta_def "><p class="para_p ">An instance of OM object that has been saved in order to be used in other programs. Global variables are visible from the <code class="label_tl ">Library</code> window and stored as <cite class="alt_is ">.omi</cite> files in the <code class="filePath_tl ">Globals</code> folder of the workspace.</p></div></div></div></li></ol></div><div class="tplo_out_yes" id="tplo"><div class="tplOTp"><div class="tplOBm"><div id="mnuFrm"><span class="hidden">Plan :</span><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" id="mnuFrmUp" style="display: none;"><span id="mnuFrmUpLeft"><a onclick="menuScrollTiTask.step(-20); return false;" href="#" id="mnuBtnUp"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></div><div id="mnuScroll"><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1550" title="Introduction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1551" title="System Configuration and Installation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1552" title="Going Through an OM Session" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1553" title="The OM Environment" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554" title="Visual Programming I" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593" title="Abstraction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1594" title="Evaluation Modes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1595" title="Higher-Order Functions" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1596" title="Control Structures" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1597" title="Iterations: OMLoop" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598" title="Instances" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598/@c1708" title="Instance Boxes" position="current"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598/@c1709" title="Global Variables" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598/@c1710" title="Slots" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598/@c1711" title="The Store Object" position="sibling"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1599" title="Interface Boxes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1600" title="Files" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1556" title="Basic Tools" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1557" title="Score Objects" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558" title="Maquettes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1559" title="Sheet" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1560" title="MIDI" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1561" title="Audio" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1562" title="SDIF" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1563" title="Lisp Programming" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1564" title="Errors and Problems" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6318" title="OpenMusic QuickStart" position="uncle"><root>section</root></entry></treeContent>--><ul class=" sw_outLeft_navList"><li class=" outLeftD1 outRoot"><a href="OM-Documentation.html" target="_self" class=" outLeftSel_no"><span>OpenMusic Documentation</span></a></li><li class=" outLeftD1 outSec"><a href="OM-User-Manual.html" target="_self" class=" outLeftSel_no"><span>OM 6.6 User Manual</span></a><ul><li class=" outLeftD2 outSec"><a href="00-Sommaire.html" target="_self" class=" outLeftSel_no"><span>Introduction</span></a></li><li class=" outLeftD2 outSec"><a href="Installation.html" target="_self" class=" outLeftSel_no"><span>System Configuration and Installation</span></a></li><li class=" outLeftD2 outSec"><a href="Goingthrough.html" target="_self" class=" outLeftSel_no"><span>Going Through an OM Session</span></a></li><li class=" outLeftD2 outSec"><a href="Environment.html" target="_self" class=" outLeftSel_no"><span>The OM Environment</span></a></li><li class=" outLeftD2 outSec"><a href="BasicVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming I</span></a></li><li class=" outLeftD2 outSec"><a href="AdvancedVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming II</span></a><ul><li class=" outLeftD3 outSec"><a href="Abstraction.html" target="_self" class=" outLeftSel_no"><span>Abstraction</span></a></li><li class=" outLeftD3 outSec"><a href="EvalModes.html" target="_self" class=" outLeftSel_no"><span>Evaluation Modes</span></a></li><li class=" outLeftD3 outSec"><a href="HighOrder.html" target="_self" class=" outLeftSel_no"><span>Higher-Order Functions</span></a></li><li class=" outLeftD3 outSec"><a href="Control.html" target="_self" class=" outLeftSel_no"><span>Control Structures</span></a></li><li class=" outLeftD3 outSec"><a href="OMLoop.html" target="_self" class=" outLeftSel_no"><span>Iterations: OMLoop</span></a></li><li class=" outLeftD3 outSec"><a href="Instances.html" target="_self" class=" outLeftSel_no"><span>Instances</span></a><ul><li class=" outLeftD4 outSec"><span class=" outLeftSel_yes" id="i4"><span>Instance Boxes</span></span></li><li class=" outLeftD4 outSec"><a href="GlobalVariables.html" target="_self" class=" outLeftSel_no"><span>Global Variables</span></a></li><li class=" outLeftD4 outSec"><a href="SlotsBox.html" target="_self" class=" outLeftSel_no"><span>Slots</span></a></li><li class=" outLeftD4 outSec"><a href="Store.html" target="_self" class=" outLeftSel_no"><span>The Store Object</span></a></li></ul></li><li class=" outLeftD3 outSec"><a href="InterfaceBoxes.html" target="_self" class=" outLeftSel_no"><span>Interface Boxes</span></a></li><li class=" outLeftD3 outSec"><a href="Files.html" target="_self" class=" outLeftSel_no"><span>Files</span></a></li></ul></li><li class=" outLeftD2 outSec"><a href="BasicObjects.html" target="_self" class=" outLeftSel_no"><span>Basic Tools</span></a></li><li class=" outLeftD2 outSec"><a href="ScoreObjects.html" target="_self" class=" outLeftSel_no"><span>Score Objects</span></a></li><li class=" outLeftD2 outSec"><a href="Maquettes.html" target="_self" class=" outLeftSel_no"><span>Maquettes</span></a></li><li class=" outLeftD2 outSec"><a href="Sheet.html" target="_self" class=" outLeftSel_no"><span>Sheet</span></a></li><li class=" outLeftD2 outSec"><a href="MIDI.html" target="_self" class=" outLeftSel_no"><span>MIDI</span></a></li><li class=" outLeftD2 outSec"><a href="Audio.html" target="_self" class=" outLeftSel_no"><span>Audio</span></a></li><li class=" outLeftD2 outSec"><a href="SDIF.html" target="_self" class=" outLeftSel_no"><span>SDIF</span></a></li><li class=" outLeftD2 outSec"><a href="Lisp.html" target="_self" class=" outLeftSel_no"><span>Lisp Programming</span></a></li><li class=" outLeftD2 outSec"><a href="errors.html" target="_self" class=" outLeftSel_no"><span>Errors and Problems</span></a></li></ul></li><li class=" outLeftD1 outSec"><a href="QuickStart-Chapters.html" target="_self" class=" outLeftSel_no"><span>OpenMusic QuickStart</span></a></li></ul></div><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" id="mnuFrmDown" style="display: none;"><span id="mnuFrmDownLeft"><a onclick="menuScrollTiTask.step(20); return false;" href="#" id="mnuBtnDown"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></div></div></div></div></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1598"--><a class="navPrev" target="_self" href="Instances.html" title="page pr&eacute;c&eacute;dente(Instances)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1598/@c1709"--><span class="hidden"> | </span><a class="navNext" target="_self" href="GlobalVariables.html" title="page suivante(Global Variables)"><span>page suivante</span></a></div><div id="tplb"><a target="_self" class="btnAbout " href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou<a target="_blank" class="btnSc " href="http://scenari-platform.org" title="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)"><span><img src="../skin/img/btnSc.png " alt="R&eacute;alis&eacute; avec Scenari"></span></a></div></div>
-  <script type="text/javascript">dokielMgr.init();scImgMgr.init();scTooltipMgr.registerTooltip("i3","kFootBsktc1805","onmouseover","defRef tooltip","",{STICKY:true});menuMgr.init();new dkSiRuleResizeMnu("tplo","tplf",190);new scSiRuleEnsureVisible("i4", "ide:mnuScroll");</script>
- </body>
+<p><img src="../tplRes/page/empty.gif" alt="empty.gif"></img><img src="../res/logoom1.png" alt="logoom1.png"></img><span class="tplTi">OpenMusic Documentation</span><span class="sw_outStack_navRoot"><span class="hidden">Hiérarchie de section : </span><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a><span class="stkSep"> > </span><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a><span class="stkSep"> > </span><a href="Instances.html"><span>Instances</span></a><span class="stkSep"> > </span><span class="stkSel_yes"><span>Instance Boxes</span></span></span></p>
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="Instances.html" title="page pr&eacute;c&eacute;dente(Instances)"><span>page précédente</span></a><span class="hidden"> | </span><a href="GlobalVariables.html" title="page suivante(Global Variables)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplc" class="tplc_out_yes">
+
+<div style="text-align: center;">
+
+<p><strong>Attention</strong>, votre navigateur ne supporte pas le <strong>javascript</strong> ou celui-ci à été désactivé. Certaines fonctionnalités de ce guide sont restreintes.</p>
+</div>
+
+<div class="headCo">
+
+<h1 id="instance-boxes"><span>Instance Boxes</span></h1>
+<div class="headCo_co">
+
+<div>
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>An instance can be materialized out of any output of a factory box, provided this output can return an instance or a list. Creating an instance box is especially significant when done from the "self" outlet of a factory box, which returns the <strong>object itself</strong> .</p>
+<p>There are two types of instance boxes :</p>
+<ul>
+<li><span> <strong>class instances</strong>, which are created from objects,</span></li>
+<li><span> <strong>list instances</strong>, which are created from lists. </span></li>
+</ul>
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="procedure"><span>Procedure</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/createlistbox2.png" width="161" height="202" alt="The first ouput of the chord-seq factory box is a chord-seq instance. The second output is a list of pitches."></img>
+</div>
+<div class="caption_ti">
+The first ouput of the chord-seq factory box is a chord-seq instance. The second output is a list of pitches.
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>To create an instance box, <code class="keyboard_tl">SHIFT</code> + <code class="keyboard_tl">Cmd</code> click on an output.</p>
+<p>The corresponding object will appear in the patch editor.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p>The resulting box represents a specific object that cannot be reinitialized, but can be used and evaluated again in a patch.</p>
+<p>This is why this box shows only one "self" outlet.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/instanceself.png" width="147" height="93" alt="instanceself.png"></img>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Renaming Instance Boxes</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/edtiinstname.png" width="82" height="69" alt="edtiinstname.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>Instances in OM have a <strong>name</strong> , which can be edited on the instance box.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Modifying the Instance</span></p>
+</div>
+
+<div class="txt">
+
+<p>The parametric values of an instance box can't be accessed directly in patches. However, they can be accessed and modified with the slots box.</p>
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>About the Slots Box</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="SlotsBox.html"><span>Reading and Modifying Instances : Slots</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Instance Editors</span></p>
+</div>
+
+<div class="txt">
+
+<p>The content of an instance box can be modified like that a factory box.</p>
+<p>Double-click on the instance to open its editor.</p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/instanceeditor.png" alt="An instance has the same editor as the factory box it is derived from, and which offers the same edition possibilities."></img></p>
+</div>
+
+<div class="caption_ti">
+
+<p>An instance has the same editor as the factory box it is derived from, and which offers the same edition possibilities.</p>
+</div>
+
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>About Factory Boxes Editors</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="3-Editors.html"><span>Editors</span></a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>Some OM Objects Editors</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="BPFEditors.html"><span>BPFs and BPCs Editors</span></a></li>
+<li><a href="ScoreEditors.html"><span>Score Editors</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="list-instances"><span>List Instances</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p><strong>List instances</strong> are instance boxes containing lists of values instead of a single instance. An instance derived from a list returns its content when evaluated.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/listinstance.png" width="111" height="119" alt="A list can be used for creating an instance box."></img>
+</div>
+<div class="caption_ti">
+A list can be used for creating an instance box.
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/uselistinstance.png" width="166" height="178" alt="uselistinstance.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>Just like any list, it can be connected to other boxes to create new objects.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="bloc complement">
+
+<div class="bloc_ti complement_ti">
+
+<p><span>Lists Editor</span></p>
+</div>
+
+<div class="txt">
+
+<p>List instances have a basic editor allowing to get a preview and modify their contents.</p>
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>More about Instance and List Instance Editors</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="3-Editors.html"><span>Editors</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="storingreusing-instances"><span>Storing/Reusing Instances</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>Instances are a means to save an object within a patch, where it can then be used as a source of data.</p>
+<p>Instances can also be used in other patches :</p>
+<ul>
+<li><p>they can be copied</p></li>
+<li><p>they can saved as <span id="i3" class="defRef_ul"><span>global variables</span></span><sup><a href="#kFootBsktc1805"><span>[</span>1<span>]</span></a></sup>, which is sometimes more convenient and/or coherent.</p></li>
+</ul>
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>About Global Variables</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="GlobalVariables.html"><span>Global Variables</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Instance Files</span></p>
+</div>
+
+<div class="txt">
+
+<p>Instances can also be exported and imported as <strong>.omi</strong> files, to and from any location of your hard drive. The import/export procedure must be done via Factory Boxes.</p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/exportinstance_2.png" alt="An instance must be integrated as the content of a factory box, before it is exported."></img></p>
+</div>
+
+<div class="caption_ti">
+
+<p>An instance must be integrated as the content of a factory box, before it is exported.</p>
+</div>
+
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>Importing / Exporting Instances to/from Factory Boxes</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="4-ImportExport.html"><span>Importing/Exporting Factory Box Values</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="bloc complement">
+
+<div class="bloc_ti complement_ti">
+
+<p><span>Dropping Instance Files in the Patch</span></p>
+</div>
+
+<div class="txt">
+
+<p>You can drag and drop an <strong>instance file</strong> in a patch editor to create a new instance box directly.</p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/draginst.png" alt="draginst.png"></img></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p><span class="hidden">Références : </span></p>
+<ol>
+<li><div id="kFootBsktc1805">
+
+<div class="footBskt_itti">
+
+<p>Global variable</p>
+</div>
+
+<div class="footBskt_itco">
+
+<div>
+
+<div class="dk_definitionMeta_def">
+
+<p>An instance of OM object that has been saved in order to be used in other programs. Global variables are visible from the <code>Library</code> window and stored as .omi files in the <code>Globals</code> folder of the workspace.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</li>
+</ol>
+</div>
+
+<div id="tplo" class="tplo_out_yes">
+
+<div class="tplOTp">
+
+<div class="tplOBm">
+
+<div id="mnuFrm">
+
+<p><span class="hidden">Plan :</span></p>
+<div id="mnuFrmUp" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" style="display: none;">
+
+<p><span id="mnuFrmUpLeft"><a href="#"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></p>
+</div>
+
+<div id="mnuScroll">
+
+<ul>
+<li><a href="OM-Documentation.html"><span>OpenMusic Documentation</span></a></li>
+<li><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a>
+<ul>
+<li><a href="00-Sommaire.html"><span>Introduction</span></a></li>
+<li><a href="Installation.html"><span>System Configuration and Installation</span></a></li>
+<li><a href="Goingthrough.html"><span>Going Through an OM Session</span></a></li>
+<li><a href="Environment.html"><span>The OM Environment</span></a></li>
+<li><a href="BasicVisualProgramming.html"><span>Visual Programming I</span></a></li>
+<li><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a>
+<ul>
+<li><a href="Abstraction.html"><span>Abstraction</span></a></li>
+<li><a href="EvalModes.html"><span>Evaluation Modes</span></a></li>
+<li><a href="HighOrder.html"><span>Higher-Order Functions</span></a></li>
+<li><a href="Control.html"><span>Control Structures</span></a></li>
+<li><a href="OMLoop.html"><span>Iterations: OMLoop</span></a></li>
+<li><a href="Instances.html"><span>Instances</span></a>
+<ul>
+<li><span id="i4" class="outLeftSel_yes"><span>Instance Boxes</span></span></li>
+<li><a href="GlobalVariables.html"><span>Global Variables</span></a></li>
+<li><a href="SlotsBox.html"><span>Slots</span></a></li>
+<li><a href="Store.html"><span>The Store Object</span></a></li>
+</ul></li>
+<li><a href="InterfaceBoxes.html"><span>Interface Boxes</span></a></li>
+<li><a href="Files.html"><span>Files</span></a></li>
+</ul></li>
+<li><a href="BasicObjects.html"><span>Basic Tools</span></a></li>
+<li><a href="ScoreObjects.html"><span>Score Objects</span></a></li>
+<li><a href="Maquettes.html"><span>Maquettes</span></a></li>
+<li><a href="Sheet.html"><span>Sheet</span></a></li>
+<li><a href="MIDI.html"><span>MIDI</span></a></li>
+<li><a href="Audio.html"><span>Audio</span></a></li>
+<li><a href="SDIF.html"><span>SDIF</span></a></li>
+<li><a href="Lisp.html"><span>Lisp Programming</span></a></li>
+<li><a href="errors.html"><span>Errors and Problems</span></a></li>
+</ul></li>
+<li><a href="QuickStart-Chapters.html"><span>OpenMusic QuickStart</span></a></li>
+</ul>
+</div>
+
+<div id="mnuFrmDown" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" style="display: none;">
+
+<p><span id="mnuFrmDownLeft"><a href="#"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="Instances.html" title="page pr&eacute;c&eacute;dente(Instances)"><span>page précédente</span></a><span class="hidden"> | </span><a href="GlobalVariables.html" title="page suivante(Global Variables)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplb">
+
+<p><a href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou</p>
+</div>
+
+</div>
+</body>
 </html>
+</!doctype>

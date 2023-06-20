@@ -1,0 +1,64 @@
+2016-02-11 (0.5.009)
+      * phtml.lisp
+	** next-token no longer parses entities within URI attributes
+	   as they follow their own escape convention.
+
+2014-04-13 (0.4.007)
+      * html-basics.lisp
+	** replaced *lhtml-not-safe*  with *lhtml-safe*.
+      * elemetns.lisp
+	** renamed standard-tag-p to tag-standard-p.
+      * phtml.lisp
+	** radically improved and restructured code;
+	++ improved error reporting:
+	   +++ added warnings and messages on unmatched closing tag,
+	   +++ indicated a line number and character position.
+	++ added function parse-entity as a separate unit of code;
+	** changed signature of phtml-internal.
+
+2012-11-20 (0.3.006)
+      * Added charset.lisp
+        ++ functions converting implementation-specific external-format
+	   designators to/from canonical charset keywords,
+      * html-basics.lisp
+	** replaced *html-charset* special with 
+	   *html-external-format* special variable.
+	++ added constant +xml-declaration-format+,
+	** function (setf html-mode) now accepts a charset keyword,
+	   which push the XML declaration with encoding="" attribute
+	   into the default prologue lines.
+        ** renamed html-include to include, it signature has changed.
+      * bbcode.lisp
+	** fixed bug in %bbcode-output-node and %bbcode-lhtml-node:
+	   inside elements are now printed or collected if the hole 
+	     [tag inside1 ...]
+	   is not a BBcode element,
+	++ added function bbcode-lhtml.
+
+2011-10-21 (0.2.005)
+      * Added PHP markup <?php ?> support to generator and parser.
+	In attributes, it is printed correctly when *html-mode* is :xml and
+	when the PHP code is a whole attribute value.
+
+2010-03-10 (0.1.004) 
+      * html-basics.lisp 
+	++ added special *include-function* to control inclusion of
+	   external files of types different from "lhtml" and "htt".
+
+2009-09-11 (0.1.003) 
+      * lhtt.lisp 
+	++ added parameter package to the function template-read-from-string.
+
+2009-05-05 (0.1.002) 
+      + Added lhtt.lisp - implementation of Lisp Hyper-Text Template.
+      * htmlgen.lisp
+	** Attribute syntax  :optional (attr form)
+	   was superseded in favor of  attr (:optional form)
+	   in htm and other macros for consistency with LHTML.
+      * bbcode.lisp
+	** moved from html-template package to html package,
+	** output-bbcode-html renamed to bbcode-output-html.
+
+2009-03-05 (0.1.001) INITIAL RELEASE
+      * Integrates several HTML-related libraries:
+	HTMLGen, PHTML, HTML-TEMPLATE, Ystok-URI

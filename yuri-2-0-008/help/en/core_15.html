@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="API (Applied Program Interface) Ystok-URI: classes, variables, and functions in the uri package">
+<meta name="KEYWORDS" content="URI,uniform resource identifier">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="uri=" href="core_14.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="enough-uri" href="core_16.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 class="signature code" id="MERGE-URIS"><span class="category">[Generic Function]</span>
+ merge-uris</h2>
+<h5 class="signature">Signature</h5>
+<p class="signature code"><b>merge-uris</b> <var>uri base</var> &optional <var>place</var>
+ =&gt; <var>result-uri</var></p>
+
+<h5>Package</h5>
+<p><a class="code" href="core_01.html#YSTOK.URI_package" title="ystok.uri">ystok.uri</a></p>
+
+<h5>Arguments</h5>
+<dl class="av">
+<dt>uri</dt>
+<dd>An instance of the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a>
+structure class, string, or another object representing a relative
+or absolute URI.</dd>
+<dt>base</dt>
+<dd>An instance of the <a class="code" href="core_06.html#URI_structure" title="uri">uri</a>
+structure class, string, or another object representing an absolute URI.</dd>
+<dt>place</dt>
+<dd>If given, must be a <a class="code" href="core_06.html#URI_structure" title="uri">uri</a> instance
+ that will used as a storage for the result rather than a new one being created.</dd>
+</dl>
+
+<h5>Values</h5>
+<p>A newly created <a class="code" href="core_06.html#URI_structure" title="uri">uri</a> instance 
+ or the <var>place</var> if given.</p>
+
+<h5>Description</h5>
+<p>The function converts the <var>uri</var> reference that might be relative
+to the given <var>base</var> URI. The <var>result-uri</var> contains the same parsed components
+as the reference's target.</p>
+
+<p>The simplified procedure of merging is as follows.</p>
+
+<ol>
+<li>If <var>uri</var> has a scheme,<br>
+then the copy of <var>uri</var> is returned 
+(strict parser),<br>
+else the <var>result-uri</var> inherits the scheme from <var>base</var>.</li>
+<li>If <var>uri</var> has an <a href="core_08.html#URI-AUTHORITY" title="uri-authority">authority</a>,<br>
+then the copy of <var>uri</var> is returned with the scheme inherited,<br>
+else the <var>result-uri</var> inherits the authority from <var>base</var>.</li>
+<li>If <var>uri</var> path is empty (i.e. null), 
+then <br>- the query of either <var>uri</var> or <var>base</var> (if the former 
+is null) is used,<br>- the fragment of <var>uri</var> is used,<br>- all other slots are inherited from
+<var>base</var>.</li>
+<li>If the path of <var>uri</var> is absolute (starts with a '/'),<br>
+ then this path along with query and fragment of <var>uri</var> are used in <var>
+result-uri</var>.</li>
+<li>Otherwise,<br>
+- the paths of <var>base</var> and <var>uri</var> are merged into a <var>result-uri</var> path,<br>
+- the query and fragment of <var>uri</var> are used unmodified in <var>result-uri</var>.</li>
+</ol>
+<!--p>One comment about error checking of URIs as a result of merging: 
+RFC2396 says that an implementation may handle too many ..'s in a merge result 
+<cite>by retaining these components in the resolved path, 
+ by removing them from the resolved path, 
+ or by avoiding traversal of the reference.</cite></p>
+<p>The examples in appendix C of RFC2396 imply that 
+an implementation should retain these invalid elements, 
+so that is what we do. For example, </p-->
+
+<p class="nb">The rules for merging URIs are not the same as for merging pathnames.</p>
+
+<h5 class="related">See also</h5>
+<ul class="enum">
+<li><a target="_blank" class="world" href="http://www.ietf.org/rfc/rfc3986">Uniform
+ Resource Identifier (URI): Generic Syntax, RFC 3986, 5.2. Relative Resolution</a>
+</li></ul>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="uri=" href="core_14.html">Previous</a></li><li><a class="UP" rel="UP" title="Core primitives" href="core_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="enough-uri" href="core_16.html">Next</a></li></ul></div>
+</body>
+</html>
