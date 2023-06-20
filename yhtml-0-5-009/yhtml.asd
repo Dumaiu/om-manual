@@ -19,9 +19,9 @@
   :components
   ((:file "html-package")
    (:module "lang" :depends-on ("html-package")
-    :components
-    (#+Russian             (:file "ru-html"))
-    (#+(and Russian phtml) (:file "ru-phtml")))
+	:components
+	(#+Russian             (:file "ru-html")
+	 #+(and Russian phtml) (:file "ru-phtml")))
    (:file "charsets")
    (:file "elements")
    (:file "entities")
