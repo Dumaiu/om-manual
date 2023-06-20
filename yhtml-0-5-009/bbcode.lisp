@@ -42,7 +42,7 @@
            token)
           ((char= (char token 1) #\[)			; a spurious tag
            (subseq token 1 (1- length)))
-          (t			; разбить на подстроки по пробелу или знаку =
+          (t			; [KLUDGE: Dumaiu/om-manual#1]
            #+ylib
            (yl:split-seq-if (lambda (char) (char-position char " ="))
                             token
