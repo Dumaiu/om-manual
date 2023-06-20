@@ -18,8 +18,8 @@
 (defconstant* +nil-circle+ '#1=(nil . #1#))	; cicled list of NILs, e.g. for :names
 
 (defconstant* +null-string+ "")
-(defconstant* +all-string+  #-Russian " (all)"	#+Russian " (все)")
-(defconstant* +none-string+ #-Russian " (none)"	#+Russian " (нет)")
+(defconstant* +all-string+  #-Russian " (all)")
+(defconstant* +none-string+ #-Russian " (none)")
 
 (defconstant +en-dash+ (code-char #x2013))
 (defconstant +em-dash+ (code-char #x2014))
