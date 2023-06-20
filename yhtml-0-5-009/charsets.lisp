@@ -122,7 +122,7 @@
                               (if (setq charset (parse-integer arg :start 8 :radix 10
                                                                :junk-allowed t))
                                   keyword
-                                  nil)
+									nil))
                             #+allegro
                             ((and (= 4 length)				; :1251
                                   (setq charset (parse-integer arg :radix 10
@@ -149,7 +149,7 @@
                                       (<= 1 charset 15))
                                  (intern (string-append "ISO-8859-" (subseq arg 8))
                                          *kwd-package*)
-                                 nil)))))))))
+									nil))))))))
            ((integerp arg)
             (if (< 1250 arg 1258)
                 (intern (string-append #1# (princ-to-string arg)) *kwd-package*)
