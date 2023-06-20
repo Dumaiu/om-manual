@@ -73,7 +73,7 @@
   (mapcar #'parse-bbcode-token
           #+(and ylib lispworks)
           (yl:split "\\[[^][]*\\]" text :with-registers-p t)	; Emacs-like re
-          #+(and (not ylib) (not lispworks) cl-ppcre)
+          #+(and (not (and ylib lispworks)) cl-ppcre)
           (ppcre:split "(\\[[^[]*])" text :with-registers-p t)
           #-(or (and ylib lispworks) cl-ppcre)
           (progn (warn "Do not know how to split sequence.") (list text))))
