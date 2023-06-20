@@ -567,7 +567,9 @@
 ;  `(function ,@body))
 
 (defconstant* +spec-bad-args-format-string+
-  "LHTML pseudo-tag ~s: bad number of arguments~@[ ~d~]")
+  "LHTML pseudo-tag ~s: bad number of arguments XXX"
+  ;; "LHTML pseudo-tag ~s: bad number of arguments~@[ ~d~]"
+  )
 (defconstant* +bad-tag-within-body+
   "Illegal LHTML pseudo-tag ~s within body: ~s")
 (defconstant* +bad-tag-place+
