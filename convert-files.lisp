@@ -5,7 +5,8 @@
 	 ;; :alexandria
 	 :let-plus
 	 :asdf :uiop
-	 :cl)
+	 :cl
+	 :asdf-user)
   (:intern
    file-error
 	 run-program)
@@ -30,6 +31,18 @@
 ; '#99 ; XXX
 '#:foo ; XXX
 ':foo
+
+(defun html-string->md (input
+						&key (output :string)
+						  (in-fmt "html")
+						  (out-fmt "gfm")
+						  )
+  (with-input (*standard-input* input)
+	(run-program (list "pandoc"
+					   "-f" in-fmt
+					   "-t" out-fmt)
+				 :input t
+				 :output output)))
 
 (defun html-file->md (input-file~
 					  &key (output :string)

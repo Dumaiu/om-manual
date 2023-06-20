@@ -1,9 +1,14 @@
 (in-package :asdf-user)
 
 (defsystem om-manual-conversion
-  :depends-on (:let-plus)
-  :serial t
+  :depends-on (:let-plus
+			   :url-rewrite)
   :components
-  ((:file "convert-files")
-   (:file "validate-html")
+  ((:module base :pathname ""
+	:components
+	((:file "convert-files")))
+   (:file "validate-html"
+	:depends-on (base))
+   (:file "map-over" ; requires :url-rewrite
+	:depends-on (base))
    ))
