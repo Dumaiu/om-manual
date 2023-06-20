@@ -80,7 +80,7 @@
  (:method (object)
   (error 'uri-error
     :format-control #-Russian "Object cannot be converted to URI: ~s."
-                    #+Russian "Объект не может быть преобразован в спецификацию URI: ~s"
+					#+Russian (error)
     :format-arguments (list object)))
  (:method ((object uri))
   object))
@@ -448,7 +448,7 @@ as well as a user information."
               uri)
             (error 'uri-parse-error
                    :format-control #-Russian "Bad-formed URI string ~s"
-                                   #+Russian "Ошибка в спецификации URI ~s"
+                                   #+Russian (error)
                    :format-arguments (list string)) ))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PRINTING  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;j;;;;;
