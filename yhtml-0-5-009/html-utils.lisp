@@ -96,8 +96,7 @@
 
 
 (defun princ-safe-or-nbsp (cont &optional break)
- ;;; ѕри пустом контенте границы клеточки не показываютс€ - заполнить &nbsp;
-  ;; Args: break –азбивать на строки
+  ;; Args: break
   (cond ((or (null cont) (equal cont +null-string+))
          (html:princ-http +nbsp+))
         (break
@@ -149,7 +148,7 @@
 (defparameter *default-template-file-type* "htt"
   "String used as a pathname-type default along with templates-folder.")
 
-;(defparameter *wild-template-file*  #P"*.htt")	; по умолчанию
+;(defparameter *wild-template-file*  #P"*.htt")
 ;(defparameter *wild-shtt-file* #P"*.shtt")
 ;(defparameter *wild-phtt-file* #P"*.phtt")
 
@@ -178,14 +177,12 @@ Values:
       (values (interleave-seq 'string #\Space (mapcar #'princ-to-string object))
               nil)))
 
-;;; —пециальные св-ва URI: :text, :reference, :icon?
 
 (yl:keep-symbol-names
  '(icon icon-html text) ;title
  :function)
 
 (defun uri-text (uri)
- "“екст или произвольный контент, высвечиваемый дл€ ссылки"
   (getf (uri:uri-plist uri) :text))
 (defun (setf uri-text) (value uri)
   (setf (getf (uri:uri-plist uri) :text) value))
