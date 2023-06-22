@@ -2,7 +2,8 @@
 
 (defsystem om-manual-conversion
   :depends-on (:let-plus
-			   :url-rewrite)
+			   :url-rewrite
+			   :yhtml)
   :components
   ((:module base :pathname ""
 	:components
