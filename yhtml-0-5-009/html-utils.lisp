@@ -233,8 +233,8 @@ Value: Freshly consed alist.")
   ;; Value: A fresly consed alist.
   ;; HINT: You can override a value of some slot by pushing corresponding pair
   ;;       at the head of environment.
-  (loop for slot in (clos:class-effective-slots (class-of instance))
-        for slot-name = (clos:slot-definition-name slot)
+  (loop for slot in (class-slots (class-of instance))
+        for slot-name = (slot-definition-name slot)
         when (and (slot-boundp instance slot-name)
                   (not (memq slot-name exclude)))
         collect `(,(cdr-assoq3 slot-name subst slot-name) .

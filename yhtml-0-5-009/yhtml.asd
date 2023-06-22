@@ -11,10 +11,11 @@
 
 (asdf:defsystem yhtml
   :depends-on (ystok-library
-			   :yhtml-template
+			   yhtml-template
 			   #+uri ystok-uri
 			   #+local-time local-time
-			   acl-compat)
+			   :acl-compat
+			   :closer-mop)
   :serial t
   :components
   ((:file "html-package")
