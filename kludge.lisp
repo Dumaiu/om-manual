@@ -1,9 +1,32 @@
 (in-package :asdf-user)
 
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (let* ((dir (ensure-directory-pathname (pathname-directory-pathname (current-lisp-file-pathname))))
-         (asdf (make-pathname* :directory (pathname-directory dir) :name "om-manual-conversion" :type "asd")))
-    (assert (file-exists-p asdf))
-    (load-asd asdf))
+(use-package :quicklisp)
 
-  (make :om-manual-conversion))
+(defvar +om-manual-dir+ (let* ((dir (ensure-directory-pathname (pathname-directory-pathname (current-lisp-file-pathname))))
+							   )
+						  (assert (directory-exists-p dir))
+						  dir))
+
+(progn
+
+  (progn
+	(load-asd (merge-pathnames* "yuri-2-0-008/ystok-uri.asd" +om-manual-dir+))
+	(load-asd (merge-pathnames* "ylib-1-4-025/ystok-library.asd" +om-manual-dir+))
+	(load-asd (merge-pathnames* "yhtml-template-0-10-3/html-template.asd" +om-manual-dir+))
+	(load-asd (merge-pathnames* "yhtml-0-5-009/yhtml.asd" +om-manual-dir+)))
+
+  (quickload '(;:html-template
+			   :acl-compat
+			   :cl-ppcre))
+
+  ;; (make :yhtml-template)
+  ;; (make :ystok-library)
+  ;; (make :ystok-uri)
+  (make :yhtml))
+
+(let-1 om-manual-conversion.asdf (merge-pathnames* "om-manual-conversion.asd" +om-manual-dir+)
+  (assert (file-exists-p om-manual-conversion.asdf))
+  (load-asd om-manual-conversion.asdf))
+
+
+(make :om-manual-conversion)
