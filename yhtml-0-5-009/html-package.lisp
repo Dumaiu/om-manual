@@ -4,9 +4,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; (X)HTML generator package definition
 
-(in-package :cl-user)
+(in-package :asdf-user)
 
-(defpackage :ystok.html.generator
+(define-package :ystok.html.generator
  (:use :common-lisp #+ylib :ystok.library)
  (:nicknames :html)
  ;#+html-template			; seems to be always included
@@ -14,6 +14,9 @@
   #:*escape-char-p*
   #:*template-environment*
   #:escape-string)
+ (:import-from :closer-mop
+			   #:class-slots
+			   #:slot-definition-name)
  (:export
   #:*html-external-format*		; mainly output format but also mentioned in PHTML
   #:*html-stream*			; HTMLGen and BBCode
