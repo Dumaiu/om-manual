@@ -10,6 +10,6 @@
 	((:file "convert-files")))
    (:file "validate-html"
 	:depends-on (base))
-   (:file "map-over" ; requires :url-rewrite
+   (:file "url-rewrite" ; requires :url-rewrite
 	:depends-on (base))
    ))
