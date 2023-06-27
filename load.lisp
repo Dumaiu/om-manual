@@ -17,6 +17,7 @@
 
   (quickload '(;:html-template
 			   :acl-compat
+			   :trivia
 			   :cl-ppcre))
 
   ;; (make :yhtml-template)
