@@ -11,7 +11,9 @@
 #|
 TODO: (htm) should throw more specific exceptions
 
-TODO: (htm) shouldn't create `</img>` closers
+TODO: (htm) shouldn't create `</img>` or `</meta>` closers
+
+TODO: How do you get `(:!doctype "html")` to translate correctly?
 
 |#
 
@@ -55,7 +57,10 @@ TODO: (htm) shouldn't create `</img>` closers
 												  (rplacd (last plist-form) (list :alt alt-text~)))
 												;; (break "Null-text img: ~S" plist-form)
 												(values img-form t)))))
-								  ))))
+								  )))
+
+  ;; (setf *manual-new* `(:body ,*manual-new*))
+  )
 
 (assert (not (typep *manual* 'html-element-sexp)))
 (assert (not (typep *manual-new* 'html-element-sexp)))
@@ -114,11 +119,19 @@ TODO: (htm) shouldn't create `</img>` closers
 	 (with-html-stream (strm)
 	   (htm :newline)))
 
+   (htm '(:!doctype "html")) ; XXX
+
+   (to-html '(:!doctype "html")) ; XXX
+   (to-html '((:!doctype "html"))) ; XXX
 
    )
 
 (defparameter *manual-new-html*
-  (to-html *manual-new*))
+  (to-html `(;; (:!doctype "html") XXX
+			 ((:html :lang "en")
+			  (:head (:title "TODO title")
+				((:meta  :charset "utf-8")))
+			  (:body ,@*manual-new*)))))
 
 (princ *manual-new-html*)
 
@@ -127,4 +140,5 @@ TODO: (htm) shouldn't create `</img>` closers
 (let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
   (with-output-file (f file :if-exists :supersede
 							:if-does-not-exist :create)
+	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
 	(princ *manual-new-html* f)))
