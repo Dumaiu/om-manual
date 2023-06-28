@@ -14,41 +14,65 @@
 
 
   (defparameter *manual-new*
-	(parse-html file :callbacks `((:div . ,(λ div-form
-											 ;; (break "Arg: ~A" div-form)
-											 (match div-form
-											   ((list* (list* :div (plist :class  "googleSearchFrom")) _)
-												;; (break "class: ~A" class)
-												;; (break "Arg: ~A" div-form)
-												(values nil t) ; delete tag
-												))))))))
+	(car (parse-html file :callbacks `((:div . ,(λ div-form
+											  ;; (break "Arg: ~A" div-form)
+											  (match div-form
+												((list* (list* :div (plist :class  "googleSearchFrom")) _)
+												 ;; (break "class: ~A" class)
+												 ;; (break "Arg: ~A" div-form)
+												 (values nil t) ; delete tag
+												 ))))))))
+  "NOTE: Strips off trailing newling.")
 
-(defun print-html (form)
-  (html:with-html-stream (*standard-output*)
-	(html:htm form)))
+(defun to-html (form)
+  "Convert FORM to HTML and return as a string."
+  (let-1 form~ `(with-output-to-string (strm)
+				  (with-html-stream (strm)
+					(htm ,form)))
+	;; (break "~A" form~)
+	(let-1 res (eval form~)
+	  (declare (string res))
+	  res)))
+
+(defun print-html (form &optional (stream *standard-output*))
+  "Convert FORM to HTML and print to STREAM."
+  (print (to-html form) stream))
 
 ''(
+   ;;; Works:
+   (eval `(with-html-stream (*standard-output*)
+			(htm ,(car *manual*))))
+
+
+   ;;; Also works:
+   (eval `(with-html-stream (*standard-output*)
+			(htm ,*manual-new*)))
+
+   (print-html :newline)
+
    (print-html *manual-new*)
 
-   (with-html-stream (*standard-output*)
-	 (html:htm
-	  :newline))
 
-   (html:htm
-	*manual*)
+   (eval
+	`(with-html-stream (*standard-output*)
+	   (htm ',(first *manual*))))
 
    (with-html-stream (*standard-output*)
-	 *manual*)
+	 (htm :newline))
+
+   (with-output-to-string (strm)
+	 (with-html-stream (strm)
+	   (htm :newline)))
+
+   ;; (reduce 'strcat (mapcar 'print-html *manual-new*))
+
+   ;; (to-html *manual*) XXX
 
    (defparameter *manual-new-html*
 	 (with-html-stream (*standard-output*)
 	   *manual-new*))
 
    (equalp *manual-new* *manual*)
-
-   (eval `(html:with-html-stream (*standard-output*)
-			(html:htm ,(car *manual-new*))))
-
 
 
    )
