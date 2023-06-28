@@ -25,13 +25,20 @@ TODO: (htm) should throw more specific exceptions
 
   (defparameter *manual-new*
 	(parse-html file :callbacks `((:div . ,(λ div-form
+											 "Remove 'googleSearchFrom' `div` element."
 											 ;; (break "Arg: ~A" div-form)
 											 (match div-form
 											   ((list* (list* :div (plist :class  "googleSearchFrom")) _)
 												;; (break "class: ~A" class)
 												;; (break "Arg: ~A" div-form)
-												(values nil t) ; delete tag
-												))))))))
+												(values nil t) ; delete element
+												))))
+								  (:a . ,(λ anchor-form
+										   "Remove 'Scenari' `<a>` at end of page."
+										   (match anchor-form
+											 ((list* (list* :a (plist :href "http://scenari-platform.org")) _)
+											  (values nil t)))))  ; delete element
+								  ))))
 
 (assert (not (typep *manual* 'html-element-sexp)))
 (assert (not (typep *manual-new* 'html-element-sexp)))
