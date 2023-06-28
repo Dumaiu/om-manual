@@ -55,7 +55,10 @@ TODO: (htm) shouldn't create `</img>` closers
 												  (rplacd (last plist-form) (list :alt alt-text~)))
 												;; (break "Null-text img: ~S" plist-form)
 												(values img-form t)))))
-								  ))))
+								  )))
+
+  ;; (setf *manual-new* `(:body ,*manual-new*))
+  )
 
 (assert (not (typep *manual* 'html-element-sexp)))
 (assert (not (typep *manual-new* 'html-element-sexp)))
@@ -118,7 +121,11 @@ TODO: (htm) shouldn't create `</img>` closers
    )
 
 (defparameter *manual-new-html*
-  (to-html *manual-new*))
+  (to-html `((:html :lang "en")
+			 (:head
+				 (:title "TODO title")
+	 			 ((:meta  :charset "utf-8")))
+			 (:body ,@*manual-new*))))
 
 (princ *manual-new-html*)
 
