@@ -11,10 +11,12 @@
 #|
 TODO: (htm) should throw more specific exceptions
 
+TODO: (htm) shouldn't create `</img>` closers
+
 |#
 
 (deftype html-element-sexp ()
-  '(or keyword 							; single-tag element without attributes
+  '(or keyword							; single-tag element without attributes
 	(cons keyword cons)					; single-tag element w/ attributes or double-tag element w/o attributes
 	(cons (cons keyword cons) list)		; double-tag element w/ attributes
 	))
@@ -38,6 +40,21 @@ TODO: (htm) should throw more specific exceptions
 										   (match anchor-form
 											 ((list* (list* :a (plist :href "http://scenari-platform.org")) _)
 											  (values nil t)))))  ; delete element
+								  (:img . ,(λ img-form
+											 "Add alt-text to `<img>` tags."
+											 (match img-form
+											   ((guard (list* (list* :img (and plist-form
+																			   (plist :src src :alt alt-text)))
+															  _)
+													   (null alt-text))
+												;; (break "Null-text img: ~A" img-form)
+												;; TODO: Plist setter; no-copy lens:
+												(let-1 alt-text~ (namestring
+																  (make-pathname :name (pathname-name src)
+																				 :type (pathname-type src)))
+												  (rplacd (last plist-form) (list :alt alt-text~)))
+												;; (break "Null-text img: ~S" plist-form)
+												(values img-form t)))))
 								  ))))
 
 (assert (not (typep *manual* 'html-element-sexp)))
@@ -105,9 +122,9 @@ TODO: (htm) should throw more specific exceptions
 
 (princ *manual-new-html*)
 
-; (parse-html *manual-new-html*) XXX
+										; (parse-html *manual-new-html*) XXX
 
 (let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
- (with-output-file (f file :if-exists :supersede
-					  :if-does-not-exist :create)
-   (princ *manual-new-html* f)))
+  (with-output-file (f file :if-exists :supersede
+							:if-does-not-exist :create)
+	(princ *manual-new-html* f)))
