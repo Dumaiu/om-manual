@@ -26,47 +26,6 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 	(cons (cons keyword cons) list)		; double-tag element w/ attributes
 	))
 
-(let-1 file (merge-pathnames* "OM-User-Manual.md.html" *default-directory*)
-  (defparameter *manual.md.html* file)
-
-  (defparameter *orig-manual.md* (parse-html file))
-
-
-  (defparameter *manual.md.ystok*
-	(parse-html file :callbacks `((:div . ,(λ div-form
-											 "Remove 'googleSearchFrom' `div` element."
-											 ;; (break "Arg: ~A" div-form)
-											 (match div-form
-											   ((list* (list* :div (plist :class  "googleSearchFrom")) _)
-												;; (break "class: ~A" class)
-												;; (break "Arg: ~A" div-form)
-												(values nil t) ; delete element
-												))))
-								  (:a . ,(λ anchor-form
-										   "Remove 'Scenari' `<a>` at end of page."
-										   (match anchor-form
-											 ((list* (list* :a (plist :href "http://scenari-platform.org")) _)
-											  (values nil t)))))  ; delete element
-								  (:img . ,(λ img-form
-											 "Add alt-text to `<img>` tags."
-											 (match img-form
-											   ((guard (list* (list* :img (and plist-form
-																			   (plist :src src :alt alt-text)))
-															  _)
-													   (null alt-text))
-												;; (break "Null-text img: ~A" img-form)
-												;; TODO: Plist setter; no-copy lens:
-												(let-1 alt-text~ (namestring
-																  (make-pathname :name (pathname-name src)
-																				 :type (pathname-type src)))
-												  (rplacd (last plist-form) (list :alt alt-text~)))
-												;; (break "Null-text img: ~S" plist-form)
-												(values img-form t)))))
-								  )))
-
-  ;; (setf *manual.md.ystok* `(:body ,*manual.md.ystok*))
-  )
-
 ;; (assert (not (typep *orig-manual.md* 'html-element-sexp)))
 ;; (assert (not (typep *manual.md.ystok* 'html-element-sexp)))
 ;; But:
@@ -143,21 +102,23 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 
 										; (parse-html *manual.md.ystok.new*) XXX
 
-(defparameter *manual.md.ystok.new.html*
+''(defparameter *manual.md.ystok.new.html*
   (with-output-to-string (f)
 	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
 	(princ *manual.md.ystok.new* f)))
 
-(let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
+''(let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
   (with-output-file (f file :if-exists :supersede
 							:if-does-not-exist :create)
 	(princ *manual.md.ystok.new.html* f))
   )
 
 
-(parse-html *manual.md.ystok.new.html*)
-(file-exists-p *manual.md.html*)  
+''(
+   (parse-html *manual.md.ystok.new.html*)
+   (file-exists-p *manual.md.html*)
 
-(html-file->md *manual.md.html*  )
+   (html-file->md *manual.md.html*  )
 
-(html-string->md *manual.md.ystok.new.html*  )
+   (html-string->md *manual.md.ystok.new.html*  )
+   )
