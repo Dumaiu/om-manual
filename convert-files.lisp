@@ -46,7 +46,10 @@
 						 standalone
 						 (out-type out-fmt)
 						 (output :string))
-  "Returns a list used by (pandoc), q.v."
+  "Returns a list for use by (pandoc), which doesn't yet exist.
+
+ * [2023-06-29 Thu] TODO: Use Screamer to unify parameters per a consistency rubric.  Make sense?
+ "
   (declare (boolean standalone))
 
   (cond
@@ -68,11 +71,14 @@
 
   (check-type out-fmt string)
   (check-type out-type string)
+  (when (string-equal out-fmt "gfm")
+	(assert (string-equal out-type "md")))
 
   (when (eq :file output)
 	(setq output (make-pathname :type out-type :defaults input-file))
 	;; (break "Modified output: ~A" output)
 	)
+
 
   (when standalone
 	(assert (equalp out-fmt "html")))
@@ -83,55 +89,55 @@
 				   ,@(when in-fmt
 					   `("-f" ,in-fmt))
 				   "-t" ,out-fmt
-				   ,(ensure-list
-					 (when input-file
-					   (let* ((input-file-pathname (ensure-pathname input-file))
-							  (input-file~ (probe-file input-file-pathname))
-							  #|(expr (format nil "pandoc XXX")|#)
-						 (unless (file-exists-p input-file~)
-						   (error 'file-error :pathname input-file-pathname))
-						 (namestring input-file~)))))))
+				   ,@(ensure-list
+					  (when input-file
+						(let* ((input-file-pathname (ensure-pathname input-file))
+							   (input-file~ (probe-file input-file-pathname))
+							   #|(expr (format nil "pandoc XXX")|#)
+						  (unless (file-exists-p input-file~)
+							(error 'file-error :pathname input-file-pathname))
+						  (namestring input-file~)))))))
 
-	command))
+	(values command
+			(list :output output))))
 
-(defun html-string->md (input
-						   &key (output :string)
+(defun html-string->md (input &rest *keys
+						 &key (output :string)
 						 (in-fmt "html")
 						 (out-fmt "gfm")
-						 )
+						 (out-type "md")
+						 &allow-other-keys)
   (declare (string input))
-  (with-input (*standard-input* input)
-	(run-program (list "pandoc"
-					   "-f" in-fmt
-					   "-t" out-fmt)
-				 :input t
-				 :output output)))
+  "TODO [parameter-subtyping]: Inherit from (pandoc-command).
+"
+  (let-1 command (apply #'pandoc-command :input t :output output
+										 :in-fmt in-fmt :out-fmt out-fmt
+										 :out-type out-type
+										 *keys)
+	(with-input (*standard-input* input)
+	  (run-program command :input t :output output))))
 
-(defun html-file->md (input-file~
+(defun html-file->md (input-file &rest *keys
 					  &key (output :string)
-					  &aux
 						(in-fmt "html")
 						(out-fmt "gfm")
-						(input-file
-						 (or (file-exists-p input-file~)
-							 (probe-file (ensure-pathname (pathname-name input-file~)
-														  :type in-fmt)))))
+						(out-type "md")
+						&allow-other-keys)
   "By default, returns output as a string.  To write to a file, use `:output`, e.g.::
 	  (html-file->md \"00-Sommaire.html\" :output :file)
 
   This creates a file with the same base name, substituting 'md' for the extension.  Pass a pathname-designator to `:output` to override the naming.
 "
-  (when (eq :file output)
-	(setq output (merge-pathnames* (make-pathname* :type "md") input-file)))
-  (assert (file-exists-p input-file))
-  (run-program (list "pandoc"
-					 "-f" in-fmt
-					 "-t" out-fmt
-					 (namestring input-file))
-			   :output output))
+  (let+ (((&values command plist) (apply #'pandoc-command :input-file input-file :output output
+										  :in-fmt in-fmt :out-fmt out-fmt
+										  :out-type out-type
+										  *keys))
+		 ((&plist-r/o (output~ :output)) plist))
+	(run-program command :output output~)))
 
 (defun md-file->html (file~
 					  &key (output :string)
+						(standalone t)
 					  &aux (file
 							(probe-file
 							 (make-pathname :name (pathname-name file~)
@@ -163,9 +169,13 @@
 				 :output output)))
 
 ''(
+
+   (html-file->md *manual*) ; ✓
+
+   (html-file->md *manual* :output :file)
+
    (md-string->html (md-file->html "00-Sommaire.md"))
 
-   (html-file->md "OM-User-Manual.html" :output :file)
 
    (md-file->html "OM-User-Manual.md" :output "OM-User-Manual.md.html")
 
