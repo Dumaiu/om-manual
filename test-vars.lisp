@@ -11,7 +11,10 @@
 (assert (directory-exists-p *default-directory*))
 
 (defparameter *manual* (merge-pathnames* "OM-User-Manual.html" *default-directory*))
+(declaim (type pathname *manual*
+			   *manual.md*))
 (assert (file-exists-p *manual*))
+
 
 (defparameter *manual.md* (make-pathname :type "md" :defaults *manual*))
 
