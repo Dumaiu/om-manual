@@ -44,13 +44,15 @@
 						 out-fmt
 						 in-type
 						 standalone
+						 (lang "en")
 						 (out-type out-fmt)
 						 (output :string))
   "Returns a list for use by (pandoc), which doesn't yet exist.
 
  * [2023-06-29 Thu] TODO: Use Screamer to unify parameters per a consistency rubric.  Make sense?
  "
-  (declare (boolean standalone))
+  (declare (boolean standalone)
+		   (string lang))
 
   (cond
 	(input-file
@@ -84,6 +86,8 @@
 	(assert (equalp out-fmt "html")))
 
   (let ((command `("pandoc"
+				   ,@(when lang
+					   `("-V" ,(format nil "lang=~A" lang)))
 				   ,@(when standalone
 					   `("-s"))
 				   ,@(when in-fmt
@@ -135,29 +139,28 @@
 		 ((&plist-r/o (output~ :output)) plist))
 	(run-program command :output output~)))
 
-(defun md-file->html (file~
+(defun md-file->html (file
 					  &key (output :string)
 						(standalone t)
-					  &aux (file
-							(probe-file
-							 (make-pathname :name (pathname-name file~)
-											:directory (pathname-directory file~)
-											:type "md"))))
+					  &aux
+						(in-fmt "gfm")
+						(in-type "md")
+						(out-fmt "html")
+						;; (file
+						   ;; 	(probe-file
+						   ;; 	 (make-pathname :name (pathname-name file~)
+						   ;; 					:directory (pathname-directory file~)
+						   ;; 					:type "md")))
+						)
   "By default, returns output as a string.  To write to a file, e.g.::
 	  (md-file->html \"00-Sommaire.md\" :output :file)
 "
-  (when (eq :file output)
-	(setq output (merge-pathnames* (make-pathname* :type "html")
-								   file))
-	;; (break "Modified output: ~A" output)
-	)
-  (assert (file-exists-p file))
-  ;; (break "File: ~A" file)
-  (run-program (list "pandoc"
-					 "-f" "gfm"
-					 "-t" "html"
-					 (namestring file))
-			   :output output))
+  (let+ (((&values command plist) (pandoc-command :input-file file :output output
+														  :in-fmt in-fmt :out-fmt out-fmt
+														  :in-type in-type
+														  :standalone standalone))
+		 ((&plist-r/o (output~ :output)) plist))
+	(run-program command :output output~)))
 
 (defun md-string->html (input
 						   &key (output :string))
@@ -172,14 +175,17 @@
 
    (html-file->md *manual*) ; ✓
 
-   (html-file->md *manual* :output :file)
+   (html-file->md *manual* :output :file) ; ✓
 
    (md-string->html (md-file->html "00-Sommaire.md"))
 
 
-   (md-file->html "OM-User-Manual.md" :output "OM-User-Manual.md.html")
+   (md-file->html *manual.md*) ; ✓
 
-   (md-file->html "01-Presentation.md" :output :file)
+
+   (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; ✓ 
+
+   ;; (md-file->html "01-Presentation.md" :output :file)
 
 
    (pandoc-command :input-file *manual.md*
