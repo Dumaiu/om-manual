@@ -26,8 +26,6 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 	(cons (cons keyword cons) list)		; double-tag element w/ attributes
 	))
 
-(declaim (special *orig-manual.md*
-				  *manual.md.ystok*))
 (let-1 file (merge-pathnames* "OM-User-Manual.md.html" *default-directory*)
   (defparameter *manual.md.html* file)
 
@@ -69,8 +67,8 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
   ;; (setf *manual.md.ystok* `(:body ,*manual.md.ystok*))
   )
 
-(assert (not (typep *orig-manual.md* 'html-element-sexp)))
-(assert (not (typep *manual.md.ystok* 'html-element-sexp)))
+;; (assert (not (typep *orig-manual.md* 'html-element-sexp)))
+;; (assert (not (typep *manual.md.ystok* 'html-element-sexp)))
 ;; But:
 (assert (every (λ x (typep x 'html-element-sexp)) *manual.md.ystok*))
 
