@@ -43,9 +43,12 @@
 						 in-fmt
 						 out-fmt
 						 in-type
+						 standalone
 						 (out-type out-fmt)
 						 (output :string))
   "Returns a list used by (pandoc), q.v."
+  (declare (boolean standalone))
+
   (cond
 	(input-file
 	 (when input (assert (equalp input-file input)))
@@ -71,7 +74,12 @@
 	;; (break "Modified output: ~A" output)
 	)
 
+  (when standalone
+	(assert (equalp out-fmt "html")))
+
   (let ((command `("pandoc"
+				   ,@(when standalone
+					   `("-s"))
 				   ,@(when in-fmt
 					   `("-f" ,in-fmt))
 				   "-t" ,out-fmt
@@ -166,6 +174,7 @@
 
    (pandoc-command :input-file *manual.md*
 				   :in-fmt "gfm"
-				   :out-fmt "html")
+				   :out-fmt "html"
+				   :standalone t)
 
    )
