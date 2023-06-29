@@ -13,7 +13,10 @@ TODO: (htm) should throw more specific exceptions
 
 TODO: (htm) shouldn't create `</img>` or `</meta>` closers
 
-TODO: How do you get `(:!doctype "html")` to translate correctly?
+TODO: How do you get `(:!doctype "html")` to translate correctly?  [Dumaiu/om-manual#5]
+
+
+TODO: ystok: [I don't think it's possible to distinguish between an element with attributes vs. a list of elements without attributes.]
 
 |#
 
@@ -23,11 +26,13 @@ TODO: How do you get `(:!doctype "html")` to translate correctly?
 	(cons (cons keyword cons) list)		; double-tag element w/ attributes
 	))
 
+(declaim (special *manual.md*
+				  *manual.md.ystok*))
 (let-1 file (merge-pathnames* "OM-User-Manual.md.html" *default-directory*)
-  (defparameter *manual* (parse-html file))
+  (defparameter *manual.md* (parse-html file))
 
 
-  (defparameter *manual-new*
+  (defparameter *manual.md.ystok*
 	(parse-html file :callbacks `((:div . ,(λ div-form
 											 "Remove 'googleSearchFrom' `div` element."
 											 ;; (break "Arg: ~A" div-form)
@@ -59,13 +64,13 @@ TODO: How do you get `(:!doctype "html")` to translate correctly?
 												(values img-form t)))))
 								  )))
 
-  ;; (setf *manual-new* `(:body ,*manual-new*))
+  ;; (setf *manual.md.ystok* `(:body ,*manual.md.ystok*))
   )
 
-(assert (not (typep *manual* 'html-element-sexp)))
-(assert (not (typep *manual-new* 'html-element-sexp)))
+(assert (not (typep *manual.md* 'html-element-sexp)))
+(assert (not (typep *manual.md.ystok* 'html-element-sexp)))
 ;; But:
-(assert (every (λ x (typep x 'html-element-sexp)) *manual-new*))
+(assert (every (λ x (typep x 'html-element-sexp)) *manual.md.ystok*))
 
 
 (defun list-to-html (list)
@@ -95,22 +100,22 @@ TODO: How do you get `(:!doctype "html")` to translate correctly?
 ''(
    ;;; Works:
    (eval `(with-html-stream (*standard-output*)
-			(htm ,(car *manual*))))
+			(htm ,(car *manual.md*))))
 
 
    ;;; Also works:
    (eval `(with-html-stream (*standard-output*)
-			(htm ,(car *manual-new*))))
+			(htm ,(car *manual.md.ystok*))))
 
    (print-html :newline)
 
-   (to-html *manual*)
+   (to-html *manual.md*)
 
-   (print-html *manual-new*)
+   (print-html *manual.md.ystok*)
 
-   (list-to-html *manual-new*)
+   (list-to-html *manual.md.ystok*)
 
-   (to-html *manual-new*)
+   (to-html *manual.md.ystok*)
 
    (with-html-stream (*standard-output*)
 	 (htm :newline))
@@ -119,26 +124,32 @@ TODO: How do you get `(:!doctype "html")` to translate correctly?
 	 (with-html-stream (strm)
 	   (htm :newline)))
 
+   ;;; [Dumaiu/om-manual#5]
    (htm '(:!doctype "html")) ; XXX
-
    (to-html '(:!doctype "html")) ; XXX
    (to-html '((:!doctype "html"))) ; XXX
 
    )
 
-(defparameter *manual-new-html*
+(defparameter *manual.md.ystok.new*
   (to-html `(;; (:!doctype "html") XXX
 			 ((:html :lang "en")
 			  (:head (:title "TODO title")
 				((:meta  :charset "utf-8")))
-			  (:body ,@*manual-new*)))))
+			  (:body ,@*manual.md.ystok*))))
+  "Like *manual.md.ystok*, but adds completing elements.")
 
-(princ *manual-new-html*)
+;; (princ *manual.md.ystok.new*)
 
-										; (parse-html *manual-new-html*) XXX
+										; (parse-html *manual.md.ystok.new*) XXX
+
+(defparameter *manual.md.ystok.new.html*
+  (with-output-to-string (f)
+	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
+	(princ *manual.md.ystok.new* f)))
 
 (let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
   (with-output-file (f file :if-exists :supersede
 							:if-does-not-exist :create)
-	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
-	(princ *manual-new-html* f)))
+	(princ *manual.md.ystok.new.html* f))
+  )
