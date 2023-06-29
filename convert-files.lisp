@@ -29,10 +29,21 @@
 												  (values nil t) ; delete element
 												  ))))
 									(:a . ,(λ anchor-form
-											 "Remove 'Scenari' `<a>` at end of page."
+											 "* Remove 'Scenari' `<a>` at end of page.
+ * Change .html extensions to .md.
+"
 											 (match anchor-form
 											   ((list* (list* :a (plist :href "http://scenari-platform.org")) _)
-												(values nil t)))))  ; delete element
+												(values nil t))  ; delete element
+											   ((guard (list* (list* :a (and plist
+																			 (plist :href href))) _)
+													   (string-equal "html"
+																	 (pathname-type href)))
+												(let-1 md-anchor (namestring (make-pathname :type "md"
+																							:defaults href))
+												  (setf (getf plist :href) md-anchor)
+												  ;; (break "HTML anchor: ~S" anchor-form)
+												  (values anchor-form t))))))
 									(:img . ,(λ img-form
 											   "Add alt-text to `<img>` tags."
 											   (match img-form
@@ -59,13 +70,37 @@
 ;; 2.
 (defparameter *manual.ystok.html*
   (to-html *manual.ystok*)
-  "Convert back to HTML.")
+  "Convert back to HTML.  NB: the URLs still point to Markdown files!")
 
-;; 3.
+;; 3. Generate Markdown file
 (html-string->md *manual.ystok.html* :output *manual.md*) ; *side-effect*
 
-;; 4.
-(md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; *side-effect*
+;; 4. Convert back to HTML:
+(let* ((html (md-file->html *manual.md*))
+	   ;; 5. Convert to Lisp, editing anchors:
+	   (sexp (parse-html html :callbacks `((:a . ,(λ anchor-form
+													 " * Change '.md' extensions to '.html'.
+"
+													 (match anchor-form
+													   ((guard (list* (list* :a (and plist
+																					 (plist :href href))) _)
+															   (string-equal "md"
+																			 (pathname-type href)))
+														(let-1 new-href (namestring (make-pathname :type "html"
+																								   :defaults href))
+														  (setf (getf plist :href) new-href)
+														  ;; (break "HTML anchor: ~S" anchor-form)
+														  (values anchor-form t)))))))))
+	   (html~ (to-html sexp)))
+
+  ;; 6. Convert Lisp to HTML.
+  (with-output-file (f (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)
+					   :if-exists :supersede
+					   :if-does-not-exist :create)
+	(princ html~ f)))
+
+
+;; (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; *side-effect*
 
 ''(
 
@@ -81,7 +116,7 @@
    (md-file->html *manual.md*) ; ✓
 
 
-   (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; ✓ 
+   (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; ✓
 
    ;; (md-file->html "01-Presentation.md" :output :file)
 
@@ -92,4 +127,3 @@
 				   :standalone t)
 
    )
-
