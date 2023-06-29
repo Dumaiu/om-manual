@@ -8,18 +8,11 @@
   - [<span>Plan</span>](OM-Documentation_1.html)
   - [<span>Glossaire</span>](OM-Documentation_2.html)
 
-<div class="googleSearchFrom">
-
-[![Recherche Google](../lib/googleSearch.gif
-"Recherche Google")](javascript:void\(0\);)
-
-</div>
-
 </div>
 
 <div id="tplt">
 
-![](../tplRes/page/empty.gif)![](../res/logoom1.png)<span class="tplTi">OpenMusic
+![empty.gif](../tplRes/page/empty.gif)![logoom1.png](../res/logoom1.png)<span class="tplTi">OpenMusic
 Documentation</span>
 
 </div>
@@ -55,34 +48,35 @@ restreintes.
 
 <div class="txt">
 
-[<span> </span>](00-Sommaire.html) **[<span> ****
-</span>](00-Sommaire.html)**This document is the kernel of the OpenMusic
+[<span> </span>](00-Sommaire.html) **** [<span> ********
+</span>](00-Sommaire.html)This document is the kernel of the OpenMusic
 Software documentation. It is composed of the following sections :
 
-**[<span>**Introduction** </span>](00-Sommaire.html)**
+[<span>****Introduction**** </span>](00-Sommaire.html) ****
 
 Basic concepts, entries to the user manual, additional information and
 publications.
 
-**[<span>**Chapter 1 : System Configuration and Installation**
-</span>](Installation.html)**
+[<span>****Chapter 1 : System Configuration and Installation****
+</span>](Installation.html) ****
 
 Available versions for Mac and Windows OS. Installation procedures for
 Mac OSX.
 
-**[<span>**Chapter 2 : Going Through an OM Session**
-</span>](Goingthrough.html)**
+[<span>****Chapter 2 : Going Through an OM Session****
+</span>](Goingthrough.html) ****
 
 Practical information and a few concepts to manage each step of a
 session.
 
-**[<span>**Chapter 3 : The OM Environment** </span>](Environment.html)**
+[<span>****Chapter 3 : The OM Environment**** </span>](Environment.html)
+****
 
 Main features and general settings of the OM environment, as well as
 managing documents and functionalities of the main windows.
 
-**[<span>**Chapter 4 : Visual Programming I (Basics)**
-</span>](BasicVisualProgramming.html)**
+[<span>****Chapter 4 : Visual Programming I (Basics)****
+</span>](BasicVisualProgramming.html) ****
 
 This section provides all information about visual programming tools and
 basic programming concepts.
@@ -93,43 +87,45 @@ basic programming concepts.
 Advanced programming concepts, including functional abstraction, control
 of computation and iterative programs.
 
-**[<span>**Chapter** 6 : OM Basic Tools</span>](BasicObjects.html)**
+[<span>****Chapter** 6 : OM Basic Tools**</span>](BasicObjects.html)
+****
 
 Using and manipulating basic objects, such as curves, arrays, text, etc.
 
-**[<span>**Chapter** 7 : Score Objects</span>](BasicObjects.html)**
+[<span>****Chapter** 7 : Score Objects**</span>](BasicObjects.html) ****
 
 Using and manipulating score objects such as chords, rhythms,
 polyphonies and so on.
 
-**[<span>**Chapter** 8 : Maquettes</span>](Maquettes.html)**
+[<span>****Chapter** 8 : Maquettes**</span>](Maquettes.html) ****
 
 Designing musical sequences and using the graphic and temporal
 dimensions of maquettes to define specific interactions within programs.
 
-**[<span>**Chapter** 9 : Sheet</span>](Sheet.html)**
+[<span>****Chapter** 9 : Sheet**</span>](Sheet.html) ****
 
 The Sheet is a special polyphonic container allowing to collect
 different types of musical objects in a common score and to program
 genrative rules and relations withing this score.
 
-**[<span>**Chapter 10 : MIDI** </span>](MIDI.html)**
+[<span>****Chapter 10 : MIDI**** </span>](MIDI.html) ****
 
 All about MIDI features and objects in OM
 
-**[<span>**Chapter 11 :** **Audio** </span>](Audio.html)**
+[<span>****Chapter 11 :** **Audio**** </span>](Audio.html) ****
 
 All about audio features and objects in OM
 
-**[<span>**Chapter 12 :** **SDIF** </span>](SDIF.html)**
+[<span>****Chapter 12 :** **SDIF**** </span>](SDIF.html) ****
 
 Using (and understanding) the SDIF sound description data in OM.
 
-**[<span>**Chater 13 :** **Lis**p Programming in OM</span>](Lisp.html)**
+[<span>****Chater 13 :** **Lis**p Programming in OM**</span>](Lisp.html)
+****
 
 How to program in Lisp and integrate Lisp code in the OM environment.
 
-**[<span>**Errors and Problems** </span>](errors.html)**
+[<span>****Errors and Problems**** </span>](errors.html) ****
 
 Understanding and handling error messages.
 
@@ -215,8 +211,7 @@ suivante</span>](00-Sommaire.html "page suivante(Introduction)")
 <div id="tplb">
 
 [<span>A propos...</span>](OM-Documentation_3.html)(c) Ircam - Centre
-Pompidou[<span>![Réalisé avec
-Scenari](../skin/img/btnSc.png%20)</span>](http://scenari-platform.org "Réalisé avec Scenari (nouvelle fenêtre)")
+Pompidou
 
 </div>
 
