@@ -26,10 +26,12 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 	(cons (cons keyword cons) list)		; double-tag element w/ attributes
 	))
 
-(declaim (special *manual.md*
+(declaim (special *orig-manual.md*
 				  *manual.md.ystok*))
 (let-1 file (merge-pathnames* "OM-User-Manual.md.html" *default-directory*)
-  (defparameter *manual.md* (parse-html file))
+  (defparameter *manual.md.html* file)
+
+  (defparameter *orig-manual.md* (parse-html file))
 
 
   (defparameter *manual.md.ystok*
@@ -67,7 +69,7 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
   ;; (setf *manual.md.ystok* `(:body ,*manual.md.ystok*))
   )
 
-(assert (not (typep *manual.md* 'html-element-sexp)))
+(assert (not (typep *orig-manual.md* 'html-element-sexp)))
 (assert (not (typep *manual.md.ystok* 'html-element-sexp)))
 ;; But:
 (assert (every (λ x (typep x 'html-element-sexp)) *manual.md.ystok*))
@@ -100,7 +102,7 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 ''(
    ;;; Works:
    (eval `(with-html-stream (*standard-output*)
-			(htm ,(car *manual.md*))))
+			(htm ,(car *orig-manual.md*))))
 
 
    ;;; Also works:
@@ -109,7 +111,7 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 
    (print-html :newline)
 
-   (to-html *manual.md*)
+   (to-html *orig-manual.md*)
 
    (print-html *manual.md.ystok*)
 
@@ -153,3 +155,11 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 							:if-does-not-exist :create)
 	(princ *manual.md.ystok.new.html* f))
   )
+
+
+(parse-html *manual.md.ystok.new.html*)
+(file-exists-p *manual.md.html*)  
+
+(html-file->md *manual.md.html*  )
+
+(html-string->md *manual.md.ystok.new.html*  )
