@@ -113,9 +113,38 @@
   dir)
 ;; TODO: (export-from 'html-directory->md+ *project-pkg*)
 
+(defun generate-html-from-markdown-file (pathname &key (verbose t)
+												  (output-directory *default-directory*)
+										 &allow-other-keys)
+  (let ((html (md-file->html pathname))
+		(output-pathname (make-pathname :type "html" :defaults pathname
+										:directory (pathname-directory output-directory)))
+		#|(sexp (parse-html html))
+		(html~ (to-html sexp))|#)
+
+	(modify-html html :callbacks `((:a . ,(λ anchor-form
+											" * Change '.md' extensions to '.html'.
+"
+											(match anchor-form
+											  ((guard (list* (list* :a (and plist
+																			(plist :href href))) _)
+													  (string-equal "md"
+																	(pathname-type href)))
+											   (let-1 new-href (namestring (make-pathname :type "html"
+																						  :defaults href))
+												 (setf (getf plist :href) new-href)
+												 ;; (break "HTML anchor: ~S" anchor-form)
+												 (values anchor-form t)))))))
+					  :output output-pathname)
+	(assert (file-exists-p output-pathname))
+	(when verbose
+	  (format t "~&Converted ~S -> ~S.~%" pathname output-pathname))
+	output-pathname))
+
 (defun generate-html-from-markdown (&optional (pathname *default-directory*) &rest *keys
 									&key
 									  output-directory
+									  (verbose t)
 									&allow-other-keys
 									&aux
 									  (md-wildcard "*.md"))
@@ -131,35 +160,27 @@
 	   (unless output-directory
 		 (setq output-directory pathname))
 	   (loop with files = (directory-files pathname md-wildcard)
+			 with n = (length files)
+			 for i from 1
 			 for f in files
-			 collect (apply #'generate-html-from-markdown pathname :output-directory output-directory *keys)))
+			 ;; Recurse:
+			 do (when verbose
+				  (format t "~&~D/~D~%" i n))
+			 do (assert (not (directory-pathname-p f)))
+			 collect (apply #'generate-html-from-markdown f
+							:output-directory output-directory
+							:verbose verbose
+							*keys)))
 	  (t
+	   ;; (break)
 	   (assert (file-exists-p pathname))
 	   (assert (string-equal "md" (pathname-type pathname)))
 	   (unless output-directory
 		 (setq output-directory *default-directory*))
-	   (let ((html (md-file->html pathname))
-			 (output-pathname (make-pathname :type "html" :defaults pathname
-											 :directory (pathname-directory output-directory)))
-			  #|(sexp (parse-html html))
-			  (html~ (to-html sexp))|#)
-
-		 (modify-html html :callbacks `((:a . ,(λ anchor-form
-												 " * Change '.md' extensions to '.html'.
-"
-												 (match anchor-form
-												   ((guard (list* (list* :a (and plist
-																				 (plist :href href))) _)
-														   (string-equal "md"
-																		 (pathname-type href)))
-													(let-1 new-href (namestring (make-pathname :type "html"
-																							   :defaults href))
-													  (setf (getf plist :href) new-href)
-													  ;; (break "HTML anchor: ~S" anchor-form)
-													  (values anchor-form t)))))))
-						   :output output-pathname)
-		 (assert (file-exists-p output-pathname))
-		 output-pathname)))))
+	   (apply #'generate-html-from-markdown-file pathname
+			  :verbose verbose
+			  :output-directory output-directory
+			  *keys)))))
 
   ''(
 	 (html-file->md+-file *manual*) ; * side-effect*--convert one file
@@ -170,12 +191,16 @@
 
 	 (html-directory->md+ *default-directory*)
 
-	 ;; 4,5,6. Convert to Lisp, editing anchors; then return to HTML.
-	 (generate-html-from-markdown *manual.md*)
-
-
 	 )
 
+(generate-html-from-markdown *manual.md*) ; *side-effect*
+
+
+''(
+   ;; 4,5,6. Convert to Lisp, editing anchors; then return to HTML.
+   (generate-html-from-markdown *default-directory*)
+
+   )
 
 ;; (let* ((html (md-file->html *manual.md*))
 
