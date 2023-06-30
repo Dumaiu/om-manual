@@ -29,7 +29,7 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 ;; (assert (not (typep *orig-manual.md* 'html-element-sexp)))
 ;; (assert (not (typep *manual.md.ystok* 'html-element-sexp)))
 ;; But:
-(assert (every (λ x (typep x 'html-element-sexp)) *manual.md.ystok*))
+;; (assert (every (λ x (typep x 'html-element-sexp)) *manual.md.ystok*))
 
 
 (defun list-to-html (list)
@@ -90,13 +90,13 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 
    )
 
-(defparameter *manual.md.ystok.new*
-  (to-html `(;; (:!doctype "html") XXX
-			 ((:html :lang "en")
-			  (:head (:title "TODO title")
-				((:meta  :charset "utf-8")))
-			  (:body ,@*manual.md.ystok*))))
-  "Like *manual.md.ystok*, but adds completing elements.")
+''(defparameter *manual.md.ystok.new*
+   (to-html `(;; (:!doctype "html") XXX
+			  ((:html :lang "en")
+			   (:head (:title "TODO title")
+				 ((:meta  :charset "utf-8")))
+			   (:body ,@*manual.md.ystok*))))
+   "Like *manual.md.ystok*, but adds completing elements.")
 
 ;; (princ *manual.md.ystok.new*)
 

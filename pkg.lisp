@@ -3,16 +3,21 @@
 (define-package :om-manual-conversion
 	(:mix
 	 ;; :alexandria
+	 :trivia
 	 :let-plus
 	 :asdf :uiop
 	 :cl
 	 :asdf-user)
   (:intern
    file-error
-   run-program)
+   run-program
+   *project-pkg*)
   (:export
    *default-directory*
    pandoc-command
    ))
 
 (in-package :om-manual-conversion)
+
+(defparameter *project-pkg* *package*
+  "TODO: [lattice].")
