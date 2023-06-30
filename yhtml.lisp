@@ -90,35 +90,51 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 
    )
 
-''(defparameter *manual.md.ystok.new*
-   (to-html `(;; (:!doctype "html") XXX
-			  ((:html :lang "en")
-			   (:head (:title "TODO title")
-				 ((:meta  :charset "utf-8")))
-			   (:body ,@*manual.md.ystok*))))
-   "Like *manual.md.ystok*, but adds completing elements.")
+(defun modify-html (html &key
+					 callbacks
+					 (output :string)
+					 &aux
+					 (file html))
+  "Act on the Lisp representation of ``html``, which can be a pathname-designator.  "
+  (let-1 sexp (parse-html file :callbacks callbacks)
+	(let-1 res (to-html sexp)
+	  (ecase output
+		((nil :string)
+		 res)
+		(:file
+		 (not-implemented-error))))))
+
+
+
+;; ''(defparameter *manual.md.ystok.new*
+;;    (to-html `(;; (:!doctype "html") XXX
+;; 			  ((:html :lang "en")
+;; 			   (:head (:title "TODO title")
+;; 				 ((:meta  :charset "utf-8")))
+;; 			   (:body ,@*manual.md.ystok*))))
+;;    "Like *manual.md.ystok*, but adds completing elements.")
 
 ;; (princ *manual.md.ystok.new*)
 
-										; (parse-html *manual.md.ystok.new*) XXX
+;; (parse-html *manual.md.ystok.new*)
 
-''(defparameter *manual.md.ystok.new.html*
-  (with-output-to-string (f)
-	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
-	(princ *manual.md.ystok.new* f)))
+;; ''(defparameter *manual.md.ystok.new.html*
+;;   (with-output-to-string (f)
+;; 	(format f "<!DOCTYPE ~A>~%" "html")	; KLUDGE: I don't know how to do this with :ystok.html.generator (see [Dumaiu/om-manual#5])
+;; 	(princ *manual.md.ystok.new* f)))
 
-''(let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
-  (with-output-file (f file :if-exists :supersede
-							:if-does-not-exist :create)
-	(princ *manual.md.ystok.new.html* f))
-  )
+;; ''(let-1 file (merge-pathnames* "OM-User-Manual.ystok.html" *default-directory*)
+;;   (with-output-file (f file :if-exists :supersede
+;; 							:if-does-not-exist :create)
+;; 	(princ *manual.md.ystok.new.html* f))
+;;   )
 
 
-''(
-   (parse-html *manual.md.ystok.new.html*)
-   (file-exists-p *manual.md.html*)
+;; ''(
+;;    (parse-html *manual.md.ystok.new.html*)
+;;    (file-exists-p *manual.md.html*)
 
-   (html-file->md *manual.md.html*  )
+;;    (html-file->md *manual.md.html*  )
 
-   (html-string->md *manual.md.ystok.new.html*  )
-   )
+;;    (html-string->md *manual.md.ystok.new.html*  )
+;;    )
