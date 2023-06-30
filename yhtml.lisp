@@ -6,7 +6,9 @@
   (use-package '(ystok.html.parser
 				 ystok.html.generator
 				 trivia))
-  (import 'trivia:plist))
+  (import 'trivia:plist)
+  (import 'sb-kernel:pathname-designator)
+  )
 
 #|
 TODO: (htm) should throw more specific exceptions
@@ -94,15 +96,27 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 					 callbacks
 					 (output :string)
 					 &aux
-					 (file html))
+					 (input-file (pathname html))
+					 output-file)
   "Act on the Lisp representation of ``html``, which can be a pathname-designator.  "
-  (let-1 sexp (parse-html file :callbacks callbacks)
+  (let-1 sexp (parse-html input-file :callbacks callbacks)
 	(let-1 res (to-html sexp)
-	  (ecase output
-		((nil :string)
+	  (etypecase output
+		((or null (eql :string))
 		 res)
-		(:file
-		 (not-implemented-error))))))
+		((or (eql :file)
+			 pathname-designator)
+		 (case output
+		   (:file
+			(assert (pathnamep input-file))
+			(setq output-file input-file))
+		   (t
+			(assert (typep output 'pathname-designator))
+			(setq output-file (pathname output))))
+		 (with-output-file (f output-file
+							  :if-exists :supersede
+							  :if-does-not-exist :create)
+		   (princ res f)))))))
 
 
 
