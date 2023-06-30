@@ -4,9 +4,8 @@
 
 ;; (defparameter *orig-manual.md.ystok* (parse-html *manual*))
 
-
 (defun html->sexp+ (file)
-  "Convert with modifications."
+  "Convert, with modifications."
   (let-1 sexp (parse-html file :callbacks `((:div . ,(λ div-form
 													   "Remove 'googleSearchFrom' `div` element."
 													   ;; (break "Arg: ~A" div-form)
@@ -119,7 +118,7 @@
    (html-file->md+-file *manual*) ; * side-effect*--convert one file
 
 
-   ;; Bad files:
+   ;; Dealing with [Dumaiu/om-manual#9]:
    (html-file->md+-file #p"/mnt/c/Users/Jonathan/Documents/openmusic/support.ircam.fr/docs/om/om6-manual/co/OM-Documentation_3.html")
 
    (html-directory->md+ *default-directory*)
@@ -127,27 +126,25 @@
 
 ;; 4. Convert back to HTML:
 (let* ((html (md-file->html *manual.md*))
-	   ;; 5. Convert to Lisp, editing anchors:
-	   (sexp (parse-html html :callbacks `((:a . ,(λ anchor-form
-													" * Change '.md' extensions to '.html'.
-"
-													(match anchor-form
-													  ((guard (list* (list* :a (and plist
-																					(plist :href href))) _)
-															  (string-equal "md"
-																			(pathname-type href)))
-													   (let-1 new-href (namestring (make-pathname :type "html"
-																								  :defaults href))
-														 (setf (getf plist :href) new-href)
-														 ;; (break "HTML anchor: ~S" anchor-form)
-														 (values anchor-form t)))))))))
-	   (html~ (to-html sexp)))
 
-  ;; 6. Convert Lisp to HTML.
-  (with-output-file (f (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)
-					   :if-exists :supersede
-					   :if-does-not-exist :create)
-	(princ html~ f)))
+	   #|(sexp (parse-html html))
+	   (html~ (to-html sexp))|#)
+
+  ;; 5/6. Convert to Lisp, editing anchors; then return to HTML.
+  (modify-html html :callbacks `((:a . ,(λ anchor-form
+										  " * Change '.md' extensions to '.html'.
+"
+										  (match anchor-form
+											((guard (list* (list* :a (and plist
+																		  (plist :href href))) _)
+													(string-equal "md"
+																  (pathname-type href)))
+											 (let-1 new-href (namestring (make-pathname :type "html"
+																						:defaults href))
+											   (setf (getf plist :href) new-href)
+											   ;; (break "HTML anchor: ~S" anchor-form)
+											   (values anchor-form t)))))))
+					:output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)))
 
 
 ;; (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; *side-effect*

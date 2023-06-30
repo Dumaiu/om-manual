@@ -96,10 +96,22 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 					 callbacks
 					 (output :string)
 					 &aux
-					 (input-file (pathname html))
+					 input
 					 output-file)
-  "Act on the Lisp representation of ``html``, which can be a pathname-designator.  "
-  (let-1 sexp (parse-html input-file :callbacks callbacks)
+  "Act on the Lisp representation of ``html``, which can be a pathname or HTML string.  "
+  (declare (type (or string pathname) html))
+
+  (cond
+	((pathnamep html)
+	(setq input html))
+   ((file-exists-p (pathname html))
+	(setq input (pathname html)))
+   (t
+	(check-type html string)
+	(setq input html)))
+
+
+  (let-1 sexp (parse-html input :callbacks callbacks)
 	(let-1 res (to-html sexp)
 	  (etypecase output
 		((or null (eql :string))
@@ -108,8 +120,8 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 			 pathname-designator)
 		 (case output
 		   (:file
-			(assert (pathnamep input-file))
-			(setq output-file input-file))
+			(assert (pathnamep input))
+			(setq output-file input))
 		   (t
 			(assert (typep output 'pathname-designator))
 			(setq output-file (pathname output))))
