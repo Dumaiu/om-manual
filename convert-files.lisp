@@ -83,15 +83,47 @@
 
    )
 
-(defun html-file->md+-file (file)
-  "Write to new file."
-  (let* ((sexp (html->sexp+ file))
-		 (html+ (to-html sexp)))
-	(let-1 newfile (make-pathname :type "md" :defaults file)
-	  (html-string->md html+ :output newfile)
-	  newfile)))
+(defun html-file->md+-file (file &key verbose
+								   &allow-other-keys)
+  "Write to new file.
 
-(html-file->md+-file *manual*) ; *test side-effect*
+  * [2023-06-29 Thu] Added `skip-file` restart.
+"
+  (let+ (((&values result skipped?) (with-simple-restart (skip-file "Skip file ~S" file)
+									  (let* ((sexp (html->sexp+ file))
+											 (html+ (to-html sexp)))
+										(let-1 newfile (make-pathname :type "md" :defaults file)
+										  (html-string->md html+ :output newfile)
+										  (when verbose
+											(format t "~&Converted ~S -> ~S.~%" file newfile))
+										  newfile)))))
+	(if skipped?
+		(values)
+		result)))
+
+(defun html-directory->md+ (dir &rest *keys
+							 &key (verbose t)
+							 &allow-other-keys
+							 &aux (pattern "*.html"))
+  (setq dir (ensure-directory-pathname dir))
+  (assert (directory-exists-p dir))
+  ;; (collect-sub*directories dir )
+  (let-1 files (directory-files dir pattern)
+	(loop for f in files
+		  do (apply #'html-file->md+-file f :verbose verbose *keys)))
+  dir)
+;; TODO: (export-from 'html-directory->md+ *project-pkg*)
+
+
+''(
+   (html-file->md+-file *manual*) ; * side-effect*--convert one file
+
+
+   ;; Bad files:
+   (html-file->md+-file #p"/mnt/c/Users/Jonathan/Documents/openmusic/support.ircam.fr/docs/om/om6-manual/co/OM-Documentation_3.html")
+
+   (html-directory->md+ *default-directory*)
+   )
 
 ;; 4. Convert back to HTML:
 (let* ((html (md-file->html *manual.md*))
@@ -143,5 +175,6 @@
 				   :in-fmt "gfm"
 				   :out-fmt "html"
 				   :standalone t)
+
 
    )
