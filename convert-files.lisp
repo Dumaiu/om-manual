@@ -1,5 +1,7 @@
 (in-package :om-manual-conversion)
 
+(export 'skip-file)
+
 ;; (defparameter *manual.md.html* file)
 
 ;; (defparameter *orig-manual.md.ystok* (parse-html *manual*))
@@ -113,33 +115,45 @@
   dir)
 ;; TODO: (export-from 'html-directory->md+ *project-pkg*)
 
-(defun generate-html-from-markdown-file (pathname &key (verbose t)
-												  (output-directory *default-directory*)
+(defun generate-html-from-markdown-file (pathname &key
+													(verbose t)
+													(output-directory *default-directory*)
 										 &allow-other-keys)
+  "
+  If the `skip-file` restart is used, the primary retval will be NIL, with the failed input file as a second val.
+
+  TODO: Use :log4cl to handle `verbose`.
+"
   (let ((html (md-file->html pathname))
 		(output-pathname (make-pathname :type "html" :defaults pathname
 										:directory (pathname-directory output-directory)))
 		#|(sexp (parse-html html))
 		(html~ (to-html sexp))|#)
 
-	(modify-html html :callbacks `((:a . ,(λ anchor-form
-											" * Change '.md' extensions to '.html'.
+	(let-1 success? (with-simple-restart (skip-file "Skip file ~S" pathname)
+					  (modify-html html :callbacks `((:a . ,(λ anchor-form
+															  " * Change '.md' extensions to '.html'.
 "
-											(match anchor-form
-											  ((guard (list* (list* :a (and plist
-																			(plist :href href))) _)
-													  (string-equal "md"
-																	(pathname-type href)))
-											   (let-1 new-href (namestring (make-pathname :type "html"
-																						  :defaults href))
-												 (setf (getf plist :href) new-href)
-												 ;; (break "HTML anchor: ~S" anchor-form)
-												 (values anchor-form t)))))))
-					  :output output-pathname)
-	(assert (file-exists-p output-pathname))
-	(when verbose
-	  (format t "~&Converted ~S -> ~S.~%" pathname output-pathname))
-	output-pathname))
+															  (match anchor-form
+																((guard (list* (list* :a (and plist
+																							  (plist :href href))) _)
+																		(string-equal "md"
+																					  (pathname-type href)))
+																 (let-1 new-href (namestring (make-pathname :type "html"
+																											:defaults href))
+																   (setf (getf plist :href) new-href)
+																   ;; (break "HTML anchor: ~S" anchor-form)
+																   (values anchor-form t)))))))
+										:output output-pathname)
+					  (assert (file-exists-p output-pathname))
+					  (when verbose
+						(format t "~&Converted ~S -> ~S.~%" pathname output-pathname))
+					  t)
+	  (if success?
+		  output-pathname
+		  (progn
+			;; (break)
+			(values nil pathname))))))
 
 (defun generate-html-from-markdown (&optional (pathname *default-directory*) &rest *keys
 									&key
@@ -160,6 +174,8 @@
 	   (unless output-directory
 		 (setq output-directory pathname))
 	   (loop with files = (directory-files pathname md-wildcard)
+			 with failures! = ()
+			 with successes! = ()
 			 with n = (length files)
 			 for i from 1
 			 for f in files
@@ -167,10 +183,18 @@
 			 do (when verbose
 				  (format t "~&~D/~D~%" i n))
 			 do (assert (not (directory-pathname-p f)))
-			 collect (apply #'generate-html-from-markdown f
-							:output-directory output-directory
-							:verbose verbose
-							*keys)))
+			 do (let+ (((&values result skipped) (apply #'generate-html-from-markdown f
+														:output-directory output-directory
+														:verbose verbose
+														*keys)))
+				  (declare (type (or pathname null) result skipped))
+				  (nconcf successes! (ensure-list result))
+				  (nconcf failures! (ensure-list skipped)))
+			 finally (progn
+					   (when verbose
+						 (format t "~2& Failures: ~S~%" failures!))
+					   (return (values successes! `(:failures ,failures!))))
+			 ))
 	  (t
 	   ;; (break)
 	   (assert (file-exists-p pathname))
@@ -182,16 +206,16 @@
 			  :output-directory output-directory
 			  *keys)))))
 
-  ''(
-	 (html-file->md+-file *manual*) ; * side-effect*--convert one file
+''(
+   (html-file->md+-file *manual*) ; * side-effect*--convert one file
 
 
-	 ;; Dealing with [Dumaiu/om-manual#9]:
-	 (html-file->md+-file #p"/mnt/c/Users/Jonathan/Documents/openmusic/support.ircam.fr/docs/om/om6-manual/co/OM-Documentation_3.html")
+   ;; Dealing with [Dumaiu/om-manual#9]:
+   (html-file->md+-file #p"/mnt/c/Users/Jonathan/Documents/openmusic/support.ircam.fr/docs/om/om6-manual/co/OM-Documentation_3.html")
 
-	 (html-directory->md+ *default-directory*)
+   (html-directory->md+ *default-directory*)
 
-	 )
+   )
 
 (generate-html-from-markdown *manual.md*) ; *side-effect*
 
@@ -204,51 +228,51 @@
 
 ;; (let* ((html (md-file->html *manual.md*))
 
-;; 		 #|(sexp (parse-html html))
-;; 		 (html~ (to-html sexp))|#)
+;;		 #|(sexp (parse-html html))
+;;		 (html~ (to-html sexp))|#)
 
-;; 	(modify-html html :callbacks `((:a . ,(λ anchor-form
-;; 											" * Change '.md' extensions to '.html'.
+;;	(modify-html html :callbacks `((:a . ,(λ anchor-form
+;;											" * Change '.md' extensions to '.html'.
 ;; "
-;; 											(match anchor-form
-;; 											  ((guard (list* (list* :a (and plist
-;; 																			(plist :href href))) _)
-;; 													  (string-equal "md"
-;; 																	(pathname-type href)))
-;; 											   (let-1 new-href (namestring (make-pathname :type "html"
-;; 																						  :defaults href))
-;; 												 (setf (getf plist :href) new-href)
-;; 												 ;; (break "HTML anchor: ~S" anchor-form)
-;; 												 (values anchor-form t)))))))
-;; 					  :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*
-;; 											 :directory (pathname-directory *default-directory*))))
+;;											(match anchor-form
+;;											  ((guard (list* (list* :a (and plist
+;;																			(plist :href href))) _)
+;;													  (string-equal "md"
+;;																	(pathname-type href)))
+;;											   (let-1 new-href (namestring (make-pathname :type "html"
+;;																						  :defaults href))
+;;												 (setf (getf plist :href) new-href)
+;;												 ;; (break "HTML anchor: ~S" anchor-form)
+;;												 (values anchor-form t)))))))
+;;					  :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*
+;;											 :directory (pathname-directory *default-directory*))))
 
 
-  ;; (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; *side-effect*
+;; (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; *side-effect*
 
-  ''(
+''(
 
-	 (html-string->md *manual.ystok.html*)
+   (html-string->md *manual.ystok.html*)
 
-	 (html-file->md *manual*) ; ✓
+   (html-file->md *manual*) ; ✓
 
-	 (html-file->md *manual* :output :file) ; ✓
+   (html-file->md *manual* :output :file) ; ✓
 
-	 (md-string->html (md-file->html "00-Sommaire.md"))
-
-
-	 (md-file->html *manual.md*) ; ✓
+   (md-string->html (md-file->html "00-Sommaire.md"))
 
 
-	 (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; ✓
-
-	 ;; (md-file->html "01-Presentation.md" :output :file)
+   (md-file->html *manual.md*) ; ✓
 
 
-	 (pandoc-command :input-file *manual.md*
-					 :in-fmt "gfm"
-					 :out-fmt "html"
-					 :standalone t)
+   (md-file->html *manual.md* :output (make-pathname :name "OM-User-Manual.md" :type "html" :defaults *manual*)) ; ✓
+
+   ;; (md-file->html "01-Presentation.md" :output :file)
 
 
-	 )
+   (pandoc-command :input-file *manual.md*
+				   :in-fmt "gfm"
+				   :out-fmt "html"
+				   :standalone t)
+
+
+   )
