@@ -103,12 +103,14 @@ TODO: ystok: [I don't think it's possible to distinguish between an element with
 
   (cond
 	((pathnamep html)
-	(setq input html))
-   ((file-exists-p (pathname html))
-	(setq input (pathname html)))
-   (t
-	(check-type html string)
-	(setq input html)))
+	 (setq input html))
+	((handler-case
+		 (file-exists-p (pathname html)) ; If it can't be parsed as a pathname, convert to NIL
+	   (parse-error () nil))
+	 (setq input (pathname html)))
+	(t
+	 (check-type html string)
+	 (setq input html)))
 
 
   (let-1 sexp (parse-html input :callbacks callbacks)

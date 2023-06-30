@@ -2,8 +2,8 @@
 
 (define-package :om-manual-conversion
 	(:mix
-	 ;; :alexandria
 	 :trivia
+	 :alexandria
 	 :let-plus
 	 :asdf :uiop
 	 :cl

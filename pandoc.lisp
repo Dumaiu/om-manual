@@ -109,18 +109,18 @@
 						(in-type "md")
 						(out-fmt "html")
 						;; (file
-						   ;; 	(probe-file
-						   ;; 	 (make-pathname :name (pathname-name file~)
-						   ;; 					:directory (pathname-directory file~)
-						   ;; 					:type "md")))
+						;;	(probe-file
+						;;	 (make-pathname :name (pathname-name file~)
+						;;					:directory (pathname-directory file~)
+						;;					:type "md")))
 						)
   "By default, returns output as a string.  To write to a file, e.g.::
 	  (md-file->html \"00-Sommaire.md\" :output :file)
 "
   (let+ (((&values command plist) (pandoc-command :input-file file :output output
-														  :in-fmt in-fmt :out-fmt out-fmt
-														  :in-type in-type
-														  :standalone standalone))
+												  :in-fmt in-fmt :out-fmt out-fmt
+												  :in-type in-type
+												  :standalone standalone))
 		 ((&plist-r/o (output~ :output)) plist))
 	(run-program command :output output~)))
 
