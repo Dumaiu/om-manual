@@ -3,7 +3,7 @@
 (define-package :om-manual-conversion
 	(:mix
 	 :trivia
-	 :alexandria
+	 :alexandria						; (nconcf)
 	 :let-plus
 	 :asdf :uiop
 	 :cl
