@@ -1,71 +1,490 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                      "http://www.w3.org/TR/html4/loose.dtd">
-<html>
- <!--
-							standard : HTML 4.01 Transitional (Standards mode)
-							dialog : /@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1668/@c1668/_N16--><head>
-  <title>OpenMusic Documentation - Inputs / Outputs</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta content="no-cache" http-equiv="Cache-Control">
-  <meta content="no-cache" http-equiv="Pragma">
-  <meta content="Fri, 01 Jan 1990 00:00:00 GMT" name="Expires" http-equiv="expires">
-  <meta content="text/css" http-equiv="Content-Style-Type">
-  <link href="../css/googleSearch.css" type="text/css" rel="stylesheet">
-  <link href="../wdgt/scImgMgr/scImgMgr.css" type="text/css" rel="stylesheet">
-  <script type="text/JavaScript">
-/*0*/ var scServices = {};
-/*1*/ scServices["scLoad"] = {loadFromRoot:function(pUrl){window.location.href="../)"+pUrl;}, getUrlFromRoot:function(pHref){if(!this.fRootOffset) this.fRootOffset = window.location.href.length -17; return pHref.substring(this.fRootOffset);}};
-</script>
-  <script src="../jslib/scCoLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scPaLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scSiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTooltipMgr.js" type="text/JavaScript"></script>
-  <script src="../jslib/scDynUiMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../jslib/pageMemMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/googleSearch/googleSearch.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scrZoom/imgZoomMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/outLeftScroll/outLeftDyn.js" type="text/JavaScript"></script>
-  <script src="../wdgt/relNotes/relNotes.js" type="text/JavaScript"></script>
-  <script src="../wdgt/secOutMgr/secOutMgr.js" type="text/JavaScript"></script>
-  <script type="text/JavaScript">
-imgZoomMgr.init("des:div.imgzFra","chi:img","par:/nsi:/des:a",.33,1,1,1,"Cliquez pour agrandir, Shift-click : nouvelle fenêtre");
-scImgMgr.registerAnimation("des:div.screenSeqFra",{auto:false,loop:false,counter:true});
+<!doctype>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="generator" content="pandoc"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"></meta>
+<title>AbsInOuts</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<div id="tplf" class="tplPage">
 
-scImgMgr.registerZoom("des:a.overLnk");
+<div id="tplh">
 
-scImgMgr.setPathPgeFra("ide:tplb");
+<p><span class="hidden">Navigation générale : </span></p>
+<ul>
+<li><a href="OM-Documentation.html"><span>Guide</span></a></li>
+<li><a href="OM-Documentation_1.html"><span>Plan</span></a></li>
+<li><a href="OM-Documentation_2.html"><span>Glossaire</span></a></li>
+</ul>
+</div>
 
-scOnLoads[scOnLoads.length] = guideMem;
+<div id="tplt">
 
-</script>
-  <script type="text/JavaScript">scCoLib.fDebug = true;</script>
-  <meta name="generator" content="SCENARI 3.7 / ircamGuide 3.0.0 - http://scenari-platform.org/projects/dokielguide">
-  <link href="../skin/css/main.css" type="text/css" rel="stylesheet">
-  <link href="../skin/css/skin.css" type="text/css" rel="stylesheet">
-  <!--[if IE]><link href="../skin/css/ie.css" type="text/css" rel="stylesheet"/><![endif]-->
-  <!--[if lt IE 7]><link href="../skin/css/ie6.css" type="text/css" rel="stylesheet"/><![endif]--></head>
- <body>
-  <div class="tplPage" id="tplf"><div id="tplh"><span class="hidden">Navigation g&eacute;n&eacute;rale : </span><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Amap/@c1545_Amap/_Na" title="Plan" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Atools/@c1545_Atools/_Ne" title="Glossaire" position="uncle"><root>refDoc</root></entry></treeContent>--><ul class=" sw_outMain_navList"><li class=" mainSel_no outRoot"><a href="OM-Documentation.html" target="_self" class=" mainSel_no mainElt_entry"><span>Guide</span></a></li><li class=" mainSel_no outMap"><a href="OM-Documentation_1.html" target="_self" class=" mainSel_no mainElt_entry"><span>Plan</span></a></li><li class=" mainSel_no toolGloss"><a href="OM-Documentation_2.html" target="_self" class=" mainSel_no mainElt_entry"><span>Glossaire</span></a></li></ul><div class="googleSearchFrom"><form onsubmit="googleSearch.setQueryVal(this);" target="_blank" action="http://www.google.com/search" method="get"><input name="q" type="hidden"><input size="15" name="text" class="googleSearchText" type="text"><a onclick="googleSearch.submit(scPaLib.findNode('anc:form',this));" href="javascript:void(0);" class="googleSearchSubmit"><img style="vertical-align: middle;" title="Recherche Google" src="../lib/googleSearch.gif" alt="Recherche Google"></a></form></div></div><div id="tplt"><img height="50" width="1" src="../tplRes/page/empty.gif" alt=""><img alt="" src="../res/logoom1.png" width="32" height="24"><span class="tplTi">OpenMusic Documentation</span><!--outline : <treeContent><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593" title="Abstraction" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663" title="Application" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1668" title="Inputs / Outputs" position="current"><root>section</root></entry></entry></entry></entry></entry></treeContent>--><span class=" sw_outStack_navRoot"><span class="hidden">Hi&eacute;rarchie de section : </span><a href="OM-User-Manual.html" target="_self" class=" stkSel_no"><span>OM 6.6 User Manual</span></a><span class="stkSep"> &gt; </span><a href="AdvancedVisualProgramming.html" target="_self" class=" stkSel_no"><span>Visual Programming II</span></a><span class="stkSep"> &gt; </span><a href="Abstraction.html" target="_self" class=" stkSel_no"><span>Abstraction</span></a><span class="stkSep"> &gt; </span><a href="AbsApplication.html" target="_self" class=" stkSel_no"><span>Application</span></a><span class="stkSep"> &gt; </span><span class=" stkSel_yes"><span>Inputs / Outputs</span></span></span></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663"--><a class="navPrev" target="_self" href="AbsApplication.html" title="page pr&eacute;c&eacute;dente(Application)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1669"--><span class="hidden"> | </span><a class="navNext" target="_self" href="AbsInputBoxes.html" title="page suivante(Input Boxes)"><span>page suivante</span></a></div><div id="tplc" class=" tplc_out_yes"><noscript><div style="text-align: center;"><strong>Attention</strong>, votre navigateur ne supporte pas le <b>javascript</b> ou celui-ci &agrave; &eacute;t&eacute; d&eacute;sactiv&eacute;. Certaines fonctionnalit&eacute;s de ce guide sont restreintes.</div></noscript><div class="headCo "><h1 class="headCo_ti"><span>Inputs / Outputs</span></h1><div class="headCo_co "><div><div class="part "><h2 id="obN6" class="part_ti"><span>Creating Connections to the Outside</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><p class="text_p ">Once a patch is added in another patch editor, it can be used as an <span class="defRef_ul " id="i2"><span>abstraction</span></span><sup class="defRef_ref tooltip_ref"><a href="#kFootBsktc1802"><span>[</span>1<span>]</span></a></sup>. </p><p class="text_p ">An abstraction can have as many inlets and outlets as necessary to establish connections with other boxes.</p><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">Values are returned by the inlets from the outside to the sub patch . </p></li><li class="itemized_ili "><p class="text_p ">Results of computations are returned by the outlets to the outside.</p></li></ul></div></div><div class="infobloc "><div class="infobloc_ti"><span>Adding Inputs and Outputs</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Inputs and outputs are added with a click on the <span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/greenarrow_icon.png" width="18" height="18"></span> and <span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/bluearrow_icon.png" width="18" height="19"></span>  arrow icons&nbsp;in the open patch. </p><p class="text_p ">To add the desired number of inputs and outputs, click as many times as necessary on the corresponding icons. Inlets and outlets will appear on the sub patch icon.</p><p class="text_p ">Connections to other boxes in the patch editor can then be created. </p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="" src="../res/inout.png" width="193" height="223"></div></div></td></tr></table></div></div><div class="bloc note "><div class="bloc_ti note_ti"><span>Internal Evaluation</span></div><div class="caption"><div class="caption_co"><img alt="" src="../res/InternalEvaluationExample_scr.png" width="630" height="321"></div><div class="caption_ti"><a target="_blank" class="caption_zm js_hidden " href="../res/InternalEvaluationExample_scr_1.png" title="Zoom (nouvelle fen&ecirc;tre)"><span>Zoom</span></a></div></div><div class="txt "><p class="text_p ">An internal patch can potentially be used in an infinite number of configurations. Hence, if a patch is assigned input boxes, OM considers that these boxes can get any values from the outside. Consequentely, when a patch with input boxes is evaluated from the inside, the values outside the patch are ignored, and OM returns &quot;nil&quot;.</p><p class="text_p ">To be evaluated, a program <cite class="alt_is ">
-														<cite class="alt_is ">that is assigned values from the outside</cite>
-													</cite> of a patch must be evaluated <cite class="alt_is ">
-														<cite class="alt_is ">from the outside of the patch</cite>
-													</cite>, via its output.</p><p class="text_p ">If an internal patch is assigned <cite class="alt_is ">
-														<cite class="alt_is ">its own default values</cite>
-													</cite>, it can then be evaluated from the inside.</p></div><div class="linkSet "><div class="linkSet_ti"><span>Assigning Default Values to Input Boxes</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="AbsInputBoxes.html"><span>Input Boxes</span></a></li></ul></div></div></div><div class="infobloc "><div class="infobloc_ti"><span>Naming Inputs and Outputs</span></div><div class="txt "><p class="text_p "> To rename inputs and outputs :</p><table><caption></caption><col class="col_tbcl " width="368.68722466960355"><col class="col_tbcl " width="323.5418502202643"><tr class="row_tbtr "><td class="cell_tbtd "><p class="text_p ">1. double click on the name of the icon :<span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/changenameinput_icon.png" width="52" height="57"></span> , </p></td><td class="cell_tbtd "><p class="text_p ">2. edit it and validate : <span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/result_icon.png" width="113" height="63"></span>. </p></td></tr></table><p class="text_p ">This has no effect on the input or output's behaviour. </p></div><div class="linkSet "><div class="linkSet_ti"><span>More Information about Input Boxes Edition :</span></div><div class="linkUL "><ul class="seeAlsoLnks"><li class="seeAlsoLnkSec"><a target="_self" class="linkSection " href="AbsInputBoxes.html"><span>Input Boxes</span></a></li></ul></div></div></div><div class="bloc note "><div class="bloc_ti note_ti"><span>Viewing Inlets and Outlets</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Inlets and outlets of blue patches are not visible in the workspace. </p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="" src="../res/inletsoutlets1.png" width="170" height="89"></div></div></td></tr></table></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/display.png" width="206" height="90"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">To display information about inputs and outputs names, as well as a possible documentation, keep <code class="keyboard_tl ">Cmd</code> pressed while hovering the mouse over them.</p></div></td></tr></table></div></div></div></div><div class="part "><h2 id="obN19f" class="part_ti"><span>Example&nbsp;: Using a Sub Patch as a Functional Abstraction</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><p class="text_p ">Once a patch is added one or more inputs and connected to other items, it can manipulate 
-														<strong class="emphasis_is ">variables</strong>,
-													just  like a <cite class="alt_is ">function</cite> does. These variables are taken as arguments by the function. Data returned by the abstraction output(s) can also become variables for other boxes or for other functional abstractions.</p></div></div><div class="bloc example "><div class="bloc_ti example_ti"><span>A &quot;Large&quot; Program</span></div><div class="txt "><p class="text_p ">The following program is quite developed. It could be used as a subordinate and coherent element in a more important patch. We will integrate  it in a patch to use it as an abstraction.</p></div><div class="caption "><div class="caption_co "><img alt="Building successive chords from a chord multiplication." src="../res/chordmult.png" width="443" height="544"></div><div class="caption_ti ">Building successive chords from a chord multiplication.</div></div></div><div class="infobloc "><div class="infobloc_ti"><span>Adding Inputs and Outputs to the Patch</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><ul class="simple_sl "><li class="simple_m "><span>Two input boxes are substituted to the parameters of the <cite class="alt_is ">
-																	<cite class="alt_is ">random-list</cite>
-																</cite> function.</span></li><li class="simple_m "><span>One output box is substituted to the <cite class="alt_is ">chord-seq</cite> to return the result of the computation to the outside of the patch.</span></li></ul></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="" src="../res/chordmult1A.png" width="137" height="194"></div></div></td></tr></table></div></div><div class="infobloc "><div class="infobloc_ti"><span>Functional Call of the Patch</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">The patch is dropped into <cite class="alt_is ">
-																<cite class="alt_is ">
-																	<strong class="emphasis_is ">another patch editor</strong>
-																</cite>
-															</cite>. </p><ol class="ordered_ol "><li class="ordered_oli "><p class="text_p ">Values can now be sent to the inputs of <cite class="alt_is ">random-list</cite> from the outside of the patch, via the patch inputs. </p></li><li class="ordered_oli "><ul class="simple_sl "><li class="simple_m "><span>The resulting data can also be returned to other boxes and be manipulated. </span></li><li class="simple_m "><span>The result of the computation can also be materialized by an external <cite class="alt_is ">chord-seq</cite> box, via its &quot;midics&quot; input.</span></li></ul></li></ol><p class="text_p ">
-															<cite class="alt_is ">Hence, the patch behaves like a function within a &quot;larger-scale&quot; program</cite>.</p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="" src="../res/chordm.png" width="227" height="217"></div></div></td></tr></table></div></div></div></div></div></div></div><span class="hidden">R&eacute;f&eacute;rences : </span><ol class=" footBskt"><li class="footBskt_it" id="kFootBsktc1802"><div class="footBskt_itti">Functional Abstraction</div><div class="footBskt_itco"><div><div class="dk_definitionMeta_def "><p class="para_p ">A functional abstraction is a program whose some elements can become <cite class="alt_is ">variables</cite>, via connections to the outside environment. Hence, this program must have  inputs  or outputs that can be connected to external variable elements. The resulting functional abstraction can then be embedded  into other programs to be used as a functional component.</p></div></div></div></li></ol></div><div class="tplo_out_yes" id="tplo"><div class="tplOTp"><div class="tplOBm"><div id="mnuFrm"><span class="hidden">Plan :</span><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" id="mnuFrmUp" style="display: none;"><span id="mnuFrmUpLeft"><a onclick="menuScrollTiTask.step(-20); return false;" href="#" id="mnuBtnUp"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></div><div id="mnuScroll"><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1550" title="Introduction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1551" title="System Configuration and Installation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1552" title="Going Through an OM Session" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1553" title="The OM Environment" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554" title="Visual Programming I" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593" title="Abstraction" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1662" title="Abstraction Boxes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663" title="Application" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1668" title="Inputs / Outputs" position="current"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1669" title="Input Boxes" position="sibling"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1593/@c1664" title="Recursive Patches" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1594" title="Evaluation Modes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1595" title="Higher-Order Functions" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1596" title="Control Structures" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1597" title="Iterations: OMLoop" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1598" title="Instances" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1599" title="Interface Boxes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555/@c1600" title="Files" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1556" title="Basic Tools" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1557" title="Score Objects" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558" title="Maquettes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1559" title="Sheet" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1560" title="MIDI" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1561" title="Audio" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1562" title="SDIF" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1563" title="Lisp Programming" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1564" title="Errors and Problems" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6318" title="OpenMusic QuickStart" position="uncle"><root>section</root></entry></treeContent>--><ul class=" sw_outLeft_navList"><li class=" outLeftD1 outRoot"><a href="OM-Documentation.html" target="_self" class=" outLeftSel_no"><span>OpenMusic Documentation</span></a></li><li class=" outLeftD1 outSec"><a href="OM-User-Manual.html" target="_self" class=" outLeftSel_no"><span>OM 6.6 User Manual</span></a><ul><li class=" outLeftD2 outSec"><a href="00-Sommaire.html" target="_self" class=" outLeftSel_no"><span>Introduction</span></a></li><li class=" outLeftD2 outSec"><a href="Installation.html" target="_self" class=" outLeftSel_no"><span>System Configuration and Installation</span></a></li><li class=" outLeftD2 outSec"><a href="Goingthrough.html" target="_self" class=" outLeftSel_no"><span>Going Through an OM Session</span></a></li><li class=" outLeftD2 outSec"><a href="Environment.html" target="_self" class=" outLeftSel_no"><span>The OM Environment</span></a></li><li class=" outLeftD2 outSec"><a href="BasicVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming I</span></a></li><li class=" outLeftD2 outSec"><a href="AdvancedVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming II</span></a><ul><li class=" outLeftD3 outSec"><a href="Abstraction.html" target="_self" class=" outLeftSel_no"><span>Abstraction</span></a><ul><li class=" outLeftD4 outSec"><a href="AbsBoxes.html" target="_self" class=" outLeftSel_no"><span>Abstraction Boxes</span></a></li><li class=" outLeftD4 outSec"><a href="AbsApplication.html" target="_self" class=" outLeftSel_no"><span>Application</span></a><ul><li class=" outLeftD5 outSec"><span class=" outLeftSel_yes" id="i3"><span>Inputs / Outputs</span></span></li><li class=" outLeftD5 outSec"><a href="AbsInputBoxes.html" target="_self" class=" outLeftSel_no"><span>Input Boxes</span></a></li></ul></li><li class=" outLeftD4 outSec"><a href="Recursion.html" target="_self" class=" outLeftSel_no"><span>Recursive Patches</span></a></li></ul></li><li class=" outLeftD3 outSec"><a href="EvalModes.html" target="_self" class=" outLeftSel_no"><span>Evaluation Modes</span></a></li><li class=" outLeftD3 outSec"><a href="HighOrder.html" target="_self" class=" outLeftSel_no"><span>Higher-Order Functions</span></a></li><li class=" outLeftD3 outSec"><a href="Control.html" target="_self" class=" outLeftSel_no"><span>Control Structures</span></a></li><li class=" outLeftD3 outSec"><a href="OMLoop.html" target="_self" class=" outLeftSel_no"><span>Iterations: OMLoop</span></a></li><li class=" outLeftD3 outSec"><a href="Instances.html" target="_self" class=" outLeftSel_no"><span>Instances</span></a></li><li class=" outLeftD3 outSec"><a href="InterfaceBoxes.html" target="_self" class=" outLeftSel_no"><span>Interface Boxes</span></a></li><li class=" outLeftD3 outSec"><a href="Files.html" target="_self" class=" outLeftSel_no"><span>Files</span></a></li></ul></li><li class=" outLeftD2 outSec"><a href="BasicObjects.html" target="_self" class=" outLeftSel_no"><span>Basic Tools</span></a></li><li class=" outLeftD2 outSec"><a href="ScoreObjects.html" target="_self" class=" outLeftSel_no"><span>Score Objects</span></a></li><li class=" outLeftD2 outSec"><a href="Maquettes.html" target="_self" class=" outLeftSel_no"><span>Maquettes</span></a></li><li class=" outLeftD2 outSec"><a href="Sheet.html" target="_self" class=" outLeftSel_no"><span>Sheet</span></a></li><li class=" outLeftD2 outSec"><a href="MIDI.html" target="_self" class=" outLeftSel_no"><span>MIDI</span></a></li><li class=" outLeftD2 outSec"><a href="Audio.html" target="_self" class=" outLeftSel_no"><span>Audio</span></a></li><li class=" outLeftD2 outSec"><a href="SDIF.html" target="_self" class=" outLeftSel_no"><span>SDIF</span></a></li><li class=" outLeftD2 outSec"><a href="Lisp.html" target="_self" class=" outLeftSel_no"><span>Lisp Programming</span></a></li><li class=" outLeftD2 outSec"><a href="errors.html" target="_self" class=" outLeftSel_no"><span>Errors and Problems</span></a></li></ul></li><li class=" outLeftD1 outSec"><a href="QuickStart-Chapters.html" target="_self" class=" outLeftSel_no"><span>OpenMusic QuickStart</span></a></li></ul></div><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" id="mnuFrmDown" style="display: none;"><span id="mnuFrmDownLeft"><a onclick="menuScrollTiTask.step(20); return false;" href="#" id="mnuBtnDown"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></div></div></div></div></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663"--><a class="navPrev" target="_self" href="AbsApplication.html" title="page pr&eacute;c&eacute;dente(Application)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1555/@c1593/@c1663/@c1669"--><span class="hidden"> | </span><a class="navNext" target="_self" href="AbsInputBoxes.html" title="page suivante(Input Boxes)"><span>page suivante</span></a></div><div id="tplb"><a target="_self" class="btnAbout " href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou<a target="_blank" class="btnSc " href="http://scenari-platform.org" title="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)"><span><img src="../skin/img/btnSc.png " alt="R&eacute;alis&eacute; avec Scenari"></span></a></div></div>
-  <script type="text/javascript">dokielMgr.init();scImgMgr.init();scTooltipMgr.registerTooltip("i2","kFootBsktc1802","onmouseover","defRef tooltip","",{STICKY:true});menuMgr.init();new dkSiRuleResizeMnu("tplo","tplf",190);new scSiRuleEnsureVisible("i3", "ide:mnuScroll");</script>
- </body>
+<p><img src="../tplRes/page/empty.gif" alt="empty.gif"></img><img src="../res/logoom1.png" alt="logoom1.png"></img><span class="tplTi">OpenMusic Documentation</span><span class="sw_outStack_navRoot"><span class="hidden">Hiérarchie de section : </span><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a><span class="stkSep"> > </span><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a><span class="stkSep"> > </span><a href="Abstraction.html"><span>Abstraction</span></a><span class="stkSep"> > </span><a href="AbsApplication.html"><span>Application</span></a><span class="stkSep"> > </span><span class="stkSel_yes"><span>Inputs / Outputs</span></span></span></p>
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="AbsApplication.html" title="page pr&eacute;c&eacute;dente(Application)"><span>page précédente</span></a><span class="hidden"> | </span><a href="AbsInputBoxes.html" title="page suivante(Input Boxes)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplc" class="tplc_out_yes">
+
+<div style="text-align: center;">
+
+<p><strong>Attention</strong>, votre navigateur ne supporte pas le <strong>javascript</strong> ou celui-ci à été désactivé. Certaines fonctionnalités de ce guide sont restreintes.</p>
+</div>
+
+<div class="headCo">
+
+<h1 id="inputs--outputs"><span>Inputs / Outputs</span></h1>
+<div class="headCo_co">
+
+<div>
+
+<div class="part">
+
+<h2 id="creating-connections-to-the-outside"><span>Creating Connections to the Outside</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>Once a patch is added in another patch editor, it can be used as an <span id="i2" class="defRef_ul"><span>abstraction</span></span><sup><a href="#kFootBsktc1802"><span>[</span>1<span>]</span></a></sup>.</p>
+<p>An abstraction can have as many inlets and outlets as necessary to establish connections with other boxes.</p>
+<ul>
+<li><p>Values are returned by the inlets from the outside to the sub patch .</p></li>
+<li><p>Results of computations are returned by the outlets to the outside.</p></li>
+</ul>
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Adding Inputs and Outputs</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p>Inputs and outputs are added with a click on the <span class="iconButton_tim"><img src="../res/greenarrow_icon.png" class="sfile_icon-png_icon-gif_icon" width="18" height="18" alt="greenarrow_icon.png"></img></span> and <span class="iconButton_tim"><img src="../res/bluearrow_icon.png" class="sfile_icon-png_icon-gif_icon" width="18" height="19" alt="bluearrow_icon.png"></img></span> arrow icons in the open patch.</p>
+<p>To add the desired number of inputs and outputs, click as many times as necessary on the corresponding icons. Inlets and outlets will appear on the sub patch icon.</p>
+<p>Connections to other boxes in the patch editor can then be created.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/inout.png" width="193" height="223" alt="inout.png"></img>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="bloc note">
+
+<div class="bloc_ti note_ti">
+
+<p><span>Internal Evaluation</span></p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/InternalEvaluationExample_scr.png" alt="InternalEvaluationExample_scr.png"></img></p>
+</div>
+
+<div class="caption_ti">
+
+<p><a href="../res/InternalEvaluationExample_scr_1.png" title="Zoom (nouvelle fen&ecirc;tre)"><span>Zoom</span></a></p>
+</div>
+
+</div>
+
+<div class="txt">
+
+<p>An internal patch can potentially be used in an infinite number of configurations. Hence, if a patch is assigned input boxes, OM considers that these boxes can get any values from the outside. Consequentely, when a patch with input boxes is evaluated from the inside, the values outside the patch are ignored, and OM returns "nil".</p>
+<p>To be evaluated, a program that is assigned values from the outside of a patch must be evaluated from the outside of the patch , via its output.</p>
+<p>If an internal patch is assigned its own default values , it can then be evaluated from the inside.</p>
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>Assigning Default Values to Input Boxes</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="AbsInputBoxes.html"><span>Input Boxes</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Naming Inputs and Outputs</span></p>
+</div>
+
+<div class="txt">
+
+<p>To rename inputs and outputs :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>1. double click on the name of the icon :<span class="iconButton_tim"><img src="../res/changenameinput_icon.png" alt="changenameinput_icon.png"></img></span> ,</td>
+<td>2. edit it and validate : <span class="iconButton_tim"><img src="../res/result_icon.png" alt="result_icon.png"></img></span>.</td>
+</tr>
+</tbody>
+</table>
+<p>This has no effect on the input or output's behaviour.</p>
+</div>
+
+<div class="linkSet">
+
+<div class="linkSet_ti">
+
+<p><span>More Information about Input Boxes Edition :</span></p>
+</div>
+
+<div class="linkUL">
+
+<ul>
+<li><a href="AbsInputBoxes.html"><span>Input Boxes</span></a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="bloc note">
+
+<div class="bloc_ti note_ti">
+
+<p><span>Viewing Inlets and Outlets</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p>Inlets and outlets of blue patches are not visible in the workspace.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/inletsoutlets1.png" width="170" height="89" alt="inletsoutlets1.png"></img>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/display.png" width="206" height="90" alt="display.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>To display information about inputs and outputs names, as well as a possible documentation, keep <code class="keyboard_tl">Cmd</code> pressed while hovering the mouse over them.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="example--using-a-sub-patch-as-a-functional-abstraction"><span>Example : Using a Sub Patch as a Functional Abstraction</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>Once a patch is added one or more inputs and connected to other items, it can manipulate <strong>variables</strong>, just like a function does. These variables are taken as arguments by the function. Data returned by the abstraction output(s) can also become variables for other boxes or for other functional abstractions.</p>
+</div>
+
+</div>
+
+<div class="bloc example">
+
+<div class="bloc_ti example_ti">
+
+<p><span>A "Large" Program</span></p>
+</div>
+
+<div class="txt">
+
+<p>The following program is quite developed. It could be used as a subordinate and coherent element in a more important patch. We will integrate it in a patch to use it as an abstraction.</p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/chordmult.png" alt="Building successive chords from a chord multiplication."></img></p>
+</div>
+
+<div class="caption_ti">
+
+<p>Building successive chords from a chord multiplication.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Adding Inputs and Outputs to the Patch</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<ul>
+<li><span>Two input boxes are substituted to the parameters of the random-list function.</span></li>
+<li><span>One output box is substituted to the chord-seq to return the result of the computation to the outside of the patch.</span></li>
+</ul>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/chordmult1A.png" width="137" height="194" alt="chordmult1A.png"></img>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Functional Call of the Patch</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p>The patch is dropped into <strong>another patch editor</strong> .</p>
+<ol>
+<li><p>Values can now be sent to the inputs of random-list from the outside of the patch, via the patch inputs.</p></li>
+<li><ul>
+<li><span>The resulting data can also be returned to other boxes and be manipulated. </span></li>
+<li><span>The result of the computation can also be materialized by an external chord-seq box, via its "midics" input.</span></li>
+</ul></li>
+</ol>
+<p>Hence, the patch behaves like a function within a "larger-scale" program.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/chordm.png" width="227" height="217" alt="chordm.png"></img>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p><span class="hidden">Références : </span></p>
+<ol>
+<li><div id="kFootBsktc1802">
+
+<div class="footBskt_itti">
+
+<p>Functional Abstraction</p>
+</div>
+
+<div class="footBskt_itco">
+
+<div>
+
+<div class="dk_definitionMeta_def">
+
+<p>A functional abstraction is a program whose some elements can become variables, via connections to the outside environment. Hence, this program must have inputs or outputs that can be connected to external variable elements. The resulting functional abstraction can then be embedded into other programs to be used as a functional component.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</li>
+</ol>
+</div>
+
+<div id="tplo" class="tplo_out_yes">
+
+<div class="tplOTp">
+
+<div class="tplOBm">
+
+<div id="mnuFrm">
+
+<p><span class="hidden">Plan :</span></p>
+<div id="mnuFrmUp" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" style="display: none;">
+
+<p><span id="mnuFrmUpLeft"><a href="#"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></p>
+</div>
+
+<div id="mnuScroll">
+
+<ul>
+<li><a href="OM-Documentation.html"><span>OpenMusic Documentation</span></a></li>
+<li><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a>
+<ul>
+<li><a href="00-Sommaire.html"><span>Introduction</span></a></li>
+<li><a href="Installation.html"><span>System Configuration and Installation</span></a></li>
+<li><a href="Goingthrough.html"><span>Going Through an OM Session</span></a></li>
+<li><a href="Environment.html"><span>The OM Environment</span></a></li>
+<li><a href="BasicVisualProgramming.html"><span>Visual Programming I</span></a></li>
+<li><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a>
+<ul>
+<li><a href="Abstraction.html"><span>Abstraction</span></a>
+<ul>
+<li><a href="AbsBoxes.html"><span>Abstraction Boxes</span></a></li>
+<li><a href="AbsApplication.html"><span>Application</span></a>
+<ul>
+<li><span id="i3" class="outLeftSel_yes"><span>Inputs / Outputs</span></span></li>
+<li><a href="AbsInputBoxes.html"><span>Input Boxes</span></a></li>
+</ul></li>
+<li><a href="Recursion.html"><span>Recursive Patches</span></a></li>
+</ul></li>
+<li><a href="EvalModes.html"><span>Evaluation Modes</span></a></li>
+<li><a href="HighOrder.html"><span>Higher-Order Functions</span></a></li>
+<li><a href="Control.html"><span>Control Structures</span></a></li>
+<li><a href="OMLoop.html"><span>Iterations: OMLoop</span></a></li>
+<li><a href="Instances.html"><span>Instances</span></a></li>
+<li><a href="InterfaceBoxes.html"><span>Interface Boxes</span></a></li>
+<li><a href="Files.html"><span>Files</span></a></li>
+</ul></li>
+<li><a href="BasicObjects.html"><span>Basic Tools</span></a></li>
+<li><a href="ScoreObjects.html"><span>Score Objects</span></a></li>
+<li><a href="Maquettes.html"><span>Maquettes</span></a></li>
+<li><a href="Sheet.html"><span>Sheet</span></a></li>
+<li><a href="MIDI.html"><span>MIDI</span></a></li>
+<li><a href="Audio.html"><span>Audio</span></a></li>
+<li><a href="SDIF.html"><span>SDIF</span></a></li>
+<li><a href="Lisp.html"><span>Lisp Programming</span></a></li>
+<li><a href="errors.html"><span>Errors and Problems</span></a></li>
+</ul></li>
+<li><a href="QuickStart-Chapters.html"><span>OpenMusic QuickStart</span></a></li>
+</ul>
+</div>
+
+<div id="mnuFrmDown" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" style="display: none;">
+
+<p><span id="mnuFrmDownLeft"><a href="#"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="AbsApplication.html" title="page pr&eacute;c&eacute;dente(Application)"><span>page précédente</span></a><span class="hidden"> | </span><a href="AbsInputBoxes.html" title="page suivante(Input Boxes)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplb">
+
+<p><a href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou</p>
+</div>
+
+</div>
+</body>
 </html>
+</!doctype>

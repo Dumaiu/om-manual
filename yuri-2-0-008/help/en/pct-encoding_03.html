@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<title>Ystok-URI API</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="URL-encoding and decoding URI components">
+<meta name="KEYWORDS" content="percent-encoding,URI,uniform resource identifier,url-encoding">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="percent-decode" href="pct-encoding_02.html">Previous</a></li><li><a class="UP" rel="UP" title="Ystok-URI API" href="pct-encoding_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="Ystok-URI API" href="utils_00.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+
+<h2 id="query-percent-encoding">Encoding spaces in query</h2>
+
+<p>Here is a citation from <a href="#footnote1">[1]</a>, 
+see the section &quot;Query strings&quot;:</p>
+<p class="cite">
+Within the query string, the plus sign is reserved as shorthand notation for
+a space. Therefore, real plus signs must be encoded. This method was used
+to make query URIs easier to pass in systems which did not allow spaces.</p>
+
+<p>But <a href="#footnote2">[2]</a>, a similar and chronologically next 
+document, has not include anything like the above paragraph. None of the later
+RFCs have mentioned such an information about plus-encoded spaces.</p>
+
+<p>Moreover <a href="#footnote4">[3]</a>, the section &quot;3.2.3 URI Comparison&quot;
+states:</p>
+<p class="cite">
+Characters other than those in the &quot;reserved&quot; and &quot;unsafe&quot; sets<br>
+(see RFC&nbsp;2396) are equivalent to their &quot;% HEX HEX&quot; encoding.</p>
+
+<p>Nevertheless, lots of Web browsers and other applications
+follow the first rather odd recommendation in full or partially.</p>
+
+<p>Ystok-URI interprets the space (' ') and plus ('+') characters as per 
+<a href="#footnote3">[4]</a>:</p>
+<ul>
+<li>always percent encodes space,</li>
+<li>never percent encodes '+' as its is a subdelimiter allowed in the query component,</li>
+<li>never percent decodes '+' into space.</li>
+</ul>
+
+<p>Please confront the following.</p>
+<pre class="samp">
+(uri:percent-decode "+") => "+"
+(hunchentoot:url-decode "+") => " "
+
+(uri:percent-encode " ") => "%20"
+(hunchentoot:url-encode " ") => "%20"
+(drakma:url-encode " " :utf-8) -> "+"
+
+(uri:percent-encode "+") => "%2B"
+(hunchentoot:url-encode "+") => "%2B"</pre>
+
+<h5 class="related">See also</h5>
+<ul class="enum">
+<li id="footnote1">[1] Universal Resource Identifiers in WWW: A Unifying Syntax for the Expression of
+ Names and Addresses of Objects on the Network as used in the World-Wide Web.
+ T. Berners-Lee, June 1994.
+<a target="_blank" class="world" href="http://www.w3.org/Addressing/URL/4_URI_Recommentations.html">http://www.w3.org/Addressing/URL/4_URI_Recommentations.html</a></li>
+<li id="footnote2">[2] Uniform Resource Locators (URL). 
+ T. Berners-Lee, L. Masinter, M. McCahill,
+ December 1994.<br>
+<a target="_blank" class="world" href="http://www.w3.org/Addressing/URL/4_Recommentations.html">http://www.w3.org/Addressing/URL/4_Recommentations.html</a></li>
+<li id="footnote3">[3] Hypertext Transfer Protocol - HTTP/1.1, RFC 2616.
+ R. Fielding et.al., June 1999.<br>
+<a target="_blank" class="world" href="http://www.ietf.org/rfc/rfc2616">http://www.ietf.org/rfc/rfc3986</a></li>
+<li id="footnote4">[4] Uniform Resource Identifier (URI): Generic Syntax, RFC 3986.
+ T. Berners-Lee, R. Fielding, L. Masinter, January 2005.<br>
+<a target="_blank" class="world" href="http://www.ietf.org/rfc/rfc3986">http://www.ietf.org/rfc/rfc3986</a></li>
+</ul>
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="percent-decode" href="pct-encoding_02.html">Previous</a></li><li><a class="UP" rel="UP" title="Ystok-URI API" href="pct-encoding_00.html">Up</a></li><li><a class="NEXT" rel="NEXT" title="Ystok-URI API" href="utils_00.html">Next</a></li></ul></div>
+</body>
+</html>

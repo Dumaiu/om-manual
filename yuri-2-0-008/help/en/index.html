@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="EN">
+<head>
+<title>Ystok-URI - portable Uniform Resource Identifier library - introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="KEYWORDS" content="URI,uniform resource identifier">
+<link href="cont.css" rel="stylesheet" type="text/css">
+<script src="help.js" type="text/javascript"></script>
+<script type="text/javascript">
+cont_onopen(0);
+</script>
+</head>
+<body><div class="header toolbar"><ul><li><a class="PREV" rel="PREV" title="Using help book" href="yhusing.html">Previous</a></li><li><span class="UP">Up</span></li><li><a class="NEXT" rel="NEXT" title="Implementation notes" href="implementation-notes.html">Next</a></li><li class="divider"><a id="yh_navitoggle" href="#" onclick="navitoggle_onclick(event)" title="Hide/show navigation frame">&nbsp;</a></li></ul></div>
+
+<h1 id="_h0">Introduction</h1>
+
+<p><dfn id="Ystok-URI">Ystok-URI</dfn> is a portable Uniform Resource Identifier (URI)
+library for Common Lisp programs. It parses URI strings according to 
+<a target="_blank" href="http://www.ietf.org/rfc/rfc3986">RFC&nbsp;3986</a>
+and supports userinfo and percent-encoding/decoding in full.</p>
+
+<p>A <dfn id="URI">Uniform Resource Identifier</dfn> is a string of characters
+used to identify a resource. Such identification enables interaction with representations 
+of the resource over a network (typically the World Wide Web) using specific 
+protocols.</p>
+
+<h2 id="_h1">Dependencies</h2>
+
+<p>Ystok-URI requires</p>
+<ul>
+<li><a target="_blank" class="world" href="http://lisp.ystok.ru/ylib/">Ystok-Library</a>, </li>
+<li>the tester module from the
+<a target="_blank" class="world" href="http://lisp.ystok.ru/projects.html#acl-compat">ACL-Compat</a>
+ bundle for running regression tests.</li>
+</ul>
+<p>Ystok-URI is required by
+<a target="_blank" class="world" href="http://lisp.ystok.ru/yhtml/">YstokHTML</a>
+and <a target="_blank" class="world" href="http://lisp.ystok.ru/yhelp/">YstokHelp</a>.</p>
+
+<h2 id="_h2">Platforms</h2>
+
+<p>The source code was tested on the following Lisp implementations:</p>
+<ul>
+<li><a target="_blank" class="world" href="http://www.lispworks.com">LispWorks</a> 4.4 and 5.0 for Windows,</li>
+<li><a target="_blank" class="world" href="http://www.sbcl.org">SBCL</a> 1.0.55 for Windows.</li>
+</ul>
+
+<h2 id="_h3">Download and installation</h2>
+
+<p>The latest version of Ystok-URI 2.0.007 is available at
+<a target="_blank" class="world" href="http://lisp.ystok.ru/yuri/">http://lisp.ystok.ru/yuri/</a>.
+The distribution package contains the two system definition files:</p>
+<ul>
+<li>ystok-uri.asd for both <a href="http://common-lisp.net/project/asdf/">ASDF</a> and 
+<a target="_blank" class="world" href="http://lisp.ystok.ru/asdlite/">ASDLite</a>,</li>
+<li>defsys.lisp for LispWorks.</li>
+</ul>
+
+<p>To run tests, do the following:</p>
+<ol>
+<li>Make sure the tester is loaded, for example, push <code>:tester</code>
+ into the <code>*features*</code> list before loading 
+<a target="_blank" class="world" href="http://lisp.ystok.ru/projects.html#acl-compat">ACL-Compat</a>.</li>
+<li>Compile and load the file test.lisp.</li>
+<li>Evaluate the form <code>(ystok.uri.test:do-tests)</code>.</li>
+</ol>
+
+<ul class="toc">
+<li><a href="implementation-notes.html#YSTOK.URI-implementation-notes" title="Implementation notes">Implementation notes</a></li>
+<li><a href="conditions_00.html#YSTOK.URI-conditions" title="Conditions">Conditions</a></li>
+<li><a href="core_00.html#YSTOK.URI-core" title="Core primitives">Core primitives</a></li>
+<li><a href="pct-encoding_00.html#percent-encoding" title="Ystok-URI API">Percent-encoding and decoding</a></li>
+<li><a href="utils_00.html#YSTOK.URI-utilities" title="Ystok-URI API">Utilities</a></li>
+</ul>
+
+<h5 class="related">See also</h5>
+<ul class="enum">
+<li><a target="_blank" class="world" href="http://www.ietf.org/rfc/rfc3986">Uniform
+ Resource Identifier (URI): Generic Syntax, RFC 3986</a>
+</li><li><a target="_blank" class="world" href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">URI 
+in Wikipedia</a>
+</li></ul>
+
+<div class="footer toolbar"><ul><li><a class="PREV" rel="PREV" title="Using help book" href="yhusing.html">Previous</a></li><li><span class="UP">Up</span></li><li><a class="NEXT" rel="NEXT" title="Implementation notes" href="implementation-notes.html">Next</a></li></ul></div>
+</body>
+</html>

@@ -1,80 +1,319 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                      "http://www.w3.org/TR/html4/loose.dtd">
-<html>
- <!--
-							standard : HTML 4.01 Transitional (Standards mode)
-							dialog : /@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1783/@c1783/_N16--><head>
-  <title>OpenMusic Documentation - Temporal Relations</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta content="no-cache" http-equiv="Cache-Control">
-  <meta content="no-cache" http-equiv="Pragma">
-  <meta content="Fri, 01 Jan 1990 00:00:00 GMT" name="Expires" http-equiv="expires">
-  <meta content="text/css" http-equiv="Content-Style-Type">
-  <link href="../css/googleSearch.css" type="text/css" rel="stylesheet">
-  <link href="../wdgt/scImgMgr/scImgMgr.css" type="text/css" rel="stylesheet">
-  <script type="text/JavaScript">
-/*0*/ var scServices = {};
-/*1*/ scServices["scLoad"] = {loadFromRoot:function(pUrl){window.location.href="../)"+pUrl;}, getUrlFromRoot:function(pHref){if(!this.fRootOffset) this.fRootOffset = window.location.href.length -11; return pHref.substring(this.fRootOffset);}};
-</script>
-  <script src="../jslib/scCoLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scPaLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scSiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTooltipMgr.js" type="text/JavaScript"></script>
-  <script src="../jslib/scDynUiMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../jslib/pageMemMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/googleSearch/googleSearch.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scrZoom/imgZoomMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/outLeftScroll/outLeftDyn.js" type="text/JavaScript"></script>
-  <script src="../wdgt/relNotes/relNotes.js" type="text/JavaScript"></script>
-  <script src="../wdgt/secOutMgr/secOutMgr.js" type="text/JavaScript"></script>
-  <script type="text/JavaScript">
-imgZoomMgr.init("des:div.imgzFra","chi:img","par:/nsi:/des:a",.33,1,1,1,"Cliquez pour agrandir, Shift-click : nouvelle fenêtre");
-scImgMgr.registerAnimation("des:div.screenSeqFra",{auto:false,loop:false,counter:true});
+<!doctype>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="generator" content="pandoc"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"></meta>
+<title>EX2</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<div id="tplf" class="tplPage">
 
-scImgMgr.registerZoom("des:a.overLnk");
+<div id="tplh">
 
-scImgMgr.setPathPgeFra("ide:tplb");
+<p><span class="hidden">Navigation générale : </span></p>
+<ul>
+<li><a href="OM-Documentation.html"><span>Guide</span></a></li>
+<li><a href="OM-Documentation_1.html"><span>Plan</span></a></li>
+<li><a href="OM-Documentation_2.html"><span>Glossaire</span></a></li>
+</ul>
+</div>
 
-scOnLoads[scOnLoads.length] = guideMem;
+<div id="tplt">
 
-</script>
-  <script type="text/JavaScript">scCoLib.fDebug = true;</script>
-  <meta name="generator" content="SCENARI 3.7 / ircamGuide 3.0.0 - http://scenari-platform.org/projects/dokielguide">
-  <link href="../skin/css/main.css" type="text/css" rel="stylesheet">
-  <link href="../skin/css/skin.css" type="text/css" rel="stylesheet">
-  <!--[if IE]><link href="../skin/css/ie.css" type="text/css" rel="stylesheet"/><![endif]-->
-  <!--[if lt IE 7]><link href="../skin/css/ie6.css" type="text/css" rel="stylesheet"/><![endif]--></head>
- <body>
-  <div class="tplPage" id="tplf"><div id="tplh"><span class="hidden">Navigation g&eacute;n&eacute;rale : </span><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Amap/@c1545_Amap/_Na" title="Plan" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Atools/@c1545_Atools/_Ne" title="Glossaire" position="uncle"><root>refDoc</root></entry></treeContent>--><ul class=" sw_outMain_navList"><li class=" mainSel_no outRoot"><a href="OM-Documentation.html" target="_self" class=" mainSel_no mainElt_entry"><span>Guide</span></a></li><li class=" mainSel_no outMap"><a href="OM-Documentation_1.html" target="_self" class=" mainSel_no mainElt_entry"><span>Plan</span></a></li><li class=" mainSel_no toolGloss"><a href="OM-Documentation_2.html" target="_self" class=" mainSel_no mainElt_entry"><span>Glossaire</span></a></li></ul><div class="googleSearchFrom"><form onsubmit="googleSearch.setQueryVal(this);" target="_blank" action="http://www.google.com/search" method="get"><input name="q" type="hidden"><input size="15" name="text" class="googleSearchText" type="text"><a onclick="googleSearch.submit(scPaLib.findNode('anc:form',this));" href="javascript:void(0);" class="googleSearchSubmit"><img style="vertical-align: middle;" title="Recherche Google" src="../lib/googleSearch.gif" alt="Recherche Google"></a></form></div></div><div id="tplt"><img height="50" width="1" src="../tplRes/page/empty.gif" alt=""><img alt="" src="../res/logoom1.png" width="32" height="24"><span class="tplTi">OpenMusic Documentation</span><!--outline : <treeContent><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558" title="Maquettes" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614" title="Maquette Programming" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777" title="TempBoxes Programming" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1783" title="Temporal Relations" position="current"><root>section</root></entry></entry></entry></entry></entry></treeContent>--><span class=" sw_outStack_navRoot"><span class="hidden">Hi&eacute;rarchie de section : </span><a href="OM-User-Manual.html" target="_self" class=" stkSel_no"><span>OM 6.6 User Manual</span></a><span class="stkSep"> &gt; </span><a href="Maquettes.html" target="_self" class=" stkSel_no"><span>Maquettes</span></a><span class="stkSep"> &gt; </span><a href="Programming%20Maquette.html" target="_self" class=" stkSel_no"><span>Maquette Programming</span></a><span class="stkSep"> &gt; </span><a href="TempProgramming.html" target="_self" class=" stkSel_no"><span>TempBoxes Programming</span></a><span class="stkSep"> &gt; </span><span class=" stkSel_yes"><span>Temporal Relations</span></span></span></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1782"--><a class="navPrev" target="_self" href="Examplestempbox.html" title="page pr&eacute;c&eacute;dente(Programming with the Tempin)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1558/@c1615"--><span class="hidden"> | </span><a class="navNext" target="_self" href="Maquettes%20in%20Patches.html" title="page suivante(Maquettes in Patches)"><span>page suivante</span></a></div><div id="tplc" class=" tplc_out_yes"><noscript><div style="text-align: center;"><strong>Attention</strong>, votre navigateur ne supporte pas le <b>javascript</b> ou celui-ci &agrave; &eacute;t&eacute; d&eacute;sactiv&eacute;. Certaines fonctionnalit&eacute;s de ce guide sont restreintes.</div></noscript><div class="headCo "><h1 class="headCo_ti"><span>Example 2 : Defining Temporal Relations Between TemporalBoxes</span></h1><div class="headCo_co "><div><div class="part "><h2 id="lfN6" class="part_ti"><span>Applying the Values of a TemporalBox to Other TemporalBoxes</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><p class="text_p ">The values of the Self Input Box can be used for defining <cite class="alt_is ">
-														<cite class="alt_is ">
-															<strong class="emphasis_is ">temporal relations</strong>
-														</cite>
-													</cite> with other TemporalBoxes, via connections between functional inputs and outputs. </p></div></div><div class="infobloc "><div class="infobloc_ti"><span>Building a Sequence of TemporalBoxes</span></div><div class="txt "><p class="text_p ">The chord of TemporalBox #1 is a reservoir for isolated notes that will occur successively in the maquette. </p><ol class="ordered_ol "><li class="ordered_oli "><p class="text_p ">We have programmed the TemporalBoxes so that the initial chord provides one random note to each of TemporalBoxes #2; 3; and 4. </p></li><li class="ordered_oli "><p class="text_p ">The <cite class="alt_is ">
-																<strong class="emphasis_is ">offset</strong>
-															</cite> of each TemporalBox is determined by the <cite class="alt_is ">
-																<strong class="emphasis_is ">offset and <cite class="alt_is ">
-																		<strong class="emphasis_is ">duration</strong>
-																	</cite></strong>
-															</cite> of the <cite class="alt_is ">
-																<strong class="emphasis_is ">preceding box</strong>
-															</cite>, so that boxes follow each other.</p></li></ol></div><div class="caption "><div class="caption_co "><img alt="" src="../res/maqsendout.png" width="383" height="400"></div></div></div><div class="infobloc "><div class="infobloc_ti"><span>Inside TemporalBox #1</span></div><div class="txt "><p class="text_p ">The internal program of the first TemporalBox determines some characteristics of the other TemporalBox.</p></div><div class="caption "><div class="caption_co "><img alt="Inside TemporalBox #1 : using the &quot;pattern-chord&quot;'s data." src="../res/chordsendout.png" width="388" height="437"></div><div class="caption_ti ">Inside TemporalBox #1 : using the &quot;pattern-chord&quot;'s data.</div></div><div class="txt "><ul class="simple_sl "><li class="simple_m "><span>The initial chord lasts 3 seconds. It is connected to the Tempout of TemporalBox #1, and represents its musical value. </span></li><li class="simple_m "><span>
-														<cite class="alt_is ">Permut-random</cite> performs a random permutation of the chord's pitches. The <cite class="alt_is ">
-															<strong class="emphasis_is ">three first pitches</strong>
-														</cite> of this permutation are returned by <cite class="alt_is ">nth-first</cite> to the <cite class="alt_is ">
-															<strong class="emphasis_is ">first output</strong>
-														</cite> of TemporalBox #1.</span></li><li class="simple_m "><span> On the other hand, the <cite class="alt_is ">
-															<strong class="emphasis_is ">offset</strong>
-														</cite> of the TemporalBox returned by the Self Input Box, is added with the chord's <cite class="alt_is ">
-															<strong class="emphasis_is ">duration</strong>
-														</cite>. </span></li><li class="simple_m "><span>The result is returned to the <cite class="alt_is ">
-															<strong class="emphasis_is ">second output</strong>
-														</cite> of the TemporalBox.</span></li></ul></div></div></div></div><div class="part "><h2 id="lfNd3" class="part_ti"><span>TemporalBoxes Interaction</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><p class="text_p ">The  random pitches &ndash; output #1 &ndash; are returned to all the other TemporalBoxes. The ending time of the box &ndash; output #2 &ndash; is returned to the next TemporalBox. </p></div></div><div class="infobloc "><div class="infobloc_ti"><span>Inside TemporalBox #2</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><ol class="ordered_ol "><li class="ordered_oli "><p class="text_p ">The three random pitches are returned by the first input of TemporalBox #2 to the<cite class="alt_is "> first</cite> function. </p><p class="text_p ">
-																	<cite class="alt_is ">First</cite> picks the first note and returns it to the <cite class="alt_is ">note</cite> box. This note is also given a duration. </p></li><li class="ordered_oli "><p class="text_p ">The <cite class="alt_is ">note</cite> is connected to the Tempout and becomes the musical value of the TemporalBox.</p></li><li class="ordered_oli "><p class="text_p ">The temporal position of TemporalBox #1, is returned to the &quot;offset&quot; input of <cite class="alt_is ">slots</cite>, which defines the offset of TemporalBox #2. </p></li><li class="ordered_oli "><p class="text_p ">The offset of TemporalBox #2 is added to the duration of the <cite class="alt_is ">note</cite>, and the result is returned to the output of TemporalBox #2.</p></li><li class="ordered_oli "><p class="text_p ">The value of the output ending of the box &ndash; is returned to the next TemporalBox, which contains the same program. </p></li></ol></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><a target="_blank" class="overLnk" href="../res/maqsendout2.png" onclick="scImgMgr.loading(); return false;" title="Cliquez pour agrandir"><img alt="" src="../res/maqsendout2_1.png" width="258" height="300"></a></div></div></td></tr></table></div></div><div class="bloc note "><div class="bloc_ti note_ti"><span>About Last TemporalBox</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/maqsendout1.png" width="209" height="300"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Note that the last TemporalBox  has nor output, neither <cite class="alt_is ">om+</cite> function, but a <cite class="alt_is ">sequence</cite> function. The box has nothing to return to another box.  The <cite class="alt_is ">sequence</cite> function allows to evaluate <cite class="alt_is ">slots</cite> before evaluating the TemporalBox, so that its offset is correct. </p></div></td></tr></table></div></div></div></div></div></div></div><span class="hidden">R&eacute;f&eacute;rences : </span></div><div class="tplo_out_yes" id="tplo"><div class="tplOTp"><div class="tplOBm"><div id="mnuFrm"><span class="hidden">Plan :</span><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" id="mnuFrmUp" style="display: none;"><span id="mnuFrmUpLeft"><a onclick="menuScrollTiTask.step(-20); return false;" href="#" id="mnuBtnUp"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></div><div id="mnuScroll"><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1550" title="Introduction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1551" title="System Configuration and Installation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1552" title="Going Through an OM Session" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1553" title="The OM Environment" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554" title="Visual Programming I" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1556" title="Basic Tools" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1557" title="Score Objects" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558" title="Maquettes" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1611" title="Creating a Maquette" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1612" title="TemporalBoxes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1613" title="The Maquette Editor" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614" title="Maquette Programming" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1774" title="Functional Components" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1775" title="Evaluation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1776" title="The Synthesis Patch" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777" title="TempBoxes Programming" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1781" title="The Self Input Box – Tempin" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1782" title="Programming with the Tempin" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1783" title="Temporal Relations" position="current"><root>section</root></entry></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558/@c1615" title="Maquettes in Patches" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1559" title="Sheet" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1560" title="MIDI" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1561" title="Audio" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1562" title="SDIF" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1563" title="Lisp Programming" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1564" title="Errors and Problems" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6318" title="OpenMusic QuickStart" position="uncle"><root>section</root></entry></treeContent>--><ul class=" sw_outLeft_navList"><li class=" outLeftD1 outRoot"><a href="OM-Documentation.html" target="_self" class=" outLeftSel_no"><span>OpenMusic Documentation</span></a></li><li class=" outLeftD1 outSec"><a href="OM-User-Manual.html" target="_self" class=" outLeftSel_no"><span>OM 6.6 User Manual</span></a><ul><li class=" outLeftD2 outSec"><a href="00-Sommaire.html" target="_self" class=" outLeftSel_no"><span>Introduction</span></a></li><li class=" outLeftD2 outSec"><a href="Installation.html" target="_self" class=" outLeftSel_no"><span>System Configuration and Installation</span></a></li><li class=" outLeftD2 outSec"><a href="Goingthrough.html" target="_self" class=" outLeftSel_no"><span>Going Through an OM Session</span></a></li><li class=" outLeftD2 outSec"><a href="Environment.html" target="_self" class=" outLeftSel_no"><span>The OM Environment</span></a></li><li class=" outLeftD2 outSec"><a href="BasicVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming I</span></a></li><li class=" outLeftD2 outSec"><a href="AdvancedVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming II</span></a></li><li class=" outLeftD2 outSec"><a href="BasicObjects.html" target="_self" class=" outLeftSel_no"><span>Basic Tools</span></a></li><li class=" outLeftD2 outSec"><a href="ScoreObjects.html" target="_self" class=" outLeftSel_no"><span>Score Objects</span></a></li><li class=" outLeftD2 outSec"><a href="Maquettes.html" target="_self" class=" outLeftSel_no"><span>Maquettes</span></a><ul><li class=" outLeftD3 outSec"><a href="Maquette.html" target="_self" class=" outLeftSel_no"><span>Creating a Maquette</span></a></li><li class=" outLeftD3 outSec"><a href="TemporalBoxes.html" target="_self" class=" outLeftSel_no"><span>TemporalBoxes</span></a></li><li class=" outLeftD3 outSec"><a href="Editor.html" target="_self" class=" outLeftSel_no"><span>The Maquette Editor</span></a></li><li class=" outLeftD3 outSec"><a href="Programming%20Maquette.html" target="_self" class=" outLeftSel_no"><span>Maquette Programming</span></a><ul><li class=" outLeftD4 outSec"><a href="InputsOutputs.html" target="_self" class=" outLeftSel_no"><span>Functional Components</span></a></li><li class=" outLeftD4 outSec"><a href="MaquetteEvaluation.html" target="_self" class=" outLeftSel_no"><span>Evaluation</span></a></li><li class=" outLeftD4 outSec"><a href="Synthpatchprog.html" target="_self" class=" outLeftSel_no"><span>The Synthesis Patch</span></a></li><li class=" outLeftD4 outSec"><a href="TempProgramming.html" target="_self" class=" outLeftSel_no"><span>TempBoxes Programming</span></a><ul><li class=" outLeftD5 outSec"><a href="SelfInputBox.html" target="_self" class=" outLeftSel_no"><span>The Self Input Box &ndash; Tempin</span></a></li><li class=" outLeftD5 outSec"><a href="Examplestempbox.html" target="_self" class=" outLeftSel_no"><span>Programming with the Tempin</span></a></li><li class=" outLeftD5 outSec"><span class=" outLeftSel_yes" id="i2"><span>Temporal Relations</span></span></li></ul></li></ul></li><li class=" outLeftD3 outSec"><a href="Maquettes%20in%20Patches.html" target="_self" class=" outLeftSel_no"><span>Maquettes in Patches</span></a></li></ul></li><li class=" outLeftD2 outSec"><a href="Sheet.html" target="_self" class=" outLeftSel_no"><span>Sheet</span></a></li><li class=" outLeftD2 outSec"><a href="MIDI.html" target="_self" class=" outLeftSel_no"><span>MIDI</span></a></li><li class=" outLeftD2 outSec"><a href="Audio.html" target="_self" class=" outLeftSel_no"><span>Audio</span></a></li><li class=" outLeftD2 outSec"><a href="SDIF.html" target="_self" class=" outLeftSel_no"><span>SDIF</span></a></li><li class=" outLeftD2 outSec"><a href="Lisp.html" target="_self" class=" outLeftSel_no"><span>Lisp Programming</span></a></li><li class=" outLeftD2 outSec"><a href="errors.html" target="_self" class=" outLeftSel_no"><span>Errors and Problems</span></a></li></ul></li><li class=" outLeftD1 outSec"><a href="QuickStart-Chapters.html" target="_self" class=" outLeftSel_no"><span>OpenMusic QuickStart</span></a></li></ul></div><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" id="mnuFrmDown" style="display: none;"><span id="mnuFrmDownLeft"><a onclick="menuScrollTiTask.step(20); return false;" href="#" id="mnuBtnDown"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></div></div></div></div></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1558/@c1614/@c1777/@c1782"--><a class="navPrev" target="_self" href="Examplestempbox.html" title="page pr&eacute;c&eacute;dente(Programming with the Tempin)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1558/@c1615"--><span class="hidden"> | </span><a class="navNext" target="_self" href="Maquettes%20in%20Patches.html" title="page suivante(Maquettes in Patches)"><span>page suivante</span></a></div><div id="tplb"><a target="_self" class="btnAbout " href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou<a target="_blank" class="btnSc " href="http://scenari-platform.org" title="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)"><span><img src="../skin/img/btnSc.png " alt="R&eacute;alis&eacute; avec Scenari"></span></a></div></div>
-  <script type="text/javascript">dokielMgr.init();scImgMgr.init();menuMgr.init();new dkSiRuleResizeMnu("tplo","tplf",190);new scSiRuleEnsureVisible("i2", "ide:mnuScroll");</script>
- </body>
+<p><img src="../tplRes/page/empty.gif" alt="empty.gif"></img><img src="../res/logoom1.png" alt="logoom1.png"></img><span class="tplTi">OpenMusic Documentation</span><span class="sw_outStack_navRoot"><span class="hidden">Hiérarchie de section : </span><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a><span class="stkSep"> > </span><a href="Maquettes.html"><span>Maquettes</span></a><span class="stkSep"> > </span><a href="Programming%20Maquette.html"><span>Maquette Programming</span></a><span class="stkSep"> > </span><a href="TempProgramming.html"><span>TempBoxes Programming</span></a><span class="stkSep"> > </span><span class="stkSel_yes"><span>Temporal Relations</span></span></span></p>
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="Examplestempbox.html" title="page pr&eacute;c&eacute;dente(Programming with the Tempin)"><span>page précédente</span></a><span class="hidden"> | </span><a href="Maquettes%20in%20Patches.html" title="page suivante(Maquettes in Patches)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplc" class="tplc_out_yes">
+
+<div style="text-align: center;">
+
+<p><strong>Attention</strong>, votre navigateur ne supporte pas le <strong>javascript</strong> ou celui-ci à été désactivé. Certaines fonctionnalités de ce guide sont restreintes.</p>
+</div>
+
+<div class="headCo">
+
+<h1 id="example-2--defining-temporal-relations-between-temporalboxes"><span>Example 2 : Defining Temporal Relations Between TemporalBoxes</span></h1>
+<div class="headCo_co">
+
+<div>
+
+<div class="part">
+
+<h2 id="applying-the-values-of-a-temporalbox-to-other-temporalboxes"><span>Applying the Values of a TemporalBox to Other TemporalBoxes</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>The values of the Self Input Box can be used for defining <strong>temporal relations</strong> with other TemporalBoxes, via connections between functional inputs and outputs.</p>
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Building a Sequence of TemporalBoxes</span></p>
+</div>
+
+<div class="txt">
+
+<p>The chord of TemporalBox #1 is a reservoir for isolated notes that will occur successively in the maquette.</p>
+<ol>
+<li><p>We have programmed the TemporalBoxes so that the initial chord provides one random note to each of TemporalBoxes #2; 3; and 4.</p></li>
+<li><p>The <strong>offset</strong> of each TemporalBox is determined by the <strong>offset and</strong> <strong><strong>duration</strong></strong> of the <strong>preceding box</strong> , so that boxes follow each other.</p></li>
+</ol>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/maqsendout.png" alt="maqsendout.png"></img></p>
+</div>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Inside TemporalBox #1</span></p>
+</div>
+
+<div class="txt">
+
+<p>The internal program of the first TemporalBox determines some characteristics of the other TemporalBox.</p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/chordsendout.png" alt="Inside TemporalBox #1 : using the &quot;pattern-chord&quot;'s data."></img></p>
+</div>
+
+<div class="caption_ti">
+
+<p>Inside TemporalBox #1 : using the "pattern-chord"'s data.</p>
+</div>
+
+</div>
+
+<div class="txt">
+
+<ul>
+<li><span>The initial chord lasts 3 seconds. It is connected to the Tempout of TemporalBox #1, and represents its musical value. </span></li>
+<li><span> Permut-random performs a random permutation of the chord's pitches. The <strong>three first pitches</strong> of this permutation are returned by nth-first to the <strong>first output</strong> of TemporalBox #1.</span></li>
+<li><span> On the other hand, the <strong>offset</strong> of the TemporalBox returned by the Self Input Box, is added with the chord's <strong>duration</strong> . </span></li>
+<li><span>The result is returned to the <strong>second output</strong> of the TemporalBox.</span></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="temporalboxes-interaction"><span>TemporalBoxes Interaction</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p>The random pitches – output #1 – are returned to all the other TemporalBoxes. The ending time of the box – output #2 – is returned to the next TemporalBox.</p>
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Inside TemporalBox #2</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<ol>
+<li><p>The three random pitches are returned by the first input of TemporalBox #2 to the first function.</p>
+<p>First picks the first note and returns it to the note box. This note is also given a duration.</p></li>
+<li><p>The note is connected to the Tempout and becomes the musical value of the TemporalBox.</p></li>
+<li><p>The temporal position of TemporalBox #1, is returned to the "offset" input of slots, which defines the offset of TemporalBox #2.</p></li>
+<li><p>The offset of TemporalBox #2 is added to the duration of the note, and the result is returned to the output of TemporalBox #2.</p></li>
+<li><p>The value of the output ending of the box – is returned to the next TemporalBox, which contains the same program.</p></li>
+</ol>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<a href="../res/maqsendout2.png" class="overLnk" title="Cliquez pour agrandir"><img src="../res/maqsendout2_1.png" width="258" height="300" alt="maqsendout2_1.png"></img></a>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="bloc note">
+
+<div class="bloc_ti note_ti">
+
+<p><span>About Last TemporalBox</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/maqsendout1.png" width="209" height="300" alt="maqsendout1.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>Note that the last TemporalBox has nor output, neither om+ function, but a sequence function. The box has nothing to return to another box. The sequence function allows to evaluate slots before evaluating the TemporalBox, so that its offset is correct.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p><span class="hidden">Références : </span></p>
+</div>
+
+<div id="tplo" class="tplo_out_yes">
+
+<div class="tplOTp">
+
+<div class="tplOBm">
+
+<div id="mnuFrm">
+
+<p><span class="hidden">Plan :</span></p>
+<div id="mnuFrmUp" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" style="display: none;">
+
+<p><span id="mnuFrmUpLeft"><a href="#"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></p>
+</div>
+
+<div id="mnuScroll">
+
+<ul>
+<li><a href="OM-Documentation.html"><span>OpenMusic Documentation</span></a></li>
+<li><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a>
+<ul>
+<li><a href="00-Sommaire.html"><span>Introduction</span></a></li>
+<li><a href="Installation.html"><span>System Configuration and Installation</span></a></li>
+<li><a href="Goingthrough.html"><span>Going Through an OM Session</span></a></li>
+<li><a href="Environment.html"><span>The OM Environment</span></a></li>
+<li><a href="BasicVisualProgramming.html"><span>Visual Programming I</span></a></li>
+<li><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a></li>
+<li><a href="BasicObjects.html"><span>Basic Tools</span></a></li>
+<li><a href="ScoreObjects.html"><span>Score Objects</span></a></li>
+<li><a href="Maquettes.html"><span>Maquettes</span></a>
+<ul>
+<li><a href="Maquette.html"><span>Creating a Maquette</span></a></li>
+<li><a href="TemporalBoxes.html"><span>TemporalBoxes</span></a></li>
+<li><a href="Editor.html"><span>The Maquette Editor</span></a></li>
+<li><a href="Programming%20Maquette.html"><span>Maquette Programming</span></a>
+<ul>
+<li><a href="InputsOutputs.html"><span>Functional Components</span></a></li>
+<li><a href="MaquetteEvaluation.html"><span>Evaluation</span></a></li>
+<li><a href="Synthpatchprog.html"><span>The Synthesis Patch</span></a></li>
+<li><a href="TempProgramming.html"><span>TempBoxes Programming</span></a>
+<ul>
+<li><a href="SelfInputBox.html"><span>The Self Input Box – Tempin</span></a></li>
+<li><a href="Examplestempbox.html"><span>Programming with the Tempin</span></a></li>
+<li><span id="i2" class="outLeftSel_yes"><span>Temporal Relations</span></span></li>
+</ul></li>
+</ul></li>
+<li><a href="Maquettes%20in%20Patches.html"><span>Maquettes in Patches</span></a></li>
+</ul></li>
+<li><a href="Sheet.html"><span>Sheet</span></a></li>
+<li><a href="MIDI.html"><span>MIDI</span></a></li>
+<li><a href="Audio.html"><span>Audio</span></a></li>
+<li><a href="SDIF.html"><span>SDIF</span></a></li>
+<li><a href="Lisp.html"><span>Lisp Programming</span></a></li>
+<li><a href="errors.html"><span>Errors and Problems</span></a></li>
+</ul></li>
+<li><a href="QuickStart-Chapters.html"><span>OpenMusic QuickStart</span></a></li>
+</ul>
+</div>
+
+<div id="mnuFrmDown" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" style="display: none;">
+
+<p><span id="mnuFrmDownLeft"><a href="#"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="Examplestempbox.html" title="page pr&eacute;c&eacute;dente(Programming with the Tempin)"><span>page précédente</span></a><span class="hidden"> | </span><a href="Maquettes%20in%20Patches.html" title="page suivante(Maquettes in Patches)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplb">
+
+<p><a href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou</p>
+</div>
+
+</div>
+</body>
 </html>
+</!doctype>

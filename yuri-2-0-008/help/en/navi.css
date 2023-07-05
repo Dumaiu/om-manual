@@ -1,0 +1,55 @@
+/* <!--[CDATA[ */
+/*** YstokHelp - Styles for navigation pages
+ *** Copyright (c) 2009-2012 Dr. Dmitriy Ivanov. All rights reserved.
+ *** http://lisp.ystok.ru/yhelp/
+ ***/
+.current	{ color:#063; }
+.code		{ font-family:Monospace; }	/*white-space:pre;*/
+body		{ margin: 1px 6px 1px 6px;
+		  color:black; background-color:#dedede;
+		  font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+		  font-weight:normal; font-size:80%; }
+hr		{ height:1px; margin: 1px -4px 1px -4px; }
+
+span.menu-command, span.widget		/* these can come from anchor content */
+		{ font-weight:bold; }
+span.small-caps { font-variant:small-caps; }
+span.category	{ font-family:Times; font-weight:normal; font-size:90%; }
+
+/*h1		{ margin: 0 0 2px 0; padding:0; font-size:130%; font-weight:normal; }*/
+h1.yh_using, h2.yh_using
+		{ height:32px; background: url('yhgfx/book.png') no-repeat right top; }
+h1 a.yh_using	{ display:block; height:32px;
+		  background: url('yhgfx/book.png') no-repeat right top; }
+
+body.index h2	{ margin: 0.5em 0 0 0; padding:0.5em; font-size:90%; font-weight:normal; }
+
+body.toc p	{ margin: 0.2em 0 0 0; padding:0; font-size:100%; font-weight:bold; text-align:center; }
+body.toc h1	{ margin: 0.5em 0 0.2em 0; padding:0; font-size:110%; font-weight:normal; }
+body.toc h2	{ margin:0; padding:0 0 0 0.5em; font-size:90%; font-weight:normal; }
+body.toc h3	{ margin:0; padding:0 0 0 1.5em; font-size:80%; font-weight:normal; }
+body.toc h4	{ margin:0; padding:0 0 0 3em; font-size:80%; font-weight:normal; }
+
+table.idx	{ margin:0; padding:0;
+		  border-collapse:separate; border-style:none; border-spacing:0; }
+table.idx tr	{ margin:0; padding:0; vertical-align:top; }
+table.idx th	{ margin:0; padding: 4px 0 0 0; color:#063;
+		  font-weight:bold; font-size:100%; text-align:left; }
+table.idx td	{ margin:0; padding: 0 1px 0 0; vertical-align:middle;
+		  white-space:pre; font-size:80%; }
+table.idx tr td:first-child		/* Firefox dosn't respects <col align=..> */
+		{ text-align:right; }
+table.idx tr td + td:first-letter
+		{ font-weight:bold; }
+table.idx tr td a			/* override outer .code */
+		{ font-family: Verdana,Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif; }
+
+div.toolbar	{ margin:1px -4px 1px -4px; font-size:14px; }
+div.header	{ padding: 3px 0 6px 0; border-bottom: 2px groove; }
+div.footer	{ padding: 4px 0 6px 0; border-top: 2px groove; }
+
+a		{ text-decoration:none; }
+a:hover 	{ text-decoration:underline; }
+
+span.yh_undefined_anchor { color:red; text-decoration:underline; }
+/* ]]--> */

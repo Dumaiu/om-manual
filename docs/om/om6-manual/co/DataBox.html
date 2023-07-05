@@ -1,79 +1,462 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                      "http://www.w3.org/TR/html4/loose.dtd">
-<html>
- <!--
-							standard : HTML 4.01 Transitional (Standards mode)
-							dialog : /@c1545/@c6360/@c6361/@c1554/@c1584/@c1650/@c1650/_N16--><head>
-  <title>OpenMusic Documentation - Data Boxes</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta content="no-cache" http-equiv="Cache-Control">
-  <meta content="no-cache" http-equiv="Pragma">
-  <meta content="Fri, 01 Jan 1990 00:00:00 GMT" name="Expires" http-equiv="expires">
-  <meta content="text/css" http-equiv="Content-Style-Type">
-  <link href="../css/googleSearch.css" type="text/css" rel="stylesheet">
-  <link href="../wdgt/scImgMgr/scImgMgr.css" type="text/css" rel="stylesheet">
-  <script type="text/JavaScript">
-/*0*/ var scServices = {};
-/*1*/ scServices["scLoad"] = {loadFromRoot:function(pUrl){window.location.href="../)"+pUrl;}, getUrlFromRoot:function(pHref){if(!this.fRootOffset) this.fRootOffset = window.location.href.length -15; return pHref.substring(this.fRootOffset);}};
-</script>
-  <script src="../jslib/scCoLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scPaLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scSiLib.js" type="text/JavaScript"></script>
-  <script src="../jslib/scTooltipMgr.js" type="text/JavaScript"></script>
-  <script src="../jslib/scDynUiMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scImgMgr/scImgMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/dokielMgr/dokielMgr.locale.js" type="text/JavaScript"></script>
-  <script src="../jslib/pageMemMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/googleSearch/googleSearch.js" type="text/JavaScript"></script>
-  <script src="../wdgt/scrZoom/imgZoomMgr.js" type="text/JavaScript"></script>
-  <script src="../wdgt/outLeftScroll/outLeftDyn.js" type="text/JavaScript"></script>
-  <script src="../wdgt/relNotes/relNotes.js" type="text/JavaScript"></script>
-  <script src="../wdgt/secOutMgr/secOutMgr.js" type="text/JavaScript"></script>
-  <script type="text/JavaScript">
-imgZoomMgr.init("des:div.imgzFra","chi:img","par:/nsi:/des:a",.33,1,1,1,"Cliquez pour agrandir, Shift-click : nouvelle fenêtre");
-scImgMgr.registerAnimation("des:div.screenSeqFra",{auto:false,loop:false,counter:true});
+<!doctype>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="generator" content="pandoc"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"></meta>
+<title>DataBox</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<div id="tplf" class="tplPage">
 
-scImgMgr.registerZoom("des:a.overLnk");
+<div id="tplh">
 
-scImgMgr.setPathPgeFra("ide:tplb");
+<p><span class="hidden">Navigation générale : </span></p>
+<ul>
+<li><a href="OM-Documentation.html"><span>Guide</span></a></li>
+<li><a href="OM-Documentation_1.html"><span>Plan</span></a></li>
+<li><a href="OM-Documentation_2.html"><span>Glossaire</span></a></li>
+</ul>
+</div>
 
-scOnLoads[scOnLoads.length] = guideMem;
+<div id="tplt">
 
-</script>
-  <script type="text/JavaScript">scCoLib.fDebug = true;</script>
-  <meta name="generator" content="SCENARI 3.7 / ircamGuide 3.0.0 - http://scenari-platform.org/projects/dokielguide">
-  <link href="../skin/css/main.css" type="text/css" rel="stylesheet">
-  <link href="../skin/css/skin.css" type="text/css" rel="stylesheet">
-  <!--[if IE]><link href="../skin/css/ie.css" type="text/css" rel="stylesheet"/><![endif]-->
-  <!--[if lt IE 7]><link href="../skin/css/ie6.css" type="text/css" rel="stylesheet"/><![endif]--></head>
- <body>
-  <div class="tplPage" id="tplf"><div id="tplh"><span class="hidden">Navigation g&eacute;n&eacute;rale : </span><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Amap/@c1545_Amap/_Na" title="Plan" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c1545_Atools/@c1545_Atools/_Ne" title="Glossaire" position="uncle"><root>refDoc</root></entry></treeContent>--><ul class=" sw_outMain_navList"><li class=" mainSel_no outRoot"><a href="OM-Documentation.html" target="_self" class=" mainSel_no mainElt_entry"><span>Guide</span></a></li><li class=" mainSel_no outMap"><a href="OM-Documentation_1.html" target="_self" class=" mainSel_no mainElt_entry"><span>Plan</span></a></li><li class=" mainSel_no toolGloss"><a href="OM-Documentation_2.html" target="_self" class=" mainSel_no mainElt_entry"><span>Glossaire</span></a></li></ul><div class="googleSearchFrom"><form onsubmit="googleSearch.setQueryVal(this);" target="_blank" action="http://www.google.com/search" method="get"><input name="q" type="hidden"><input size="15" name="text" class="googleSearchText" type="text"><a onclick="googleSearch.submit(scPaLib.findNode('anc:form',this));" href="javascript:void(0);" class="googleSearchSubmit"><img style="vertical-align: middle;" title="Recherche Google" src="../lib/googleSearch.gif" alt="Recherche Google"></a></form></div></div><div id="tplt"><img height="50" width="1" src="../tplRes/page/empty.gif" alt=""><img alt="" src="../res/logoom1.png" width="32" height="24"><span class="tplTi">OpenMusic Documentation</span><!--outline : <treeContent><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1554" title="Visual Programming I" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584" title="Boxes" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1650" title="Data Boxes" position="current"><root>section</root></entry></entry></entry></entry></treeContent>--><span class=" sw_outStack_navRoot"><span class="hidden">Hi&eacute;rarchie de section : </span><a href="OM-User-Manual.html" target="_self" class=" stkSel_no"><span>OM 6.6 User Manual</span></a><span class="stkSep"> &gt; </span><a href="BasicVisualProgramming.html" target="_self" class=" stkSel_no"><span>Visual Programming I</span></a><span class="stkSep"> &gt; </span><a href="Boxes.html" target="_self" class=" stkSel_no"><span>Boxes</span></a><span class="stkSep"> &gt; </span><span class=" stkSel_yes"><span>Data Boxes</span></span></span></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1554/@c1584/@c1649"--><a class="navPrev" target="_self" href="GraphicFeatures.html" title="page pr&eacute;c&eacute;dente(Boxes Features)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1554/@c1584/@c1651"--><span class="hidden"> | </span><a class="navNext" target="_self" href="FunctionBoxes.html" title="page suivante(Function Boxes)"><span>page suivante</span></a></div><div id="tplc" class=" tplc_out_yes"><noscript><div style="text-align: center;"><strong>Attention</strong>, votre navigateur ne supporte pas le <b>javascript</b> ou celui-ci &agrave; &eacute;t&eacute; d&eacute;sactiv&eacute;. Certaines fonctionnalit&eacute;s de ce guide sont restreintes.</div></noscript><div class="headCo "><h1 class="headCo_ti"><span>Data Boxes</span></h1><div class="headCo_co "><div class="secOutFra"><div class="secOutTi"><a onclick="secOutMgr.toggle();" href="#" class="secOut_op"><span>Sommaire </span></a></div><div class="secOutUi"><ol><li><a href="#tN1e">Use</a></li><li><a href="#tN115">Adding a Data Box</a></li><li><a href="#tN1a5">Editing the Content of a Box</a></li><li><a href="#tN233">Connection to Another Box</a></li></ol></div></div><div><div class="infobloc "><div class="txt "><p class="text_p ">
-									<cite class="alt_is ">
-										<strong class="emphasis_is ">Data boxes</strong>
-									</cite> are the simplest of all OM boxes. A data box represents a constant value. This value belongs to one of  the <cite class="alt_is ">primitive Lisp types</cite>, which are available in the <cite class="alt_is ">OM Kernel / Lisp</cite> package. </p></div></div><div class="part "><h2 id="tN1e" class="part_ti"><span>Use</span></h2><div class="part_co "><div class="infobloc "><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/basictypebox.png" width="129" height="63"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">A data box is designed to pass data to other boxes in a patch. It is made of a text field that expresses a value or a text, and an output that allows to connect this content to other boxes.</p></div></td></tr></table></div></div><div class="infobloc "><div class="infobloc_ti"><span>Primitive Lisp Types</span></div><div class="txt "><p class="text_p "> There are several primitive Lisp types : </p><table><caption></caption><col class="colTi_tbcl " width="111.78854625550659"><col class="col_tbcl " width="182.73127753303964"><col class="colTi_tbcl " width="98.8898678414097"><col class="col_tbcl " width="362.237885462555"><tr class="row_tbtr "><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">number :</p></li></ul></th><td class="cell_tbtd "><p class="text_p "> any type of numeric data </p></td><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">list :</p></li></ul></th><td class="cell_tbtd "><p class="text_p "> a list of any type of item between parenthesis</p></td></tr><tr class="row_tbtr "><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">integer :</p></li></ul></th><td class="cell_tbtd "><p class="text_p "> an integer number</p></td><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">string :</p></li></ul></th><td class="cell_tbtd "><p class="text_p ">a text between double quotes &ndash; inverted commas &ndash;</p></td></tr><tr class="row_tbtr "><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">float :</p></li></ul></th><td class="cell_tbtd "><p class="text_p "> decimal number </p></td><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">t :</p></li></ul></th><td class="cell_tbtd "><p class="text_p ">the Lisp expression for &quot;true&quot;</p></td></tr><tr class="row_tbtr "><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">rational :</p></li></ul></th><td class="cell_tbtd "><p class="text_p ">a/b&nbsp; </p></td><th scope="row" class="cell_tbtd "><ul class="itemized_il "><li class="itemized_ili "><p class="text_p ">nil :</p></li></ul></th><td class="cell_tbtd "><p class="text_p ">the Lisp expression of &quot;false&quot; or &quot;nothing&quot;</p></td></tr></table></div></div></div></div><div class="part "><h2 id="tN115" class="part_ti"><span>Adding a Data Box</span></h2><div class="part_co "><div class="infobloc "><div class="infobloc_ti"><span>Typing Directly In the Patch Editor</span></div><div class="txt "><table><caption></caption><col class="col_tbcl " width="94.59030837004406"><col class="col_tbcl " width="653.5330396475771"><tr class="row_tbtr "><td class="cell_tbtd "><p class="text_p ">
-																<span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/editdata_icon.png" width="65" height="45"></span>
-															</p></td><td class="cell_tbtd "><p class="text_p ">
-																<code class="keyboard_tl ">Cmd</code> click in the patch editor and type a content &ndash; for instance 4, (2 3 4), &quot;hello&quot;, etc. &ndash; directly in the text prompt. </p></td></tr></table></div></div><div class="infobloc "><div class="infobloc_ti"><span>Menus Or Library Window</span></div><div class="caption "><div class="caption_co "><img alt="" src="../res/basictypemenu.png" width="395" height="240"></div></div><div class="txt "><ul class="simple_sl "><li class="simple_m "><span>&nbsp;Go to <code class="menuPath_tl ">Classes / Kernel / Lisp</code> and choose a menu item.</span></li><li class="simple_m "><span>
-														<code class="keyboard_tl ">Ctrl</code> / right click in the patch editor and choose a menu item in the contextual menu.</span></li><li class="simple_m "><span>Pick the box in the relevant package from the <a target="_self" href="Library.html"><span>Library</span></a> window and drop it in the editor. </span></li></ul></div></div><div class="bloc note "><div class="bloc_ti note_ti"><span>Note</span></div><div class="txt "><p class="text_p ">A data box accepts any primitive type, no matter what its type was initially.</p></div></div></div></div><div class="part "><h2 id="tN1a5" class="part_ti"><span>Editing the Content of a Box</span></h2><div class="part_co "><div class="infobloc "><div class="txt "><table><caption></caption><col class="col_tbcl " width="121.46255506607929"><col class="col_tbcl " width="292.3700440528634"><tr class="row_tbtr "><td class="cell_tbtd "><p class="text_p ">
-																<span class="iconButton_tim "><img class="sfile_icon-png_icon-gif_icon " alt="" src="../res/promptbasictype_icon.png" width="83" height="33"></span>
-															</p></td><td class="cell_tbtd "><p class="text_p ">Double click on a box to edit its content. </p></td></tr></table><ul class="simple_sl "><li class="simple_m "><span>
-														<cite class="alt_is ">Numbers</cite> should be entered as simple numbers.</span></li><li class="simple_m "><span>
-														<cite class="alt_is ">Strings</cite> should be entered between double quotes &ndash; inverted commas.</span></li><li class="simple_m "><span>
-														<cite class="alt_is ">Symbols</cite> should be entered as simple text.</span></li><li class="simple_m "><span>
-														<cite class="alt_is ">Lists</cite> should be entered between parenthesis, just as in Lisp. Ill-formed lists are not accepted.</span></li></ul><p class="text_p ">
-													<strong class="emphasis_is ">
-														<cite class="alt_is ">
-														</cite>
-													</strong>To confirm the input value, press <code class="keyboard_tl ">Enter</code> or click in the patch editor. <strong class="emphasis_is ">
-														<cite class="alt_is ">
-															<strong class="emphasis_is ">No line return is allowed in data boxes.</strong>
-														</cite>
-													</strong>
-												</p></div></div><div class="bloc tip "><div class="bloc_ti tip_ti"><span>Resizing</span></div><div class="txt "><p class="text_p ">To fit the box size to its content, select it and type <code class="keyboard_tl ">i</code>.</p></div></div></div></div><div class="part "><h2 id="tN233" class="part_ti"><span>Connection to Another Box</span></h2><div class="part_co "><div class="infobloc "><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">Click on the outlet to create a connection and drag it to the wanted inlet of another box.</p></div></td><td class="dk_txtRes_cellResRgt "><div class="caption "><div class="caption_co "><img alt="Connecting a simple value box to the pitch inlet of a &quot;note&quot; box." src="../res/connecting.png" width="83" height="125"></div><div class="caption_ti ">Connecting a simple value box to the pitch inlet of a &quot;note&quot; box.</div></div></td></tr></table></div></div><div class="bloc tip "><div class="bloc_ti tip_ti"><span>Automatic Connection</span></div><div class="txtRes "><table class="dk_txtRes_tab "><tr><td class="dk_txtRes_cellResLft "><div class="caption "><div class="caption_co "><img alt="" src="../res/autobasic.png" width="71" height="87"></div></div></td><td class="dk_txtRes_cellTxt "><div class="dk_txtRes_txt txt "><p class="text_p ">
-															To add a connected data box to a factory or function box, <code class="keyboard_tl ">SHIFT</code> click on an input. This data box will have the default value of the input, which will then be displayed permanently.</p></div></td></tr></table></div></div></div></div></div></div></div><span class="hidden">R&eacute;f&eacute;rences : </span></div><div class="tplo_out_yes" id="tplo"><div class="tplOTp"><div class="tplOBm"><div id="mnuFrm"><span class="hidden">Plan :</span><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" id="mnuFrmUp" style="display: none;"><span id="mnuFrmUpLeft"><a onclick="menuScrollTiTask.step(-20); return false;" href="#" id="mnuBtnUp"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></div><div id="mnuScroll"><!--outline : <treeContent><entry dialog="/@c1545/@c1545_Ahome/@c1545_Ahome/_Na" title="OpenMusic Documentation" position="uncle"><root>refDoc</root></entry><entry dialog="/@c1545/@c6360/@c6361" title="OM 6.6 User Manual" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1550" title="Introduction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1551" title="System Configuration and Installation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1552" title="Going Through an OM Session" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1553" title="The OM Environment" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554" title="Visual Programming I" position="ancestor"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1581" title="Patch Introduction" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1582" title="Adding Boxes Into a Patch" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1583" title="Elementary Manipulations" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584" title="Boxes" position="parent"><root>section</root><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1649" title="Boxes Features" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1650" title="Data Boxes" position="current"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1651" title="Function Boxes" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1652" title="Objects – Factory Boxes" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1653" title="Abstraction Boxes" position="sibling"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1584/@c1654" title="Other Boxes" position="sibling"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1585" title="Box Inputs" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1586" title="Connections" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1587" title="Evaluation" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1588" title="Documentation and Info" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1589" title="Comments" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1590" title="Pictures" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1591" title="Saving / Reloading a Patch" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1554/@c1592" title="Dead Boxes" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6361/@c1555" title="Visual Programming II" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1556" title="Basic Tools" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1557" title="Score Objects" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1558" title="Maquettes" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1559" title="Sheet" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1560" title="MIDI" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1561" title="Audio" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1562" title="SDIF" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1563" title="Lisp Programming" position="uncle"><root>section</root></entry><entry dialog="/@c1545/@c6360/@c6361/@c1564" title="Errors and Problems" position="uncle"><root>section</root></entry></entry><entry dialog="/@c1545/@c6360/@c6318" title="OpenMusic QuickStart" position="uncle"><root>section</root></entry></treeContent>--><ul class=" sw_outLeft_navList"><li class=" outLeftD1 outRoot"><a href="OM-Documentation.html" target="_self" class=" outLeftSel_no"><span>OpenMusic Documentation</span></a></li><li class=" outLeftD1 outSec"><a href="OM-User-Manual.html" target="_self" class=" outLeftSel_no"><span>OM 6.6 User Manual</span></a><ul><li class=" outLeftD2 outSec"><a href="00-Sommaire.html" target="_self" class=" outLeftSel_no"><span>Introduction</span></a></li><li class=" outLeftD2 outSec"><a href="Installation.html" target="_self" class=" outLeftSel_no"><span>System Configuration and Installation</span></a></li><li class=" outLeftD2 outSec"><a href="Goingthrough.html" target="_self" class=" outLeftSel_no"><span>Going Through an OM Session</span></a></li><li class=" outLeftD2 outSec"><a href="Environment.html" target="_self" class=" outLeftSel_no"><span>The OM Environment</span></a></li><li class=" outLeftD2 outSec"><a href="BasicVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming I</span></a><ul><li class=" outLeftD3 outSec"><a href="ProgrammingIntro.html" target="_self" class=" outLeftSel_no"><span>Patch Introduction</span></a></li><li class=" outLeftD3 outSec"><a href="AddingBoxes.html" target="_self" class=" outLeftSel_no"><span>Adding Boxes Into a Patch</span></a></li><li class=" outLeftD3 outSec"><a href="ElementaryManips.html" target="_self" class=" outLeftSel_no"><span>Elementary Manipulations</span></a></li><li class=" outLeftD3 outSec"><a href="Boxes.html" target="_self" class=" outLeftSel_no"><span>Boxes</span></a><ul><li class=" outLeftD4 outSec"><a href="GraphicFeatures.html" target="_self" class=" outLeftSel_no"><span>Boxes Features</span></a></li><li class=" outLeftD4 outSec"><span class=" outLeftSel_yes" id="i4"><span>Data Boxes</span></span></li><li class=" outLeftD4 outSec"><a href="FunctionBoxes.html" target="_self" class=" outLeftSel_no"><span>Function Boxes</span></a></li><li class=" outLeftD4 outSec"><a href="FactoryBoxes.html" target="_self" class=" outLeftSel_no"><span>Objects &ndash; Factory Boxes</span></a></li><li class=" outLeftD4 outSec"><a href="AbsBoxesIntro.html" target="_self" class=" outLeftSel_no"><span>Abstraction Boxes</span></a></li><li class=" outLeftD4 outSec"><a href="OtherBoxes.html" target="_self" class=" outLeftSel_no"><span>Other Boxes</span></a></li></ul></li><li class=" outLeftD3 outSec"><a href="BoxInputs.html" target="_self" class=" outLeftSel_no"><span>Box Inputs</span></a></li><li class=" outLeftD3 outSec"><a href="Connections.html" target="_self" class=" outLeftSel_no"><span>Connections</span></a></li><li class=" outLeftD3 outSec"><a href="Evaluation.html" target="_self" class=" outLeftSel_no"><span>Evaluation</span></a></li><li class=" outLeftD3 outSec"><a href="DocAndInfo.html" target="_self" class=" outLeftSel_no"><span>Documentation and Info</span></a></li><li class=" outLeftD3 outSec"><a href="Comments.html" target="_self" class=" outLeftSel_no"><span>Comments</span></a></li><li class=" outLeftD3 outSec"><a href="Pictures.html" target="_self" class=" outLeftSel_no"><span>Pictures</span></a></li><li class=" outLeftD3 outSec"><a href="SavingPatch.html" target="_self" class=" outLeftSel_no"><span>Saving / Reloading a Patch</span></a></li><li class=" outLeftD3 outSec"><a href="DeadBox.html" target="_self" class=" outLeftSel_no"><span>Dead Boxes</span></a></li></ul></li><li class=" outLeftD2 outSec"><a href="AdvancedVisualProgramming.html" target="_self" class=" outLeftSel_no"><span>Visual Programming II</span></a></li><li class=" outLeftD2 outSec"><a href="BasicObjects.html" target="_self" class=" outLeftSel_no"><span>Basic Tools</span></a></li><li class=" outLeftD2 outSec"><a href="ScoreObjects.html" target="_self" class=" outLeftSel_no"><span>Score Objects</span></a></li><li class=" outLeftD2 outSec"><a href="Maquettes.html" target="_self" class=" outLeftSel_no"><span>Maquettes</span></a></li><li class=" outLeftD2 outSec"><a href="Sheet.html" target="_self" class=" outLeftSel_no"><span>Sheet</span></a></li><li class=" outLeftD2 outSec"><a href="MIDI.html" target="_self" class=" outLeftSel_no"><span>MIDI</span></a></li><li class=" outLeftD2 outSec"><a href="Audio.html" target="_self" class=" outLeftSel_no"><span>Audio</span></a></li><li class=" outLeftD2 outSec"><a href="SDIF.html" target="_self" class=" outLeftSel_no"><span>SDIF</span></a></li><li class=" outLeftD2 outSec"><a href="Lisp.html" target="_self" class=" outLeftSel_no"><span>Lisp Programming</span></a></li><li class=" outLeftD2 outSec"><a href="errors.html" target="_self" class=" outLeftSel_no"><span>Errors and Problems</span></a></li></ul></li><li class=" outLeftD1 outSec"><a href="QuickStart-Chapters.html" target="_self" class=" outLeftSel_no"><span>OpenMusic QuickStart</span></a></li></ul></div><div onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" id="mnuFrmDown" style="display: none;"><span id="mnuFrmDownLeft"><a onclick="menuScrollTiTask.step(20); return false;" href="#" id="mnuBtnDown"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></div></div></div></div></div><div class="tplNav"><span class="hidden">Navigation : </span><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1554/@c1584/@c1649"--><a class="navPrev" target="_self" href="GraphicFeatures.html" title="page pr&eacute;c&eacute;dente(Boxes Features)"><span>page pr&eacute;c&eacute;dente</span></a><!--navUiWidget pathDialog : "/@c1545/@c6360/@c6361/@c1554/@c1584/@c1651"--><span class="hidden"> | </span><a class="navNext" target="_self" href="FunctionBoxes.html" title="page suivante(Function Boxes)"><span>page suivante</span></a></div><div id="tplb"><a target="_self" class="btnAbout " href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou<a target="_blank" class="btnSc " href="http://scenari-platform.org" title="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)"><span><img src="../skin/img/btnSc.png " alt="R&eacute;alis&eacute; avec Scenari"></span></a></div></div>
-  <script type="text/javascript">dokielMgr.init();scImgMgr.init();secOutMgr.init();menuMgr.init();new dkSiRuleResizeMnu("tplo","tplf",190);new scSiRuleEnsureVisible("i4", "ide:mnuScroll");</script>
- </body>
+<p><img src="../tplRes/page/empty.gif" alt="empty.gif"></img><img src="../res/logoom1.png" alt="logoom1.png"></img><span class="tplTi">OpenMusic Documentation</span><span class="sw_outStack_navRoot"><span class="hidden">Hiérarchie de section : </span><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a><span class="stkSep"> > </span><a href="BasicVisualProgramming.html"><span>Visual Programming I</span></a><span class="stkSep"> > </span><a href="Boxes.html"><span>Boxes</span></a><span class="stkSep"> > </span><span class="stkSel_yes"><span>Data Boxes</span></span></span></p>
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="GraphicFeatures.html" title="page pr&eacute;c&eacute;dente(Boxes Features)"><span>page précédente</span></a><span class="hidden"> | </span><a href="FunctionBoxes.html" title="page suivante(Function Boxes)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplc" class="tplc_out_yes">
+
+<div style="text-align: center;">
+
+<p><strong>Attention</strong>, votre navigateur ne supporte pas le <strong>javascript</strong> ou celui-ci à été désactivé. Certaines fonctionnalités de ce guide sont restreintes.</p>
+</div>
+
+<div class="headCo">
+
+<h1 id="data-boxes"><span>Data Boxes</span></h1>
+<div class="headCo_co">
+
+<div class="secOutFra">
+
+<div class="secOutTi">
+
+<p><a href="#"><span>Sommaire </span></a></p>
+</div>
+
+<div class="secOutUi">
+
+<ol>
+<li><a href="#tN1e">Use</a></li>
+<li><a href="#tN115">Adding a Data Box</a></li>
+<li><a href="#tN1a5">Editing the Content of a Box</a></li>
+<li><a href="#tN233">Connection to Another Box</a></li>
+</ol>
+</div>
+
+</div>
+
+<div>
+
+<div class="infobloc">
+
+<div class="txt">
+
+<p><strong>Data boxes</strong> are the simplest of all OM boxes. A data box represents a constant value. This value belongs to one of the primitive Lisp types, which are available in the OM Kernel / Lisp package.</p>
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="use"><span>Use</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/basictypebox.png" width="129" height="63" alt="basictypebox.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>A data box is designed to pass data to other boxes in a patch. It is made of a text field that expresses a value or a text, and an output that allows to connect this content to other boxes.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Primitive Lisp Types</span></p>
+</div>
+
+<div class="txt">
+
+<p>There are several primitive Lisp types :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p>number :</p></li>
+</ul></td>
+<td><p>any type of numeric data</p></td>
+<td><ul>
+<li><p>list :</p></li>
+</ul></td>
+<td><p>a list of any type of item between parenthesis</p></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><p>integer :</p></li>
+</ul></td>
+<td><p>an integer number</p></td>
+<td><ul>
+<li><p>string :</p></li>
+</ul></td>
+<td><p>a text between double quotes – inverted commas –</p></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><p>float :</p></li>
+</ul></td>
+<td><p>decimal number</p></td>
+<td><ul>
+<li><p>t :</p></li>
+</ul></td>
+<td><p>the Lisp expression for "true"</p></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><p>rational :</p></li>
+</ul></td>
+<td><p>a/b </p></td>
+<td><ul>
+<li><p>nil :</p></li>
+</ul></td>
+<td><p>the Lisp expression of "false" or "nothing"</p></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="adding-a-data-box"><span>Adding a Data Box</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Typing Directly In the Patch Editor</span></p>
+</div>
+
+<div class="txt">
+
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="iconButton_tim"><img src="../res/editdata_icon.png" alt="editdata_icon.png"></img></span></td>
+<td><code>Cmd</code> click in the patch editor and type a content – for instance 4, (2 3 4), "hello", etc. – directly in the text prompt.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div class="infobloc">
+
+<div class="infobloc_ti">
+
+<p><span>Menus Or Library Window</span></p>
+</div>
+
+<div class="caption">
+
+<div class="caption_co">
+
+<p><img src="../res/basictypemenu.png" alt="basictypemenu.png"></img></p>
+</div>
+
+</div>
+
+<div class="txt">
+
+<ul>
+<li><span> Go to <code>Classes / Kernel / Lisp</code> and choose a menu item.</span></li>
+<li><span> <code>Ctrl</code> / right click in the patch editor and choose a menu item in the contextual menu.</span></li>
+<li><span>Pick the box in the relevant package from the <a href="Library.html"><span>Library</span></a> window and drop it in the editor. </span></li>
+</ul>
+</div>
+
+</div>
+
+<div class="bloc note">
+
+<div class="bloc_ti note_ti">
+
+<p><span>Note</span></p>
+</div>
+
+<div class="txt">
+
+<p>A data box accepts any primitive type, no matter what its type was initially.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="editing-the-content-of-a-box"><span>Editing the Content of a Box</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txt">
+
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="iconButton_tim"><img src="../res/promptbasictype_icon.png" alt="promptbasictype_icon.png"></img></span></td>
+<td>Double click on a box to edit its content.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span> Numbers should be entered as simple numbers.</span></li>
+<li><span> Strings should be entered between double quotes – inverted commas.</span></li>
+<li><span> Symbols should be entered as simple text.</span></li>
+<li><span> Lists should be entered between parenthesis, just as in Lisp. Ill-formed lists are not accepted.</span></li>
+</ul>
+<p>**** To confirm the input value, press <code>Enter</code> or click in the patch editor. **** <strong><strong>No line return is allowed in data boxes.</strong></strong> ****</p>
+</div>
+
+</div>
+
+<div class="bloc tip">
+
+<div class="bloc_ti tip_ti">
+
+<p><span>Resizing</span></p>
+</div>
+
+<div class="txt">
+
+<p>To fit the box size to its content, select it and type <code>i</code>.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="part">
+
+<h2 id="connection-to-another-box"><span>Connection to Another Box</span></h2>
+<div class="part_co">
+
+<div class="infobloc">
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="dk_txtRes_txt txt">
+<p>Click on the outlet to create a connection and drag it to the wanted inlet of another box.</p>
+</div></td>
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/connecting.png" width="83" height="125" alt="Connecting a simple value box to the pitch inlet of a &quot;note&quot; box."></img>
+</div>
+<div class="caption_ti">
+Connecting a simple value box to the pitch inlet of a "note" box.
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="bloc tip">
+
+<div class="bloc_ti tip_ti">
+
+<p><span>Automatic Connection</span></p>
+</div>
+
+<div class="txtRes">
+
+<table>
+<colgroup>
+<col style="width: 50%"></col>
+<col style="width: 50%"></col>
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="caption">
+<div class="caption_co">
+<img src="../res/autobasic.png" width="71" height="87" alt="autobasic.png"></img>
+</div>
+</div></td>
+<td><div class="dk_txtRes_txt txt">
+<p>To add a connected data box to a factory or function box, <code class="keyboard_tl">SHIFT</code> click on an input. This data box will have the default value of the input, which will then be displayed permanently.</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p><span class="hidden">Références : </span></p>
+</div>
+
+<div id="tplo" class="tplo_out_yes">
+
+<div class="tplOTp">
+
+<div class="tplOBm">
+
+<div id="mnuFrm">
+
+<p><span class="hidden">Plan :</span></p>
+<div id="mnuFrmUp" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&gt;=0) {menuScrollTiTask.fSpeed=-2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed-=2;" style="display: none;">
+
+<p><span id="mnuFrmUpLeft"><a href="#"></a></span><span id="mnuFrmUpCenter"></span><span id="mnuFrmUpRight"></span></p>
+</div>
+
+<div id="mnuScroll">
+
+<ul>
+<li><a href="OM-Documentation.html"><span>OpenMusic Documentation</span></a></li>
+<li><a href="OM-User-Manual.html"><span>OM 6.6 User Manual</span></a>
+<ul>
+<li><a href="00-Sommaire.html"><span>Introduction</span></a></li>
+<li><a href="Installation.html"><span>System Configuration and Installation</span></a></li>
+<li><a href="Goingthrough.html"><span>Going Through an OM Session</span></a></li>
+<li><a href="Environment.html"><span>The OM Environment</span></a></li>
+<li><a href="BasicVisualProgramming.html"><span>Visual Programming I</span></a>
+<ul>
+<li><a href="ProgrammingIntro.html"><span>Patch Introduction</span></a></li>
+<li><a href="AddingBoxes.html"><span>Adding Boxes Into a Patch</span></a></li>
+<li><a href="ElementaryManips.html"><span>Elementary Manipulations</span></a></li>
+<li><a href="Boxes.html"><span>Boxes</span></a>
+<ul>
+<li><a href="GraphicFeatures.html"><span>Boxes Features</span></a></li>
+<li><span id="i4" class="outLeftSel_yes"><span>Data Boxes</span></span></li>
+<li><a href="FunctionBoxes.html"><span>Function Boxes</span></a></li>
+<li><a href="FactoryBoxes.html"><span>Objects – Factory Boxes</span></a></li>
+<li><a href="AbsBoxesIntro.html"><span>Abstraction Boxes</span></a></li>
+<li><a href="OtherBoxes.html"><span>Other Boxes</span></a></li>
+</ul></li>
+<li><a href="BoxInputs.html"><span>Box Inputs</span></a></li>
+<li><a href="Connections.html"><span>Connections</span></a></li>
+<li><a href="Evaluation.html"><span>Evaluation</span></a></li>
+<li><a href="DocAndInfo.html"><span>Documentation and Info</span></a></li>
+<li><a href="Comments.html"><span>Comments</span></a></li>
+<li><a href="Pictures.html"><span>Pictures</span></a></li>
+<li><a href="SavingPatch.html"><span>Saving / Reloading a Patch</span></a></li>
+<li><a href="DeadBox.html"><span>Dead Boxes</span></a></li>
+</ul></li>
+<li><a href="AdvancedVisualProgramming.html"><span>Visual Programming II</span></a></li>
+<li><a href="BasicObjects.html"><span>Basic Tools</span></a></li>
+<li><a href="ScoreObjects.html"><span>Score Objects</span></a></li>
+<li><a href="Maquettes.html"><span>Maquettes</span></a></li>
+<li><a href="Sheet.html"><span>Sheet</span></a></li>
+<li><a href="MIDI.html"><span>MIDI</span></a></li>
+<li><a href="Audio.html"><span>Audio</span></a></li>
+<li><a href="SDIF.html"><span>SDIF</span></a></li>
+<li><a href="Lisp.html"><span>Lisp Programming</span></a></li>
+<li><a href="errors.html"><span>Errors and Problems</span></a></li>
+</ul></li>
+<li><a href="QuickStart-Chapters.html"><span>OpenMusic QuickStart</span></a></li>
+</ul>
+</div>
+
+<div id="mnuFrmDown" onmouseout="menuScrollTiTask.fSpeed=0;" onmouseover="if(menuScrollTiTask.fSpeed&lt;=0) {menuScrollTiTask.fSpeed=2; scTiLib.addTaskNow(menuScrollTiTask);}" onclick="menuScrollTiTask.fSpeed+=2;" style="display: none;">
+
+<p><span id="mnuFrmDownLeft"><a href="#"></a></span><span id="mnuFrmDownCenter"></span><span id="mnuFrmDownRight"></span></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tplNav">
+
+<p><span class="hidden">Navigation : </span><a href="GraphicFeatures.html" title="page pr&eacute;c&eacute;dente(Boxes Features)"><span>page précédente</span></a><span class="hidden"> | </span><a href="FunctionBoxes.html" title="page suivante(Function Boxes)"><span>page suivante</span></a></p>
+</div>
+
+<div id="tplb">
+
+<p><a href="OM-Documentation_3.html"><span>A propos...</span></a>(c) Ircam - Centre Pompidou</p>
+</div>
+
+</div>
+</body>
 </html>
+</!doctype>
