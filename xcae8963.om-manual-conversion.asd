@@ -1,6 +1,7 @@
 (in-package :asdf-user)
 
-(defsystem om-manual-conversion
+;; TODO: [2023-07-05 Wed] Would XCVB let me use 'xcae8963/om-manual-conversion' as a system name?
+(defsystem xcae8963.om-manual-conversion
   :depends-on (:let-plus
 			   ;; :url-rewrite
 			   :trivia

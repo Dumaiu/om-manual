@@ -1,7 +1,7 @@
-(in-package :om-manual-conversion)
+(in-package :xcae8963/om-manual-conversion)
 
 (defvar +root-directory+ (let ((dir
-								   (pathname-directory-pathname (system-source-file (find-system :om-manual-conversion)))))
+								   (pathname-directory-pathname (system-source-file (find-system :xcae8963.om-manual-conversion)))))
 						   (assert (directory-exists-p dir))
 						   dir))
 

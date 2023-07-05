@@ -1,6 +1,6 @@
 (in-package :asdf-user)
 
-(define-package :om-manual-conversion
+(define-package :xcae8963/om-manual-conversion
 	(:mix
 	 :trivia
 	 :alexandria						; (nconcf)
@@ -17,7 +17,7 @@
    pandoc-command
    ))
 
-(in-package :om-manual-conversion)
+(in-package :xcae8963/om-manual-conversion)
 
 (defparameter *project-pkg* *package*
   "TODO: [lattice].")

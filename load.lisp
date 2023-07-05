@@ -25,9 +25,9 @@
   ;; (make :ystok-uri)
   (make :yhtml))
 
-(let-1 om-manual-conversion.asdf (merge-pathnames* "om-manual-conversion.asd" +om-manual-dir+)
+(let-1 om-manual-conversion.asdf (merge-pathnames* "xcae8963.om-manual-conversion.asd" +om-manual-dir+)
   (assert (file-exists-p om-manual-conversion.asdf))
   (load-asd om-manual-conversion.asdf))
 
 
-(make :om-manual-conversion)
+(make :xcae8963.om-manual-conversion)

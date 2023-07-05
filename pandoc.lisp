@@ -1,4 +1,4 @@
-(in-package :om-manual-conversion)
+(in-package :xcae8963/om-manual-conversion)
 
 (defun pandoc-command (&key input
 						 input-file
