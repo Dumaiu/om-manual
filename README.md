@@ -11,4 +11,4 @@
 
 * Functions for conversion, WIP: in SBCL, `(load)` [load.lisp](load.lisp).
 
-* [Original files, zipped](https://nubo.ircam.fr/index.php/s/Pc3pBkKHwKrWPqF).  WARNING: 600MiB decompressed.
+* [Original files, zipped](https://nubo.ircam.fr/index.php/s/Pc3pBkKHwKrWPqF).  WARNING: 600MiB when decompressed.

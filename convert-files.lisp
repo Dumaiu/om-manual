@@ -1,13 +1,26 @@
 (in-package :om-manual-conversion)
 
-(export 'skip-file)
+(export '(skip-file
+
+		  ;; Phase 1: HTML4 -> GFM
+		  html->sexp+
+		  html-file->md+-file
+		  html-directory->md+
+
+		  ;; Phase 2: GFM -> HTML5
+		  generate-html-from-markdown-file
+		  generate-html-from-markdown
+		  ))
 
 ;; (defparameter *manual.md.html* file)
 
 ;; (defparameter *orig-manual.md.ystok* (parse-html *manual*))
 
 (defun html->sexp+ (file)
-  "Convert, with modifications."
+  "Convert a single file, with modifications.
+
+  * TODO: Refactor with `(modify-html)`.
+  "
   (let-1 sexp (parse-html file :callbacks `((:div . ,(λ div-form
 													   "Remove 'googleSearchFrom' `div` element."
 													   ;; (break "Arg: ~A" div-form)
@@ -18,25 +31,26 @@
 														  (values nil t) ; delete element
 														  ))))
 											(:a . ,(λ anchor-form
-													 "* Remove 'Scenari' `<a>` at end of page.
- * Change .html extensions to .md.
+													 "Multiple edits:
+  * Remove 'Scenari' `<a>` at end of page.
+  * Change .html extensions to .md [Dumaiu/om-manual#7].
 "
 													 (match anchor-form
 													   ((list* (list* :a (plist :href "http://scenari-platform.org")) _)
 														(values nil t))  ; delete element
-													   ((guard (list* (list* :a (and plist
+													   ((guard (list* (list* :a (and plist!
 																					 (plist :href href))) _)
 															   (string-equal "html"
 																			 (pathname-type href)))
 														(let-1 md-anchor (namestring (make-pathname :type "md"
 																									:defaults href))
-														  (setf (getf plist :href) md-anchor)
+														  (setf (getf plist! :href) md-anchor)
 														  ;; (break "HTML anchor: ~S" anchor-form)
 														  (values anchor-form t))))))
 											(:img . ,(λ img-form
-													   "Add alt-text to `<img>` tags."
+													   "Add alt-text to `<img>` tags [Dumaiu/om-manual#2]."
 													   (match img-form
-														 ((guard (list* (list* :img (and plist-form
+														 ((guard (list* (list* :img (and plist!
 																						 (plist :src src :alt alt-text)))
 																		_)
 																 (or (null alt-text)
@@ -46,10 +60,10 @@
 														  (let-1 alt-text~ (namestring
 																			(make-pathname :name (pathname-name src)
 																						   :type (pathname-type src)))
-															(setf (getf plist-form :alt) alt-text~)
-															;; (rplacd (last plist-form) (list :alt alt-text~))
+															(setf (getf plist! :alt) alt-text~)
+															;; (rplacd (last plist!) (list :alt alt-text~))
 															)
-														  ;; (break "Null-text img: ~S" plist-form)
+														  ;; (break "Null-text img: ~S" plist!)
 														  (values img-form t)))))
 											))
 	sexp))
@@ -122,7 +136,8 @@
   "
   If the `skip-file` restart is used, the primary retval will be NIL, with the failed input file as a second val.
 
-  TODO: Use :log4cl to handle `verbose`.
+  * TODO: Factor out callbacks.
+  * TODO: Use :log4cl to handle `verbose`.
 "
   (let ((html (md-file->html pathname))
 		(output-pathname (make-pathname :type "html" :defaults pathname
@@ -132,7 +147,7 @@
 
 	(let-1 success? (with-simple-restart (skip-file "Skip file ~S" pathname)
 					  (modify-html html :callbacks `((:a . ,(λ anchor-form
-															  " * Change '.md' extensions to '.html'.
+															  " * Change '.md' extensions to '.html' [Dumaiu/om-manual#7].
 "
 															  (match anchor-form
 																((guard (list* (list* :a (and plist
@@ -162,9 +177,13 @@
 									&allow-other-keys
 									&aux
 									  (md-wildcard "*.md"))
-  "
+  "Convert a file or a whole directory from the GFM files previously generated.
+
+Returns a list of files written.  Secondary retval is a list of files which couldn't be handled and therefore were skipped; (only when the `skip-file' restart is used).
+
   Args:
-	- pathname: If a directory, iterate over Markdownfiles recursively.
+	- pathname: If a directory, iterate over its member Markdown files.
+
 "
   (declare (type pathname-designator pathname))
   (let-1 pathname (ensure-pathname pathname)
